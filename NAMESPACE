@@ -1,0 +1,41 @@
+export(get.lmer.effects)
+export(get.lmer.effects.forBootMer)
+export(save.lmer.effects)
+# eatModel usage
+export(aggregateDataOld)
+export(make.pseudo)
+export(meanAgree)
+export(meanKappa)
+export(multiseq)
+export(halveString)
+export(gsubAll)
+export(convertLabel)
+export(mergeAttr)
+export(num.to.cat)
+
+# eatRep usage
+export(existsBackgroundVariables)
+export(removePattern)
+export(facToChar)
+export(crop)
+export(tableUnlist)
+export(removeNumeric)
+export(removeNonNumeric)
+export(asNumericIfPossible)
+export(tablePattern)
+export(item.logit)
+
+### imports
+# getlme4
+import(lme4)
+importMethodsFrom("Matrix",diag)
+importFrom("methods",show, as)
+importFrom("stats",vcov)
+importFrom("car",recode)
+importFrom("plyr",rbind.fill)
+importFrom("reshape2",melt,dcast)
+importFrom("boot",boot.ci)
+importFrom("stats", AIC, BIC, anova, logLik, median, na.omit, pnorm, sd, sigma, var)
+# eatModel tools
+importFrom("Hmisc", wtd.table)
+importFrom("irr", agree, kappa2)
