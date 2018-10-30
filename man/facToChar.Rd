@@ -48,11 +48,11 @@ Sebastian Weirich
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-data(lsa)
+data(rater)
 ### original classes
-sapply(lsa, class)
-lsa1 <- facToChar(lsa)
-sapply(lsa1, class)
+sapply(rater, class)
+rater1 <- facToChar(rater, from = "character", to = "factor")
+sapply(rater1, class)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

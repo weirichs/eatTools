@@ -1,13 +1,16 @@
 Package: eatTools
 Type: Package
-Title: Help functions for educaational assessment tools.
-Version: 0.0.18
+Title: Additional functions for educational assessment tools
+Version: 0.0.19
+Depends: R (>= 3.0.0), lme4 (>= 1.0)
+Imports: reshape2, car, plyr, boot, stats, Matrix, Hmisc, irr, methods
+Suggests: testthat
+Date: 2018-10-29
 Author: Martin Hecht, Sebastian Weirich, Karoline Sachse, Nicole Haag, Benjamin Becker, Alexander Robitzsch
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
-Description: Help functions for R packages eatModel, eatRep, and eatGADS
-License: 
-Encoding: UTF-8
+Description: Additional functions for R packages eatModel, eatRep, and eatGADS
+License: GPL (>= 2)
 LazyData: true
-Depends: R (>= 3.0.0), lme4 (>= 1.0)
-Imports: reshape2, car, plyr, boot, stats, Matrix, Hmisc, irr 
-Suggests: testthat
+LazyLoad: yes
+NeedsCompilation: no
+Packaged: 2018-10-29 23:21:57 UTC; Sebastian Weirich

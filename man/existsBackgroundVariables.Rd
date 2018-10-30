@@ -36,8 +36,8 @@ a structured list of variable names
 Sebastian Weirich
 }
 \examples{
-data(lsa)
-existsBackgroundVariables(lsa, 2:4)
+data(rater)
+existsBackgroundVariables(rater, 2:4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
