@@ -47,11 +47,25 @@ convertLabel <- function ( spssList , stringsAsFactors = TRUE, useZkdConvention 
                 }
                 return(datFr)}
 
+createLabelList <- function ( dfr ) {
+         stopifnot ( class(dfr) == "data.frame")
+         varList<- do.call("rbind.fill", lapply(colnames(dfr), FUN = function ( v ) {
+                   vals <- data.frame ( attr(dfr[,v], "valLabel"), stringsAsFactors = FALSE)
+                   if ( nrow(vals)>0) {
+                        vals <- data.frame ( value = vals[,1], valLabel = rownames(vals), stringsAsFactors = FALSE)
+                        ret <- data.frame ( varName = v, class = class(dfr[,v]), varLabel = attr(dfr[,v], "varLabel") , vals[,c("value", "valLabel")], stringsAsFactors = FALSE)
+                   }  else  {
+                        ret <- data.frame ( varName = v, class = class(dfr[,v]), varLabel = attr(dfr[,v], "varLabel") , stringsAsFactors = FALSE)
+                   }
+                   return(ret)}))
+         return(varList)}
+
+
 ### mergen mit Attributen, das kann 'merge()' nicht:
 ### http://stackoverflow.com/questions/20306853/maintain-attributes-of-data-frame-columns-after-merge
 mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE, homoClass = TRUE) {
      ### erstmal von allen by-variablen die Klassen homogenisieren, falls gewuenscht
-             byvars<- data.frame ( x=by.x, y=by.x, clx = sapply(x[,by.x,drop=FALSE], class), cly = sapply(y[,by.y,drop=FALSE], class), stringsAsFactors = FALSE)
+             byvars<- data.frame ( x=by.x, y=by.y, clx = sapply(x[,by.x,drop=FALSE], class), cly = sapply(y[,by.y,drop=FALSE], class), stringsAsFactors = FALSE)
              for ( i in 1:nrow(byvars) ) {
                    if ( length(unique(unlist(byvars[i,c("clx", "cly")]))) > 1 ) {
                         cat(paste0("   Merging variable pair '", paste(unlist(byvars[i,c("x", "y")]), collapse = "'<==>'"), "' has different classes: '", paste(unlist(byvars[i,c("clx", "cly")]), collapse = "'<==>'"),"'. Classes will be homogenized to 'character'.\n   Use 'homoClass = FALSE' to depreciate this behavior.\n"))

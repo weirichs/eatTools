@@ -12,6 +12,8 @@ export(gsubAll)
 export(convertLabel)
 export(mergeAttr)
 export(num.to.cat)
+export(createSpssSyntaxSnippet)
+export(createLabelList)
 
 # eatRep usage
 export(existsBackgroundVariables)

@@ -33,6 +33,12 @@ No return, the SPSS syntax file is written to disk.
 Sebastian Weirich
 }
 \examples{
+\dontrun{
+dat <- foreign::read.spss("q:/BT2016/BT/32_Schulrückmeldungen/01_Input/Daten/Neue_Gadserstellung/BS_LV_Primar_2016_Matchingvorlaeufig_09_erweiterteGadsversion.sav",
+       to.data.frame=FALSE, use.value.labels = FALSE, reencode = "65001")
+dat <- convertLabel(dat)
+createSpssSyntaxSnippet( dat = dat, file = "c:/labels.txt", keep = FALSE)
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
