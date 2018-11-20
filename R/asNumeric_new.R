@@ -1,5 +1,5 @@
 
-asNumeric_new <- function(x, maintain.factor.scores = TRUE, force.string = TRUE) {
+asNumeric_new <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = FALSE) {
   UseMethod("asNumeric_new")
 }
 
@@ -11,7 +11,8 @@ asNumeric_new.numeric <- function(x, ...) {
   x
 }
 
-asNumeric_new.factor <- function(x, maintain.factor.scores = TRUE, force.string = TRUE) {
+asNumeric_new.factor <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE) {
+  if(transform.factors == FALSE) return(x)
   if(maintain.factor.scores) {
     x <- as.character(x)
     y <- asNumeric_new(x, maintain.factor.scores = maintain.factor.scores,
@@ -23,44 +24,40 @@ asNumeric_new.factor <- function(x, maintain.factor.scores = TRUE, force.string 
   as.numeric(x)
 }
 
-asNumeric_new.character <- function(x, maintain.factor.scores = TRUE, force.string = TRUE) {
-  if(maintain.factor.scores) {
-    #browser()
-    y <- tryCatch(as.numeric(x), warning = function(w) {
-      out <- suppressWarnings(as.numeric(x))
-      class(out) <- c("warning", "numeric")
-      out
-    })
-    if(force.string) {
-      if("warning" %in% class(y)) {
-        warning("Variable has been coerced to numeric, NAs have been induced.", call. = FALSE)
-        class(y) <- class(y)[[2]]
-      }
-      return(y)
-    }
+asNumeric_new.character <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, ...) {
+  y <- tryCatch(as.numeric(x), warning = function(w) {
+    out <- suppressWarnings(as.numeric(x))
+    class(out) <- c("warning", "numeric")
+    out
+  })
+  if(force.string) {
     if("warning" %in% class(y)) {
-      warning("Variable can not be transformed to numeric. Use force.string = T to force this.", call. = FALSE)
-      return(x)
+      warning("Variable has been coerced to numeric, NAs have been induced.", call. = FALSE)
+      class(y) <- class(y)[[2]]
     }
     return(y)
   }
-  x <- as.factor(x)
-  asNumeric_new(x, maintain.factor.scores = maintain.factor.scores,
-                force.string = force.string)
+  if("warning" %in% class(y)) {
+    warning("Variable can not be transformed to numeric. Use force.string = T to force this.", call. = FALSE)
+    return(x)
+  }
+  y
 }
 
-asNumeric_new.data.frame <- function(x, maintain.factor.scores = TRUE, force.string = TRUE){
+#### tbd: anpassen, dass maintain.factor.scores keine Auswirkungen auf character variablen hat!!
+asNumeric_new.data.frame <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = FALSE){
   df_list <- Map(changeWarning_asNumeric_new, x = x, varName = names(x),
-                 maintain.factor.scores = maintain.factor.scores, force.string = force.string)
+                 maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors)
   out <- as.data.frame(df_list)
+
   row.names(out) <- attr(x, "row.names")
   out
 }
 
-changeWarning_asNumeric_new <- function(x, varName, maintain.factor.scores, force.string) {
-  y <- tryCatch(asNumeric_new(x, maintain.factor.scores = maintain.factor.scores, force.string = force.string),
+changeWarning_asNumeric_new <- function(x, varName, maintain.factor.scores, force.string, transform.factors) {
+  y <- tryCatch(asNumeric_new(x, maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors),
                 warning = function(w) {
-      out <- suppressWarnings(asNumeric_new(x, maintain.factor.scores = maintain.factor.scores, force.string = force.string))
+      out <- suppressWarnings(asNumeric_new(x, maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors))
       w <- sub("Variable", varName, w)
       warning(w, call. = FALSE)
       out
