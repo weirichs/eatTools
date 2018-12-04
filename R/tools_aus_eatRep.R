@@ -47,5 +47,3 @@ tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "alwa
                 names(freqT) <- recode(names(freqT), "NA='NA'")
                 return(freqT)}
 
-
-

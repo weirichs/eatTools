@@ -21,9 +21,6 @@ Name of the file for the output (without file extension).
 Maximum number of decimal places before exponential notation is used.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 %%  ~Describe the value returned
 %%  If it is a LIST, use
@@ -31,8 +28,6 @@ Maximum number of decimal places before exponential notation is used.
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
 No output is returned to console. Two files are created in the desired directory. 
-}
-\references{
 }
 \author{
 Sebastian Weirich

@@ -11,6 +11,10 @@ asNumericIfPossible.numeric <- function(x, ...) {
   x
 }
 
+asNumericIfPossible.logical <- function(x, ...) {
+  as.numeric(x)
+}
+
 asNumericIfPossible.factor <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE) {
   if(transform.factors == FALSE) return(x)
   if(maintain.factor.scores) {
