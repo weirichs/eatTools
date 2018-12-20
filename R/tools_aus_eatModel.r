@@ -50,16 +50,20 @@ convertLabel <- function ( spssList , stringsAsFactors = TRUE, useZkdConvention 
 createLabelList <- function ( dfr ) {
          stopifnot ( class(dfr) == "data.frame")
          varList<- do.call("rbind.fill", lapply(colnames(dfr), FUN = function ( v ) {
-                   vals <- data.frame ( attr(dfr[,v], "valLabel"), stringsAsFactors = FALSE)
-                   if ( nrow(vals)>0) {
-                        vals <- data.frame ( value = vals[,1], valLabel = rownames(vals), stringsAsFactors = FALSE)
-                        ret <- data.frame ( varName = v, class = class(dfr[,v]), varLabel = attr(dfr[,v], "varLabel") , vals[,c("value", "valLabel")], stringsAsFactors = FALSE)
+                   lbs  <- attributes(dfr[,v])
+                   if (!is.null(lbs[["varLabel"]]))  {
+                        varLab <- unlist(lbs[["varLabel"]])
                    }  else  {
-                        ret <- data.frame ( varName = v, class = class(dfr[,v]), varLabel = attr(dfr[,v], "varLabel") , stringsAsFactors = FALSE)
+                        varLab <- NA
+                   }
+                   if(!is.null(lbs[["valLabel"]]) && length(lbs[["valLabel"]])>0)  {
+                        vals <- data.frame ( value = as.vector(unlist(lbs[["valLabel"]])), valLabel = names(lbs[["valLabel"]]), stringsAsFactors = FALSE)
+                        ret <- data.frame ( varName = v, class = class(dfr[,v]), varLabel = varLab , vals[,c("value", "valLabel")], stringsAsFactors = FALSE)
+                   }  else  {
+                        ret <- data.frame ( varName = v, class = class(dfr[,v]), varLabel = varLab , stringsAsFactors = FALSE)
                    }
                    return(ret)}))
          return(varList)}
-
 
 ### mergen mit Attributen, das kann 'merge()' nicht:
 ### http://stackoverflow.com/questions/20306853/maintain-attributes-of-data-frame-columns-after-merge
