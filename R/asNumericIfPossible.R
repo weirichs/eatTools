@@ -58,7 +58,7 @@ asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, for
 
 changeWarning_asNumeric <- function(x, varName, maintain.factor.scores, force.string, transform.factors) {
   y <- tryCatch(asNumericIfPossible(x, maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors),
-                warning = function(w) {
+                toWarn = function(w) {
       out <- suppressWarnings(asNumericIfPossible(x, maintain.factor.scores = maintain.factor.scores,
                                                   force.string = force.string, transform.factors = transform.factors))
       w <- sub("Variable", varName, w)
