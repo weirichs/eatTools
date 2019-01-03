@@ -9,7 +9,7 @@ columns of a data frame to class \code{numeric} for which this conversion is pos
 i.e. without creating \code{NA} when it fails. Non-convertible columns are maintained.
 }
 \usage{
-asNumericIfPossible(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE)
+asNumericIfPossible(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL)
 }
 \arguments{
   \item{x}{A vector or data frame which should be converted. }
@@ -25,6 +25,7 @@ asNumericIfPossible(x, maintain.factor.scores = TRUE, force.string = TRUE, trans
   \item{transform.factors }{Logical indicating whether columns of class \code{factor} should be converted.
                               If \code{FALSE}, columns of class \code{factor} are maintained.
                               If \code{TRUE}, conversion of factors is attempted.   }
+    \item{varName }{Optional: Name of the corresponding variable. Doesn't have to be changed by user.}
 }
 \details{
 In \R, factors may represent ordered categories or categorical variables. Depending on the meaning of the variable, a conversion
