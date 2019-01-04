@@ -23,7 +23,7 @@ test_that("Factor vector drop levels", {
 test_that("Factor vector keep levels", {
   expect_equal(asNumericIfPossible(fac_num, maintain.factor.scores = TRUE), c(3, 4, 5))
   expect_warning(asNumericIfPossible(fac_char, maintain.factor.scores = TRUE, force.string = FALSE),
-                 "Variable can not be transformed to numeric. Use force.string = T to force this.")
+                 "Variable can not be transformed to numeric. Use force.string = TRUE to force this.")
   expect_equal(suppressWarnings(asNumericIfPossible(fac_char, maintain.factor.scores = TRUE, force.string = FALSE)),
                as.factor(c("a", "b", "d")))
   expect_warning(asNumericIfPossible(fac_char, maintain.factor.scores = TRUE, force.string = TRUE),
@@ -37,7 +37,7 @@ test_that("Character vector (levels always kept, maintain scores has not impact)
   expect_equal(asNumericIfPossible(char_num, maintain.factor.scores = FALSE), c(3, 4, 5))
   expect_equal(asNumericIfPossible(char_num, maintain.factor.scores = TRUE), c(3, 4, 5))
   expect_warning(asNumericIfPossible(char_char, maintain.factor.scores = TRUE, force.string = FALSE),
-                 "Variable can not be transformed to numeric. Use force.string = T to force this.")
+                 "Variable can not be transformed to numeric. Use force.string = TRUE to force this.")
   expect_equal(suppressWarnings(asNumericIfPossible(char_char, maintain.factor.scores = TRUE, force.string = FALSE)),
                c("a", "b", "d"))
   expect_warning(asNumericIfPossible(char_char, maintain.factor.scores = TRUE, force.string = TRUE),
@@ -63,16 +63,16 @@ test_that("Data frame keep levels", {
   df_num_out <- data.frame(a = c(3, 2, 1), b = 3:5, d = 3:5)
   expect_equal(asNumericIfPossible(df_num, maintain.factor.scores = TRUE), df_num_out)
   df_char_warns <- capture_warnings(asNumericIfPossible(df_char, maintain.factor.scores = TRUE, force.string = FALSE))
-  expect_equal(df_char_warns[[1]], "simpleWarning: b can not be transformed to numeric. Use force.string = T to force this.\n")
-  expect_equal(df_char_warns[[2]], "simpleWarning: d can not be transformed to numeric. Use force.string = T to force this.\n")
+  expect_equal(df_char_warns[[1]], "'b' can not be transformed to numeric. Use force.string = TRUE to force this.")
+  expect_equal(df_char_warns[[2]], "'d' can not be transformed to numeric. Use force.string = TRUE to force this.")
   expect_equal(suppressWarnings(asNumericIfPossible(df_char, maintain.factor.scores = TRUE, force.string = FALSE)),
                df_char)
 
   df_char_NAs <- df_char
   df_char_NAs[, 2:3] <- NA_real_
   df_char_warns2 <- capture_warnings(asNumericIfPossible(df_char, maintain.factor.scores = TRUE, force.string = TRUE))
-  expect_equal(df_char_warns2[[1]], "simpleWarning: b has been coerced to numeric, NAs have been induced.\n")
-  expect_equal(df_char_warns2[[2]], "simpleWarning: d has been coerced to numeric, NAs have been induced.\n")
+  expect_equal(df_char_warns2[[1]], "'b' has been coerced to numeric, NAs have been induced.")
+  expect_equal(df_char_warns2[[2]], "'d' has been coerced to numeric, NAs have been induced.")
   expect_equal(suppressWarnings(asNumericIfPossible(df_char, maintain.factor.scores = TRUE, force.string = TRUE)),
                df_char_NAs)
 })

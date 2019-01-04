@@ -28,6 +28,9 @@ asNumericIfPossible.factor <- function(x, maintain.factor.scores = TRUE, force.s
 }
 
 asNumericIfPossible.character <- function(x, force.string = TRUE, varName = NULL, ...) {
+  if ( is.null(varName)) {
+    varName <- "Variable"}
+  else {varName <- paste0("'", varName, "'")}
   y <- tryCatch(as.numeric(x), warning = function(w) {
     out <- suppressWarnings(as.numeric(x))
     class(out) <- c("warning", "numeric")
@@ -35,13 +38,13 @@ asNumericIfPossible.character <- function(x, force.string = TRUE, varName = NULL
   })
   if(force.string) {
     if("warning" %in% class(y)) {
-      warning(sub("Variable", paste0("'", varName,"'"), "Variable has been coerced to numeric, NAs have been induced."), call. = FALSE)
+      warning(paste0(varName, " has been coerced to numeric, NAs have been induced."), call. = FALSE)
       class(y) <- class(y)[[2]]
     }
     return(y)
   }
   if("warning" %in% class(y)) {
-    warning(sub("Variable", paste0("'", varName,"'"), "Variable can not be transformed to numeric. Use force.string = TRUE to force this."), call. = FALSE)
+    warning(paste0(varName, " can not be transformed to numeric. Use force.string = TRUE to force this."), call. = FALSE)
     return(x)
   }
   y
@@ -55,10 +58,9 @@ asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, for
   out
 }
 
-
 #changeWarning_asNumeric <- function(x, varName, maintain.factor.scores, force.string, transform.factors) {
 #  y <- tryCatch(asNumericIfPossible(x, maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors),
-#                toWarn = function(w) {
+#                warning = function(w) {
 #      out <- suppressWarnings(asNumericIfPossible(x, maintain.factor.scores = maintain.factor.scores,
 #                                                  force.string = force.string, transform.factors = transform.factors))
 #      w <- sub("Variable", varName, w)
@@ -68,18 +70,17 @@ asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, for
 #  y
 #}
 
-
-
-
 #### Archiv
-#extract_original_call <- function(fun_name, escape) {
-#  call_list <- lapply(sys.calls(), as.character)
-#  call_vec <- unlist(lapply(call_list, function(l) l[[1]]))
-#  call_number <- match(fun_name, call_vec)
-#  if(is.na(call_number)) {
-#    warning("Original function call could not be retrieved. ", escape, " has been inserted.")
-#    return(as.list(rep(escape, 20)))
-#  }
-#  #browser()
-#  as.list(sys.calls()[[call_number]])
-#}
+# Funktion um ursprünglichen Funktionscall bei rekursiver Funktion zu finden
+# wird fuer die tests gebraucht (testthat)
+extract_original_call <- function(fun_name, escape) {
+  call_list <- lapply(sys.calls(), as.character)
+  call_vec <- unlist(lapply(call_list, function(l) l[[1]]))
+  call_number <- match(fun_name, call_vec)
+  if(is.na(call_number)) {
+    warning("Original function call could not be retrieved. ", escape, " has been inserted.")
+    return(as.list(rep(escape, 20)))
+  }
+  #browser()
+  as.list(sys.calls()[[call_number]])
+}
