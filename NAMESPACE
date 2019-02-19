@@ -3,7 +3,7 @@ S3method(asNumericIfPossible, numeric)
 S3method(asNumericIfPossible, character)
 S3method(asNumericIfPossible, factor)
 S3method(asNumericIfPossible, data.frame)
-
+export(set.col.type)
 export(get.lmer.effects)
 export(get.lmer.effects.forBootMer)
 export(save.lmer.effects)
