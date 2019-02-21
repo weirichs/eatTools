@@ -34,6 +34,7 @@ export(catch_asNumericIfPossible)
 export(tablePattern)
 export(item.logit)
 export(desk)
+export(intGen)
 
 ### imports
 # getlme4
@@ -50,3 +51,5 @@ importFrom("stats", AIC, BIC, anova, logLik, median, na.omit, pnorm, sd, sigma, 
 # eatModel tools
 importFrom("Hmisc", wtd.table, wtd.mean, wtd.var)
 importFrom("irr", agree, kappa2)
+importFrom("devtools", session_info)
+importFrom("combinat", combn)
