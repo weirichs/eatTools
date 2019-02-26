@@ -47,3 +47,9 @@ tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "alwa
                 names(freqT) <- recode(names(freqT), "NA='NA'")
                 return(freqT)}
 
+intGen <- function ( vars, upto = 3) {
+  snip <- paste(lapply(2:upto, FUN = function ( v ) {
+    spl <- data.frame ( combn(vars,v), stringsAsFactors = FALSE)
+    sni <- paste(lapply(spl, FUN = function ( x ) { paste(x, collapse = " : ")}), collapse = " + ")
+    return(sni) }), collapse = " + ")
+  return(snip)}
