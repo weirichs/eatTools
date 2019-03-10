@@ -123,7 +123,7 @@ save.lmer.effects <- function ( lmerObj, lmerObjRestrict = NULL, fileName, scipe
      ### get version information
            ver   <- session_info(pkgs = "eatTools")
            ver   <- ver[["packages"]][which(ver[["packages"]][,"package"] == "eatTools"),]
-           cat(paste0("Output captured by 'eatTools', Version ",ver[["version"]],", build ",ver[["date"]],".\n"))
+           cat(paste0("Output captured by 'eatTools', Version ",ver[["loadedversion"]],", build ",ver[["date"]],".\n"))
            inf   <- Sys.getenv()
            cat(paste("User: ",inf["USERNAME"],", computer: ",inf["COMPUTERNAME"],", ", R.version$version.string , ", Time: ",date(),"\n", sep=""))
            if(!is.null(lmerObjRestrict)) { cat("H1 model:\n\n")}
