@@ -30,7 +30,7 @@ createSpssSyntaxSnippet <- function ( dat , file, keep = TRUE ) {
 convertLabel <- function ( spssList , stringsAsFactors = TRUE, useZkdConvention = TRUE, replaceSpecialSigns = TRUE) {
                 if ( "data.frame" %in% class(spssList )) { stop ( "'spssList' must not be of class 'data.frame'.\n")}
                 varLabs<- attr(spssList, "variable.labels")
-                class(valLabs)<- lapply ( spssList, attr, "value.labels")
+                valLabs<- lapply ( spssList, attr, "value.labels")
                 if ( replaceSpecialSigns == TRUE ) {
                      if(!is.null(varLabs)) {
                          varLabs <- gsubAll ( string = varLabs, old = c("Ã¤", "Ã¼", "Ã¶", "ÃŸ", "Ãœ"), new = c("ae", "ue", "oe", "ss", "Ue"))
