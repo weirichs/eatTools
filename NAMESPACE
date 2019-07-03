@@ -35,6 +35,7 @@ export(tablePattern)
 export(item.logit)
 export(desk)
 export(intGen)
+export(wideToLong)
 
 ### imports
 # getlme4
