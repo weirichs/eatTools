@@ -20,6 +20,7 @@ export(mergeAttr)
 export(num.to.cat)
 export(createSpssSyntaxSnippet)
 export(createLabelList)
+export(reinsort.col)
 
 # eatRep usage
 export(existsBackgroundVariables)

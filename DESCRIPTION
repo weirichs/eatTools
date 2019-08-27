@@ -1,10 +1,10 @@
 Package: eatTools
 Type: Package
 Title: Additional functions for educational assessment tools
-Version: 0.1.17
+Version: 0.1.18
 Depends: R (>= 3.0.0), lme4 (>= 1.0)
 Imports: reshape2, car, plyr, boot, stats, Matrix, Hmisc, irr, methods, devtools (>= 2.0), combinat
-Date: 2019-07-03
+Date: 2019-08-27
 Author: Martin Hecht, Sebastian Weirich, Karoline Sachse, Nicole Mahler, Benjamin Becker, Alexander Robitzsch
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
 Description: Additional functions for R packages eatModel, eatRep, and eatGADS
