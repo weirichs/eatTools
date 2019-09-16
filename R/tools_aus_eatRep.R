@@ -32,8 +32,6 @@ facToChar <- function ( dataFrame, from = "factor", to = "character" ) {
                 for (u in classes) { eval(parse(text=paste("dataFrame[,u] <- as.",to,"(dataFrame[,u])",sep="") )) }}
              return(dataFrame)}
 
-
-
 ### Hilfsfunktion, ersetzt table(unlist( ... ))
 tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "always"))   {
                 useNA<- match.arg(useNA)
@@ -46,14 +44,14 @@ tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "alwa
                 freqT<- table(dLong[,"value"], useNA = useNA)
                 names(freqT) <- recode(names(freqT), "NA='NA'")
                 return(freqT)}
-
+                
 intGen <- function ( vars, upto = 3) {
-  snip <- paste(lapply(2:upto, FUN = function ( v ) {
-    spl <- data.frame ( combn(vars,v), stringsAsFactors = FALSE)
-    sni <- paste(lapply(spl, FUN = function ( x ) { paste(x, collapse = " : ")}), collapse = " + ")
-    return(sni) }), collapse = " + ")
-  return(snip)}
-
+          snip <- paste(lapply(2:upto, FUN = function ( v ) {
+                  spl <- data.frame ( combn(vars,v), stringsAsFactors = FALSE)
+                  sni <- paste(lapply(spl, FUN = function ( x ) { paste(x, collapse = " : ")}), collapse = " + ")
+                  return(sni) }), collapse = " + ")
+          return(snip)}
+          
 contr.wec.weighted <- function (x, omitted, weights) {
     frequencies <- wtd.table(x, weights = weights, type="table")
     n.cat <- length(frequencies)
@@ -62,3 +60,4 @@ contr.wec.weighted <- function (x, omitted, weights) {
     new.contrasts[omitted, ] <- -1 * frequencies[-omitted]/frequencies[omitted]
     colnames(new.contrasts) <- names(frequencies[-omitted])
     return(new.contrasts)}
+
