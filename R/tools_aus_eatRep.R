@@ -53,3 +53,12 @@ intGen <- function ( vars, upto = 3) {
     sni <- paste(lapply(spl, FUN = function ( x ) { paste(x, collapse = " : ")}), collapse = " + ")
     return(sni) }), collapse = " + ")
   return(snip)}
+
+contr.wec.weighted <- function (x, omitted, weights) {
+    frequencies <- wtd.table(x, weights = weights, type="table")
+    n.cat <- length(frequencies)
+    omitted <- which(levels(x) == omitted)
+    new.contrasts <- contr.treatment(n.cat, base = omitted)
+    new.contrasts[omitted, ] <- -1 * frequencies[-omitted]/frequencies[omitted]
+    colnames(new.contrasts) <- names(frequencies[-omitted])
+    return(new.contrasts)}
