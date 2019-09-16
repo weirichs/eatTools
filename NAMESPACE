@@ -37,6 +37,7 @@ export(item.logit)
 export(desk)
 export(intGen)
 export(wideToLong)
+export(contr.wec.weighted)
 
 ### imports
 # getlme4
