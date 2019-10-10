@@ -6,7 +6,7 @@
 sort by variable codes, into a disired directory.}
 \usage{
 copyScanSelection ( vars, dat, id, sourceDir, targetDir, codebook,
-    varColumn = "Variable", bookletColumnPrefix = "TH",
+    startRow = 4, sheet = "Codebook", varColumn = "Variable", bookletColumnPrefix = "TH",
     separators = c("-", "_"), suffix = ".TIF")}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -33,7 +33,18 @@ The target directory for the copied scans.
 }
   \item{codebook}{
 %%     ~~Describe \code{file} here~~
-data.frame of the IQB codebook
+either a character string with the folder of the corresponding excel file, 
+or an already imported data.frame of the IQB codebook. 
+}
+  \item{startRow}{
+%%     ~~Describe \code{file} here~~
+Optional: If codebook is provided as character string referring to an excel file, 
+\code{startRow} indicates the first line in the file which should be read in. 
+}
+  \item{sheet}{
+%%     ~~Describe \code{file} here~~
+character string containing the name of the excel sheet containing the codebook. 
+Only necessary if \code{codebook} was provided as character string. 
 }
   \item{varColumn}{
 %%     ~~Describe \code{file} here~~
@@ -63,20 +74,20 @@ Sebastian Weirich
 \examples{
 \dontrun{
 # source directory
-path <- "R:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/Daten/"
+path <- "s:/Vera3-Scans/Deutsch/V3_Pilot_2015/Depot_100"
 # target directory
 target <- "N:/archiv/test"
-# codebook
-codebook <- data.frame ( read_excel(file.path(path, "V3-2016_Codebook_Zoowaerter.xlsx"),
-            sheet = "Codebook"), stringsAsFactors = FALSE)
+# codebook folder
+codebook <- "r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/Daten/V3-2016_Codebook_Zoowaerter.xlsx"
 # variable list
-vars <- read_excel(file.path(path, "KA3_Variablennamen_Zoowaerter.xlsx"), sheet = "Tabelle1")
+library(readxl)
+vars <- read_excel("r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/Daten/KA3_Variablennamen_Zoowaerter.xlsx", sheet = "Tabelle1")
 vars <- unlist(vars)
-# load data and reshape data to the wide format
+# load data and reshape to the wide format
 load("r:/VERA3/Deutsch/V3_DEU_2016/1_Pilotierung_2015/13_Auswertung und Itemselektion/02_Itemebene.rda")
 dat <- reshape2::dcast(datAggL, ID~item, value.var = "value")
 # select and copy scans
 cop  <- copyScanSelection(vars=vars, dat=dat, id="ID", sourceDir=path, targetDir=target,
-        codebook=codebook)
+        codebook=codebook, startRow = 1)
 }
 }
