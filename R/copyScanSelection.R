@@ -1,6 +1,6 @@
 ### foo <- copyScanSelection(codebook, vars=unlist(variablen), dat=dat, id=1, sourceDir = "s:/Vera3-Scans/Deutsch/V3_Pilot_2015/Depot_100", targetDir = "N:/archiv/test")
 ### prefixPattern = "TH[:digit:]{2}-[:digit:]{2}_[:digit:]{10}"
-copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, varColumn = "Variable", bookletColumnPrefix = "TH", separators = c("-", "_"), suffix = ".TIF") {
+copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, startRow = 4, sheet = "Codebook", varColumn = "Variable", bookletColumnPrefix = "TH", separators = c("-", "_"), suffix = ".TIF") {
     if(length(id) != 1 ) {stop("Argument 'id' must be of length 1.\n",sep="")}
     allV <- list(ID = id, variablen=vars )
     if(inherits(try(allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)}), silent=TRUE),"try-error"))  {
@@ -15,6 +15,7 @@ copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, v
        colnames(dat) <- recode(colnames(dat), rs)
        allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)})
     }   
+    if (is.character(codebook)) {codebook <- data.frame ( read_excel(codebook, sheet = "Codebook", skip = startRow-1), stringsAsFactors = FALSE) }
     liste<- do.call("rbind", lapply (allN[["variablen"]], FUN = function (va) {
             codes <- setdiff(names(table(dat[,va])), c("mbd", "mnr", "mci", "mnr", "mir", "mbi", "9", "97", "98", "99", "7","8"))
             sepCod<- do.call("rbind", lapply(codes, FUN = function ( co ) {
@@ -31,6 +32,7 @@ copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, v
                 return(dfr)}))
             return(sepCod)}))                                                   ### jetzt aus 'liste' alle scans loeschen, die es gar nicht gibt
     scans<- list.files(path = sourceDir, pattern = paste0(suffix, "$"), recursive = TRUE)
+    if ( length(scans)==0) {stop(paste0("Cannot found any scan files in source directory '",sourceDir,"'.\n"))}
     scan2<- halveString(string = scans, pattern="/", first=FALSE)
     if (length(intersect(liste[,"scans"], scan2[,2])) == 0) {warning("keine Scans im Verzeichnis gefunden.\n")}
     weg  <- setdiff(liste[,"scans"], scan2[,2])
