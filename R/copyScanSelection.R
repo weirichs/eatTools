@@ -2,26 +2,20 @@
 ### prefixPattern = "TH[:digit:]{2}-[:digit:]{2}_[:digit:]{10}"
 copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, startRow = 4, sheet = "Codebook", varColumn = "Variable", bookletColumnPrefix = "TH", separators = c("-", "_"), suffix = ".TIF") {
     if(length(id) != 1 ) {stop("Argument 'id' must be of length 1.\n",sep="")}
+    if(class(vars) != "character") {stop("Argument 'vars' must be of class 'character'.\n",sep="")}
+    if(length(vars) != length(unique(vars)) {stop("'vars' is not unique.\n")}
     allV <- list(ID = id, variablen=vars )
-    if(inherits(try(allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)}), silent=TRUE),"try-error"))  {
-       cat("Warning: data seem to contain items, codebook contains variables. Try workaround.\n")
-       v <- vars
-       while ( !v[1] %in% colnames(dat) ) {
-          v <- substr(v, 1, nchar(v)-1)
-          if ( nchar(v[1]) < 3 ) {stop("Columns in data do not match variable names in 'var'.\n")}
-       }   
-       an<- data.frame ( alt = vars, neu = v, stringsAsFactors = FALSE)
-       rs<- paste("'",an[,"neu"] , "' = '" , an[,"alt"],"'",sep="", collapse="; ")
-       colnames(dat) <- recode(colnames(dat), rs)
-       allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)})
-    }   
+    allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)})
     if (is.character(codebook)) {codebook <- data.frame ( read_excel(codebook, sheet = "Codebook", skip = startRow-1), stringsAsFactors = FALSE) }
     liste<- do.call("rbind", lapply (allN[["variablen"]], FUN = function (va) {
             codes <- setdiff(names(table(dat[,va])), c("mbd", "mnr", "mci", "mnr", "mir", "mbi", "9", "97", "98", "99", "7","8"))
             sepCod<- do.call("rbind", lapply(codes, FUN = function ( co ) {
                 id <- dat[which(dat[,va] == co),allN[["ID"]] ]                  ### alle IDs raussuchen, die diesen code haben
-                rw <- which(codebook[,varColumn] == va)                         ### in welchen testheften (Zeilen) kommt die variable "va" vor?
+                rw <- grep(va, codebook[,varColumn])                            ### in welchen testheften (Zeilen) kommt die variable "va" vor?
                 if(length(rw) == 0) {stop(paste0("Cannot find variable '",va,"' in the codebook.\n"))}
+                if ( length(setdiff(unique(codebook[rw,"Variable"]), "")) > 1) { 
+                   cat(paste0("Item '",va,"' seems to be aggregated from '",paste(setdiff(unique(codebook[rw,"Variable"]), ""), collapse= "', '"),"'. \nScan selection is skipped as aggregated scores do not match variable raw scores.\n"))
+                   return(NULL)}
                 th <- codebook[rw[1], grep(paste0("^", bookletColumnPrefix), colnames(codebook), value=TRUE)]
                 th <- th[which(!is.na(th))]
                 str<- paste0(names(th), separators[1], unlist(th), separators[2])
