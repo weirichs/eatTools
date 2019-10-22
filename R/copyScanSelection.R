@@ -3,7 +3,7 @@
 copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, startRow = 4, sheet = "Codebook", varColumn = "Variable", bookletColumnPrefix = "TH", separators = c("-", "_"), suffix = ".TIF") {
     if(length(id) != 1 ) {stop("Argument 'id' must be of length 1.\n",sep="")}
     if(class(vars) != "character") {stop("Argument 'vars' must be of class 'character'.\n",sep="")}
-    if(length(vars) != length(unique(vars)) {stop("'vars' is not unique.\n")}
+    if(length(vars) != length(unique(vars))) {stop("'vars' is not unique.\n")}
     allV <- list(ID = id, variablen=vars )
     allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)})
     if (is.character(codebook)) {codebook <- data.frame ( read_excel(codebook, sheet = "Codebook", skip = startRow-1), stringsAsFactors = FALSE) }
