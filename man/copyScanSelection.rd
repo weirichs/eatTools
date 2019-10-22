@@ -16,7 +16,7 @@ character string of variables whose scans should be copied.
 }
   \item{dat}{
 %%     ~~Describe \code{file} here~~
-wide format data which contain these variables.
+wide format data which contain these variables. Names in \code{vars} must match column names of \code{dat}.
 }
   \item{id}{
 %%     ~~Describe \code{file} here~~
@@ -78,11 +78,11 @@ path <- "s:/Vera3-Scans/Deutsch/V3_Pilot_2015/Depot_100"
 # target directory
 target <- "N:/archiv/test"
 # codebook folder
-codebook <- "r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/Daten/V3-2016_Codebook_Zoowaerter.xlsx"
+codebook <- "r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/ZuhÃ¶ren/02_Scans_DidKomm/1_Daten/V3-2016_Codebook_Zoowaerter.xlsx"
 # variable list
 library(readxl)
-vars <- read_excel("r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/Daten/KA3_Variablennamen_Zoowaerter.xlsx", sheet = "Tabelle1")
-vars <- unlist(vars)
+vars <- read_excel("r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/ZuhÃ¶ren/02_Scans_DidKomm/1_Daten/KA3_Variablennamen_Zoowaerter.xlsx", sheet = "Tabelle1")
+vars <- substr(unique(unlist(vars)),1,7)
 # load data and reshape to the wide format
 load("r:/VERA3/Deutsch/V3_DEU_2016/1_Pilotierung_2015/13_Auswertung und Itemselektion/02_Itemebene.rda")
 dat <- reshape2::dcast(datAggL, ID~item, value.var = "value")
