@@ -29,8 +29,10 @@ asNumericIfPossible.factor <- function(x, maintain.factor.scores = TRUE, force.s
 
 asNumericIfPossible.character <- function(x, force.string = TRUE, varName = NULL, ...) {
   if ( is.null(varName)) {
-    varName <- "Variable"}
-  else {varName <- paste0("'", varName, "'")}
+       varName <- "Variable"
+  }  else {
+       varName <- paste0("'", varName, "'")
+  }
   y <- tryCatch(as.numeric(x), warning = function(w) {
     out <- suppressWarnings(as.numeric(x))
     class(out) <- c("warning", "numeric")
@@ -71,7 +73,7 @@ asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, for
 #}
 
 #### Archiv
-# Funktion um ursprünglichen Funktionscall bei rekursiver Funktion zu finden
+# Funktion um urspruenglichen Funktionscall bei rekursiver Funktion zu finden
 # wird fuer die tests gebraucht (testthat)
 extract_original_call <- function(fun_name, escape) {
   call_list <- lapply(sys.calls(), as.character)

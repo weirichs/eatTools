@@ -33,11 +33,11 @@ convertLabel <- function ( spssList , stringsAsFactors = TRUE, useZkdConvention 
                 valLabs<- lapply ( spssList, attr, "value.labels")
                 if ( replaceSpecialSigns == TRUE ) {
                      if(!is.null(varLabs)) {
-                         varLabs <- gsubAll ( string = varLabs, old = c("Ã¤", "Ã¼", "Ã¶", "ÃŸ", "Ãœ"), new = c("ae", "ue", "oe", "ss", "Ue"))
+                         varLabs <- gsubAll ( string = varLabs, old = c("ä", "ü", "ö", "ß", "Ü"), new = c("ae", "ue", "oe", "ss", "Ue"))
                      }
                      valLabs <- lapply ( valLabs, FUN = function ( w ) {
                                 if ( !is.null(w)) {
-                                     names(w) <- gsubAll ( string = names(w), old = c("Ã¤", "Ã¼", "Ã¶", "ÃŸ", "Ãœ"), new = c("ae", "ue", "oe", "ss", "Ue"))
+                                     names(w) <- gsubAll ( string = names(w), old = c("ä", "ü", "ö", "ß", "Ü"), new = c("ae", "ue", "oe", "ss", "Ue"))
                                 }
                                 return(w) } )
                 }
@@ -66,6 +66,7 @@ createLabelList <- function ( dfr ) {
                    }
                    return(ret)}))
          return(varList)}
+
 
 ### mergen mit Attributen, das kann 'merge()' nicht:
 ### http://stackoverflow.com/questions/20306853/maintain-attributes-of-data-frame-columns-after-merge
@@ -121,8 +122,6 @@ multiseq <- function ( v ) {
 		return(s)
 }
 
-
-
 ### 16. April 2012
 ### wandelt kontinuierliche in kategorielle Variable um (eine der aeltesten Operationen in R)
 num.to.cat <- function(x, cut.points, cat.values = NULL)    {
@@ -138,8 +137,6 @@ num.to.cat <- function(x, cut.points, cat.values = NULL)    {
               if ( length ( isNa ) > 0 ) { ret[isNa] <- NA }
               attr(ret, "cat.values") <- cat.values
               return(ret)}
-
-
 
 ### Hilfsfunktion, wie table(), nur mit festen Werten
 ### z.B. table.muster(a, c(1,5,7,8,9)) sucht, wie oft jede Zahl in "mustervektor" in "vektor" vorkommt
@@ -169,44 +166,41 @@ tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no
                   }
                 return(Table)}
 
-
-
-
-
 aggregateDataOld <- function(all.daten,spalten, unexpected.pattern.as.na = TRUE, verboseAll = FALSE ) {
-  if(missing(spalten)) {spalten <- colnames(all.daten)} else {spalten <- colnames(all.daten[,spalten,drop=FALSE])}
-  noAgg <- setdiff(colnames(all.daten), spalten)
-  daten <- all.daten[,spalten, drop=FALSE]
-  foo   <- table(nchar(colnames(daten)))                       ### Haben alle Variablennamen die gleiche Anzahl Zeichen?
-  if(length(foo)>1) {cat("Variable names with mixed numbers of characters.\n")}
-  items     <- unique(substr(colnames(daten),1,nchar(colnames(daten))-1))                       ### wieviele Items wird es geben?
-  cat(paste("Aggregate ",ncol(daten)," variable(s) to ",length(items)," item(s).\n",sep="")); flush.console()
-  dat.sum <- NULL; dat.agg <- NULL; list.pc <- NULL            ### erstelle leere Datenobjekte fuer Summendatensatz, aggregierten Datensatz und Liste mit partial-credit-Items
-  for (i in 1:length(items))      {
-    sub.dat      <- data.frame ( lapply( data.frame(daten[, which(substr(colnames(daten),1,nchar(colnames(daten))-1) %in% items[i]), drop=FALSE ], stringsAsFactors = FALSE), as.numeric), stringsAsFactors = FALSE)
-    ncol.sub.dat <- ncol(sub.dat)
-    last.sign    <- names(table(substr(colnames(sub.dat),nchar(colnames(sub.dat)),nchar(colnames(sub.dat)))))
-    toCheck      <- sum((last.sign)==letters[1:length(last.sign)])==length(last.sign)
+        if(missing(spalten)) {spalten <- colnames(all.daten)}
+        spalten <- existsBackgroundVariables(dat = all.daten, variable=spalten)
+        noAgg <- setdiff(colnames(all.daten), spalten)
+        daten <- all.daten[,spalten, drop=FALSE]
+        foo   <- table(nchar(colnames(daten)))                                  ### Haben alle Variablennamen die gleiche Anzahl Zeichen?
+        if(length(foo)>1) {cat("Variable names with mixed numbers of characters.\n")}
+        items     <- unique(substr(colnames(daten),1,nchar(colnames(daten))-1)) ### wieviele Items wird es geben?
+        cat(paste("Aggregate ",ncol(daten)," variable(s) to ",length(items)," item(s).\n",sep="")); flush.console()
+        dat.sum <- NULL; dat.agg <- NULL; list.pc <- NULL                       ### erstelle leere Datenobjekte fuer Summendatensatz, aggregierten Datensatz und Liste mit partial-credit-Items
+        for (i in 1:length(items))      {
+          sub.dat      <- data.frame ( lapply( data.frame(daten[, which(substr(colnames(daten),1,nchar(colnames(daten))-1) %in% items[i]), drop=FALSE ], stringsAsFactors = FALSE), as.numeric), stringsAsFactors = FALSE)
+          ncol.sub.dat <- ncol(sub.dat)
+          last.sign    <- names(table(substr(colnames(sub.dat),nchar(colnames(sub.dat)),nchar(colnames(sub.dat)))))
+          toCheck      <- sum((last.sign)==letters[1:length(last.sign)])==length(last.sign)
     ### Check: Ist das letzte Zeichen des Variablennamens immer ein Buchstabe und aufsteigend?
-    if(!toCheck) { cat(paste("Item ",items[i],": last character of variable names does not correspond to assumed alphabetic sequence.\n", sep="")); flush.console()}
-    isNA         <- table(rowSums(is.na(sub.dat)))
-    isNA.names   <- as.numeric(names(isNA))
-    unexpected   <- setdiff(isNA.names, c(0,ncol.sub.dat))
-    if( length( unexpected ) > 0  )   {
-      cases      <- sum(as.numeric(isNA[as.character(unexpected)]))
-      cat(paste("Caution! Found unexpected missing pattern in variables for item ",items[i], " in ",cases," cases.\n", sep= "" ) ) ; flush.console()
-      whichUnexp <- which( rowSums(is.na(sub.dat)) %in% unexpected)
-      if (verboseAll == TRUE) {cat("   Cases in question: "); cat(paste(whichUnexp, collapse=", ")); cat("\n")}
-    }
-    if(ncol.sub.dat == 1) {sub.dat[,"summe"] <- sub.dat[,1]}
-    if(ncol.sub.dat >  1) {sub.dat[,"summe"] <- apply(sub.dat, 1, FUN = function ( uu ) {ifelse( all(is.na(uu)), NA, sum(uu, na.rm=!unexpected.pattern.as.na))}) }
-    sub.dat[,"aggregiert"] <- ifelse(sub.dat$summe == ncol.sub.dat,1,0)
-    if(is.null(dat.sum)) { dat.sum <- sub.dat[,"summe", drop=FALSE] }     else { dat.sum <- cbind(dat.sum,sub.dat[,"summe", drop=FALSE]) }
-    if(is.null(dat.agg)) { dat.agg <- sub.dat[,"aggregiert",drop=FALSE] } else { dat.agg <- cbind(dat.agg,sub.dat[,"aggregiert",drop=FALSE]) }
-    colnames(dat.sum)[i] <- items[i]
-    colnames(dat.agg)[i] <- items[i]
-    maximum <- max(dat.sum[,i],na.rm = TRUE)                ### ist das i-te Item partial credit?
-    if(maximum>1) {list.pc <- rbind(list.pc, data.frame(Var=items[i],pc=paste(names(table(dat.sum[,i])),collapse=", "),max=max(as.numeric(names(table(dat.sum[,i])))),stringsAsFactors = FALSE))}}
-  if(length(noAgg) > 0) {dat.sum <- data.frame(all.daten[,noAgg, drop=FALSE],dat.sum,stringsAsFactors = FALSE)
-  dat.agg <- data.frame(all.daten[,noAgg, drop=FALSE],dat.agg,stringsAsFactors = FALSE)}
-  return(list(sum=dat.sum, agg=dat.agg, pc.list=list.pc))}
+          if(!toCheck) { cat(paste("Item ",items[i],": last character of variable names does not correspond to assumed alphabetic sequence.\n", sep="")); flush.console()}
+          isNA         <- table(rowSums(is.na(sub.dat)))
+          isNA.names   <- as.numeric(names(isNA))
+          unexpected   <- setdiff(isNA.names, c(0,ncol.sub.dat))
+          if( length( unexpected ) > 0  )   {
+            cases      <- sum(as.numeric(isNA[as.character(unexpected)]))
+            cat(paste("Caution! Found unexpected missing pattern in variables for item ",items[i], " in ",cases," cases.\n", sep= "" ) ) ; flush.console()
+            whichUnexp <- which( rowSums(is.na(sub.dat)) %in% unexpected)
+            if (verboseAll == TRUE) {cat("   Cases in question: "); cat(paste(whichUnexp, collapse=", ")); cat("\n")}
+          }
+          if(ncol.sub.dat == 1) {sub.dat[,"summe"] <- sub.dat[,1]}
+          if(ncol.sub.dat >  1) {sub.dat[,"summe"] <- apply(sub.dat, 1, FUN = function ( uu ) {ifelse( all(is.na(uu)), NA, sum(uu, na.rm=!unexpected.pattern.as.na))}) }
+          sub.dat[,"aggregiert"] <- ifelse(sub.dat$summe == ncol.sub.dat,1,0)
+          if(is.null(dat.sum)) { dat.sum <- sub.dat[,"summe", drop=FALSE] }     else { dat.sum <- cbind(dat.sum,sub.dat[,"summe", drop=FALSE]) }
+          if(is.null(dat.agg)) { dat.agg <- sub.dat[,"aggregiert",drop=FALSE] } else { dat.agg <- cbind(dat.agg,sub.dat[,"aggregiert",drop=FALSE]) }
+          colnames(dat.sum)[i] <- items[i]
+          colnames(dat.agg)[i] <- items[i]
+          maximum <- max(dat.sum[,i],na.rm = TRUE)                              ### ist das i-te Item partial credit?
+          if(maximum>1) {list.pc <- rbind(list.pc, data.frame(Var=items[i],pc=paste(names(table(dat.sum[,i])),collapse=", "),max=max(as.numeric(names(table(dat.sum[,i])))),stringsAsFactors = FALSE))}}
+        if(length(noAgg) > 0) {dat.sum <- data.frame(all.daten[,noAgg, drop=FALSE],dat.sum,stringsAsFactors = FALSE)
+        dat.agg <- data.frame(all.daten[,noAgg, drop=FALSE],dat.agg,stringsAsFactors = FALSE)}
+        return(list(sum=dat.sum, agg=dat.agg, pc.list=list.pc))}

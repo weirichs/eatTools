@@ -1,7 +1,8 @@
 existsBackgroundVariables <- function(dat, variable )  {
            if(!is.null(variable[1]))  {
                if ( !is.na(variable[1])) {
-      							 if(is.factor(variable))    {
+                     if ( length(variable) != length(unique(variable)) ) {stop("Variable definition is not unique.\n")}
+                     if(is.factor(variable))    {
       							    v  <- as.character(variable)
       							    rN <- removeNumeric(v)
       							    if(all (nchar(rN) == 0 ) ) { variable <- as.numeric(v) } else { variable <- as.character(variable)}
