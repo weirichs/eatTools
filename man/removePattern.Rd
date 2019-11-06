@@ -16,9 +16,6 @@ a character vector
 a character pattern
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 %%  ~Describe the value returned
 %%  If it is a LIST, use
@@ -27,26 +24,11 @@ a character pattern
 %% ...
 a character string
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
 \author{
 Sebastian Weirich
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 str <- c(".d1.nh.120", "empty", "110", ".nh.dgd", "only.nh")
 removePattern(str, ".nh.")
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+

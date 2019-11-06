@@ -24,13 +24,6 @@ A numerical vector of values.
 \author{
 Sebastian Weirich
 }
-%% \note{}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-}
-
 \examples{
 ### See examples of 'get.lmer.effects' for further details.
 }

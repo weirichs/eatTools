@@ -2,9 +2,10 @@
 \alias{aggregateDataOld}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Aggregate variables to items and/or scales.}
-\description{This is the old version of \code{aggregateData} from the \code{eatPrep}
-package. The function actually is deprecated and might only be used if aggregation
-information from the IQB database is not available.}
+\description{This is the old version of the \code{aggregateData} function from the \code{eatPrep}
+package. The function is currently deprecated and was only kept in the package to keep older scripts 
+executable. For the same reason, inappropriate argument names of \code{aggregateDataOld} have not been 
+modified. The function might be beneficial if aggregation information from the IQB database is not available.}
 \usage{
 aggregateDataOld (all.daten,spalten, unexpected.pattern.as.na = TRUE, verboseAll = FALSE )
 }
@@ -48,7 +49,3 @@ dat <- data.frame ( id = paste0("P", 11:50),
 colnames(dat)[-1] <- c("I1a", "I1b", "I1c", "I2a", "I3a", "I3b", "I4a", "I5a", "I6a", "I6b")
 agg <- aggregateDataOld(dat, -1)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }

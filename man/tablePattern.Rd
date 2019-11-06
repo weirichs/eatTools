@@ -25,9 +25,6 @@ should missing values be removed
 whether to include [NA] values in the table
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 %%  ~Describe the value returned
 %%  If it is a LIST, use
@@ -36,27 +33,12 @@ whether to include [NA] values in the table
 %% ...
 a frequency table
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
 \author{
 Sebastian Weirich
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 grades <- c(1,1,3,4,2,3,4,5,5,3,2,1)
 table(grades)
 tablePattern(grades, pattern = 1:6)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+

@@ -25,7 +25,7 @@ asNumericIfPossible(x, maintain.factor.scores = TRUE, force.string = TRUE, trans
   \item{transform.factors }{Logical indicating whether columns of class \code{factor} should be converted.
                               If \code{FALSE}, columns of class \code{factor} are maintained.
                               If \code{TRUE}, conversion of factors is attempted.   }
-    \item{varName }{Optional: Name of the corresponding variable. Doesn't have to be changed by user.}
+  \item{varName }{Optional: Name of the corresponding variable. Doesn't have to be changed by user.}
 }
 \details{
 In \R, factors may represent ordered categories or categorical variables. Depending on the meaning of the variable, a conversion

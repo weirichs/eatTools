@@ -14,8 +14,6 @@ multiseq(v)
   \item{v}{ a vector }
   
 }
-\details{
-}
 \value{
 a vector with multiple sequences
 }

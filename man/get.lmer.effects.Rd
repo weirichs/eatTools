@@ -44,13 +44,6 @@ in the \code{par}-column.
 \author{
 Sebastian Weirich
 }
-%% \note{}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-}
-
 \examples{
 library ( lme4 )
 ### First example: GLMM analysis

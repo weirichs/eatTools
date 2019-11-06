@@ -18,9 +18,6 @@ A data frame
 column number or variable name
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 %%  ~Describe the value returned
 %%  If it is a LIST, use
@@ -29,9 +26,6 @@ column number or variable name
 %% ...
 a structured list of variable names
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
 \author{
 Sebastian Weirich
 }
@@ -39,7 +33,4 @@ Sebastian Weirich
 data(rater)
 existsBackgroundVariables(rater, 2:4)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
