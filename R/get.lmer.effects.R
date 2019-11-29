@@ -2,7 +2,9 @@ get.lmer.effects.forBootMer <- function ( lmerObj) {get.lmer.effects ( lmerObj=l
 
 ### needs lme4 version >1
 get.lmer.effects <- function ( lmerObj , bootMerObj = NULL, conf = .95, saveData = FALSE) {
-             model    <- as.character(substitute(lmerObj))                      ### implementieren wie in p:\ZKD\07_Code\dev\get.lmer.effects\get.lmer.effects_Konzept.xlsx
+     ### untere Zeile: man muss diesen komplizierten Weg waehlen, weil sonst das Objekt 'model' eine laenge > 1 hat, wenn das uebergebene Objekt 'lmerObj' etwa 'mod[[1]]' heisst        
+             model    <- as.character(capture.output(substitute(lmerObj)))      ### implementieren wie in p:\ZKD\07_Code\dev\get.lmer.effects\get.lmer.effects_Konzept.xlsx
+             stopifnot(length(model)==1)
              # eatRep:::checkForPackage (namePackage = "reshape", targetPackage = "eatGet")### Beispiel in c:\diskdrv\Winword\Psycho\IQB\Dropbox\Literatur\R_help\Bates_2010_lme4_book.rsy
              # if(!exists("fixef"))        {library(lme4)}
              random   <- VarCorr( lmerObj ) 
