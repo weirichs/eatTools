@@ -26,12 +26,44 @@ logical: should missings be removed prior to estimation?
 }
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-a data frame
+a data frame with the following columns
+  \item{N}{
+number of observations
+}
+  \item{N.valid}{
+number of non-missing observations
+}
+  \item{Missing}{
+number of missings
+}
+  \item{Minimum}{
+minimum of numeric variables
+}
+  \item{Maximum}{
+maximum of numeric variables
+}
+  \item{Summe}{
+sum of numeric variables
+}
+  \item{Mittelwert}{
+arithmetic mean of numeric variables
+}
+  \item{std.err}{
+standard error of the arithmetic mean. Note: for weighted means, standard error
+is estimated according to Cochran (1977): \eqn{sigma_x^2=n/((n-1)*w_s^2)*Sigma(w_i^2*(x_i-x))}.
+}
+  \item{sig}{
+p value
+}
+  \item{Median}{
+median of numeric varables
+}
+  \item{Streuung}{
+standard deviation of numeric varables
+}
+  \item{Varianz}{
+variance of numeric variables
+}
 }
 \author{
 Sebastian Weirich
