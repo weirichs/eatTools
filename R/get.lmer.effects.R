@@ -123,9 +123,8 @@ save.lmer.effects <- function ( lmerObj, lmerObjRestrict = NULL, fileName, scipe
            if(scipen != unlist(orSci) ) { options(scipen=scipen) }
            sink(file = paste0(fileName,".txt"))                                 ### file to sink wird geoeffnet
      ### get version information
-           ver   <- session_info(pkgs = "eatTools")
-           ver   <- ver[["packages"]][which(ver[["packages"]][,"package"] == "eatTools"),]
-           cat(paste0("Output captured by 'eatTools', Version ",ver[["loadedversion"]],", build ",ver[["date"]],".\n"))
+           ver   <- sessionInfo(package = "eatTools")
+           cat(paste0("Output captured by 'eatTools', Version ",ver[["otherPkgs"]][["eatTools"]][["Version"]],", build ",ver[["otherPkgs"]][["eatTools"]][["Date"]],".\n"))
            inf   <- Sys.getenv()
            cat(paste("User: ",inf["USERNAME"],", computer: ",inf["COMPUTERNAME"],", ", R.version$version.string , ", Time: ",date(),"\n", sep=""))
            if(!is.null(lmerObjRestrict)) { cat("H1 model:\n\n")}
