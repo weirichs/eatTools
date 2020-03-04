@@ -55,7 +55,7 @@ intGen <- function ( vars, upto = 3) {
           
 contr.wec.weighted <- function (x, omitted, weights) {
     rawfreq <- table(x)
-    if ( length( which(rawfreq == 0))>0) {cat(paste("Warning: Grouping variable contains following empty levels: '",paste(names(rawfreq)[which(rawfreq ==0)], collapse="', '"),"'.\n",sep=""))}
+    if ( length( which(rawfreq == 0))>0) {cat(paste("Warning: Drop ",length( which(rawfreq == 0))," empty level(s): '",paste(names(rawfreq)[which(rawfreq ==0)], collapse="', '"),"'.\n",sep=""))}
     frequencies <- wtd.table(x, weights = weights, type="table")
     n.cat <- length(frequencies)
     omit  <- which(levels(droplevels(x)) == omitted)  
