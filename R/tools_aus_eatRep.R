@@ -54,9 +54,14 @@ intGen <- function ( vars, upto = 3) {
           return(snip)}
           
 contr.wec.weighted <- function (x, omitted, weights) {
+    rawfreq <- table(x)
+    if ( length( which(rawfreq == 0))>0) {cat(paste("Warning: Grouping variable contains following empty levels: '",paste(names(rawfreq)[which(rawfreq ==0)], collapse="', '"),"'.\n",sep=""))}
     frequencies <- wtd.table(x, weights = weights, type="table")
     n.cat <- length(frequencies)
-    omitted <- which(levels(x) == omitted)
+    omit  <- which(levels(droplevels(x)) == omitted)  
+    if ( length(omit)==0){
+        stop(paste("Level declared to be omitted ('",omitted,"') does not exist in 'x' or has zero observations.\n",sep=""))
+    }
     new.contrasts <- contr.treatment(n.cat, base = omitted)
     new.contrasts[omitted, ] <- -1 * frequencies[-omitted]/frequencies[omitted]
     colnames(new.contrasts) <- names(frequencies[-omitted])
