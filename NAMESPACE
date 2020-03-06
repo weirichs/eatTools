@@ -21,6 +21,7 @@ export(num.to.cat)
 export(createSpssSyntaxSnippet)
 export(createLabelList)
 export(copyScanSelection)
+export(reinsort.col)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
