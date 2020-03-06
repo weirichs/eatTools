@@ -22,6 +22,9 @@ export(createSpssSyntaxSnippet)
 export(createLabelList)
 export(copyScanSelection)
 
+# eatGADS usage
+export(catch_asNumericIfPossible)
+
 # eatRep usage
 export(existsBackgroundVariables)
 export(removePattern)

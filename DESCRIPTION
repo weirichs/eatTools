@@ -1,7 +1,7 @@
 Package: eatTools
 Type: Package
 Title: Additional functions for educational assessment tools
-Version: 0.2.3
+Version: 0.2.4
 Depends: R (>= 3.5.0), lme4 (>= 1.0)
 Imports: reshape2, car, plyr, boot, stats, Matrix, Hmisc, irr, methods, utils, combinat, readxl
 Date: 2020-03-04
