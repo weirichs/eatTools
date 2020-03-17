@@ -62,8 +62,8 @@ contr.wec.weighted <- function (x, omitted, weights) {
     if ( length(omit)==0){
         stop(paste("Level declared to be omitted ('",omitted,"') does not exist in 'x' or has zero observations.\n",sep=""))
     }
-    new.contrasts <- contr.treatment(n.cat, base = omitted)
-    new.contrasts[omitted, ] <- -1 * frequencies[-omitted]/frequencies[omitted]
-    colnames(new.contrasts) <- names(frequencies[-omitted])
+    new.contrasts <- contr.treatment(n.cat, base = omit)
+    new.contrasts[omit, ] <- -1 * frequencies[-omit]/frequencies[omit]
+    colnames(new.contrasts) <- names(frequencies[-omit])
     return(new.contrasts)}
 
