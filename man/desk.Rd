@@ -42,10 +42,10 @@ minimum of numeric variables
   \item{Maximum}{
 maximum of numeric variables
 }
-  \item{Summe}{
+  \item{Sum}{
 sum of numeric variables
 }
-  \item{Mittelwert}{
+  \item{Mean}{
 arithmetic mean of numeric variables
 }
   \item{std.err}{
@@ -58,12 +58,15 @@ p value
   \item{Median}{
 median of numeric varables
 }
-  \item{Streuung}{
+  \item{SD}{
 standard deviation of numeric varables
 }
-  \item{Varianz}{
+  \item{Var}{
 variance of numeric variables
 }
+}
+\references{
+Cochran W. G. (1977). \emph{Sampling Techniques} (3rd Edn). Wiley, New York
 }
 \author{
 Sebastian Weirich
