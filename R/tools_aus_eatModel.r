@@ -27,20 +27,10 @@ createSpssSyntaxSnippet <- function ( dat , file, keep = TRUE ) {
       sink() }
 
 ### transformiert spss labels in zkd konvention ... achtung! das macht spss liste zu spss data.frame!
-convertLabel <- function ( spssList , stringsAsFactors = TRUE, useZkdConvention = TRUE, replaceSpecialSigns = TRUE) {
+convertLabel <- function ( spssList , stringsAsFactors = TRUE, useZkdConvention = TRUE) {
                 if ( "data.frame" %in% class(spssList )) { stop ( "'spssList' must not be of class 'data.frame'.\n")}
                 varLabs<- attr(spssList, "variable.labels")
                 valLabs<- lapply ( spssList, attr, "value.labels")
-                if ( replaceSpecialSigns == TRUE ) {
-                     if(!is.null(varLabs)) {
-                         varLabs <- gsubAll ( string = varLabs, old = c("ä", "ü", "ö", "ß", "Ü"), new = c("ae", "ue", "oe", "ss", "Ue"))
-                     }
-                     valLabs <- lapply ( valLabs, FUN = function ( w ) {
-                                if ( !is.null(w)) {
-                                     names(w) <- gsubAll ( string = names(w), old = c("ä", "ü", "ö", "ß", "Ü"), new = c("ae", "ue", "oe", "ss", "Ue"))
-                                }
-                                return(w) } )
-                }
                 if ( useZkdConvention == TRUE ) { zielnam <- c("varLabel", "valLabel") }  else  { zielnam <- c("variable.labels", "value.labels") }
                 datFr  <- data.frame ( spssList, stringsAsFactors = stringsAsFactors)
                 for ( u in 1:ncol(datFr)) {
