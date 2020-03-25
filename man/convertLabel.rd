@@ -7,8 +7,7 @@ as attributes of the whole data.frame, value.labels as attribute of each specifi
 variable in the data.frame. \code{convertLabel} provides variable and value 
 labels as variable attributes.}
 \usage{
-convertLabel(spssList , stringsAsFactors = TRUE, useZkdConvention = TRUE, 
-replaceSpecialSigns = TRUE)}  
+convertLabel(spssList , stringsAsFactors = TRUE, useZkdConvention = TRUE)}  
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{spssList}{
@@ -24,10 +23,6 @@ Transform character variables into factors?
 %%     ~~Describe \code{file} here~~
 Logical: Use ZKD convention, i.e. variable.labels are named 'varLabel', value.labels 
 are named 'valLabel'.
-}
-  \item{replaceSpecialSigns}{
-%%     ~~Describe \code{file} here~~
-Logical: Replace special signs (non-ASCII characters)?
 }
 }
 \value{
