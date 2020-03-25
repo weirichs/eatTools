@@ -30,7 +30,7 @@ copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, s
     scan2<- halveString(string = scans, pattern="/", first=FALSE)
     if (length(intersect(liste[,"scans"], scan2[,2])) == 0) {warning("keine Scans im Verzeichnis gefunden.\n")}
     weg  <- setdiff(liste[,"scans"], scan2[,2])
-    if ( length(weg)>0) { liste <- liste[-eatModel:::wo.sind(weg, liste[,"scans"]),]}
+    if ( length(weg)>0) { liste <- liste[-whereAre(weg, liste[,"scans"]),]}
     b    <- match(liste[,"scans"],scan2[,2])
     liste[,"quelle"] <- file.path(sourceDir, scans[b])
     if ( dir.exists(targetDir) == FALSE ) {dir.create(targetDir)}
