@@ -78,16 +78,17 @@ path <- "s:/Vera3-Scans/Deutsch/V3_Pilot_2015/Depot_100"
 # target directory
 target <- "N:/archiv/test"
 # codebook folder
-codebook <- "r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/1_Daten/V3-2016_Codebook_Zoowaerter.xlsx"
+codebook <- "p:/R/Material/V3-2016_Codebook_Zoowaerter.xlsx"
 # variable list
 library(readxl)
-vars <- read_excel("r:/VERA3/Deutsch/V3_DEU_2020/1_Pilotierung_2019/14_Auswertung und Itemselektion/12_Itemselektion II/Zuhören/02_Scans_DidKomm/1_Daten/KA3_Variablennamen_Zoowaerter.xlsx", sheet = "Tabelle1")
+vars <- read_excel("p:/R/Material/KA3_Variablennamen_Zoowaerter.xlsx",
+        sheet = "Tabelle1")
 vars <- substr(unique(unlist(vars)),1,7)
 # load data and reshape to the wide format
 load("r:/VERA3/Deutsch/V3_DEU_2016/1_Pilotierung_2015/13_Auswertung und Itemselektion/02_Itemebene.rda")
 dat <- reshape2::dcast(datAggL, ID~item, value.var = "value")
 # select and copy scans
-cop  <- copyScanSelection(vars=vars, dat=dat, id="ID", sourceDir=path, targetDir=target,
-        codebook=codebook, startRow = 1)
+cop  <- copyScanSelection(vars=vars, dat=dat, id="ID", sourceDir=path,
+        targetDir=target, codebook=codebook, startRow = 1)
 }
 }

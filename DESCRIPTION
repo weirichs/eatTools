@@ -7,7 +7,9 @@ Imports: reshape2, car, plyr, boot, stats, Matrix, Hmisc, irr, methods, utils, c
 Date: 2020-03-19
 Author: Martin Hecht, Sebastian Weirich, Karoline Sachse, Nicole Mahler, Benjamin Becker, Alexander Robitzsch
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
-Description: Additional functions for R packages eatModel, eatRep, and eatGADS
+Description:
+   Package contains additional functions required for R packages eatModel,
+   eatRep, and eatGADS. Most functions are related to data preparation.
 License: GPL (>= 2)
 LazyData: true
 LazyLoad: yes
