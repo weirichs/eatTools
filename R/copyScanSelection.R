@@ -17,6 +17,9 @@ copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, s
                    cat(paste0("Item '",va,"' seems to be aggregated from '",paste(setdiff(unique(codebook[rw,"Variable"]), ""), collapse= "', '"),"'. \nScan selection is skipped as aggregated scores do not match variable raw scores.\n"))
                    return(NULL)}
                 th <- codebook[rw[1], grep(paste0("^", bookletColumnPrefix), colnames(codebook), value=TRUE)]
+                if(all(is.na(th))) {
+                   cat(paste0("Variable '",va,"': codebook does not contain any valid information about booklet occurrences. All '",bookletColumnPrefix,"'-columns seem to be empty. Skip '",va,"'.\n"))
+                   return(NULL)}
                 th <- th[which(!is.na(th))]
                 str<- paste0(names(th), separators[1], unlist(th), separators[2])
                 str<- expand.grid(str, id)
