@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Copy booklet scan selection to desired directory}
 \description{Functions allows to copy the scans of a selection of variables,
-sort by variable codes, into a disired directory.}
+sort by variable codes, into a desired directory.}
 \usage{
 copyScanSelection ( vars, dat, id, sourceDir, targetDir, codebook,
     startRow = 4, sheet = "Codebook", varColumn = "Variable", bookletColumnPrefix = "TH",

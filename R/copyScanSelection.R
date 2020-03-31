@@ -6,7 +6,7 @@ copyScanSelection <- function ( vars, dat, id, sourceDir, targetDir, codebook, s
     if(length(vars) != length(unique(vars))) {stop("'vars' is not unique.\n")}
     allV <- list(ID = id, variablen=vars )
     allN <- lapply(allV, FUN=function(ii) {existsBackgroundVariables(dat = dat, variable=ii)})
-    if (is.character(codebook)) {codebook <- data.frame ( read_excel(codebook, sheet = "Codebook", skip = startRow-1), stringsAsFactors = FALSE) }
+    if (is.character(codebook)) {codebook <- data.frame ( read_excel(codebook, sheet = "Codebook", skip = startRow-1, col_types = "text"), stringsAsFactors = FALSE) }
     liste<- do.call("rbind", lapply (allN[["variablen"]], FUN = function (va) {
             codes <- setdiff(names(table(dat[,va])), c("mbd", "mnr", "mci", "mnr", "mir", "mbi", "9", "97", "98", "99", "7","8"))
             sepCod<- do.call("rbind", lapply(codes, FUN = function ( co ) {
