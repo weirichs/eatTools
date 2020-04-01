@@ -15,7 +15,7 @@ Folder of the zip file which should be uncompressed.
 }
   \item{targetdir}{
 %%     ~~Describe \code{file} here~~
-The folder in which the content should be written-
+The folder in which the content should be written.
 }
   \item{unzip.exe}{
 %%     ~~Describe \code{file} here~~
