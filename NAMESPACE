@@ -23,6 +23,7 @@ export(createLabelList)
 export(copyScanSelection)
 export(reinsort.col)
 export(whereAre)
+export(unzip.wa)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
