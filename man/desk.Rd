@@ -18,7 +18,7 @@ optional values with should be considered a missing values
 }
   \item{p.weights}{
 %%     ~~Describe \code{file} here~~
-optional: vector with idividual weights if weighted statistics should be computed
+optional: vector with individual weights if weighted statistics should be computed
 }
   \item{na.rm}{
 %%     ~~Describe \code{file} here~~

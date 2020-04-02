@@ -11,8 +11,8 @@
 \arguments{
 
   \item{dat}{A data frame}
-  \item{toreinsort}{Column name(s) or column number(s) of the colums to be reinserted }
-  \item{after}{Column name or column number after which the colums specified in \code{reinsort} should be reinserted.}
+  \item{toreinsort}{Column name(s) or column number(s) of the columns to be reinserted }
+  \item{after}{Column name or column number after which the columns specified in \code{reinsort} should be reinserted.}
 
 }
 \details{

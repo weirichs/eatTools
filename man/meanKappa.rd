@@ -12,11 +12,11 @@ meanKappa( dat , weight = "unweighted" , weight.mean = TRUE )
 \arguments{
   \item{dat}{
 %%     ~~Describe \code{file} here~~
-Data frame with at least two columns, with examiness in the rows and raters in the columns.
+Data frame with at least two columns, with examinees in the rows and raters in the columns.
 }
   \item{weight}{
 %%     ~~Describe \code{file} here~~
-either a character string specifying one predifined set of weights or a numeric
+either a character string specifying one predefined set of weights or a numeric
 vector with own weights (see details). (see help file of the \code{kappa2} function).
 }
   \item{weight.mean}{

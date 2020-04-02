@@ -12,7 +12,7 @@ save.lmer.effects ( lmerObj, lmerObjRestrict = NULL, fileName, scipen=6) }
    }
   \item{lmerObjRestrict}{
    Optional: a second (restricted) lme4 analysis output. Needs to be nested to the 
-   first one. Intended if model copariison should be saved likewise. 
+   first one. Intended if model comparison should be saved likewise.
 }
   \item{fileName}{
 Name of the file for the output (without file extension). 

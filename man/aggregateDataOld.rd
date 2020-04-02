@@ -25,11 +25,11 @@ Logical: TRUE, if non-valid patterns should be aggregated to NA.
 }
   \item{verboseAll}{
 %%     ~~Describe \code{file} here~~
-Logical: Specifies whether exhaustive aggregation information shoul be printed on console.
+Logical: Specifies whether exhaustive aggregation information should be printed on console.
 }
 }
 \details{
-The funtion use a rather simple aggregation rule: all variables which share a common ``stem''
+The function use a rather simple aggregation rule: all variables which share a common ``stem''
 are considered to belong together. The ``stem'' is everything except the last sign. The item
 is considered to be correct if all variables are correct. See examples for further details.
 }

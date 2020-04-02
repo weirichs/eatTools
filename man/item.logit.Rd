@@ -26,7 +26,7 @@ a vector of item threshold parameters
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-a list with two matrices. First matrix includes the reponses, seconds matrix includes the correct response probabilities.
+a list with two matrices. First matrix includes the responses, seconds matrix includes the correct response probabilities.
 }
 \author{
 Ulf Kroehne

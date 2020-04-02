@@ -4,7 +4,7 @@
 \title{Prepare SPSS syntax to transfer variable and value labels into an SPSS data set.}
 \description{Usually, variable and value labels are lost if ASCII data is imported into SPSS.
 Variable and value labels normally must be reestablished using SPSS syntax file. The function
-prepares an SPSS syntax snippet from the variable and value lables stored as attributes in R.
+prepares an SPSS syntax snippet from the variable and value labels stored as attributes in R.
 }
 \usage{
 createSpssSyntaxSnippet(dat , file, keep = TRUE)}

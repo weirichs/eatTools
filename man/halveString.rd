@@ -2,7 +2,7 @@
 \alias{halveString}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Split string exactly in two parts}
-\description{\code{strsplit} splits a string accoring to a specific sign. The number
+\description{\code{strsplit} splits a string according to a specific sign. The number
 of occurrences of the splitting sign defines the number of splits. \code{halveString}
 allows to split the string in only two parts, no matter how often the splitting sign occurs.}
 \usage{

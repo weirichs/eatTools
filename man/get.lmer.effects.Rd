@@ -20,7 +20,7 @@ get.lmer.effects ( lmerObj , bootMerObj = NULL, conf = .95, saveData = FALSE )
   to the lme4 results object. }
   \item{conf}{Applies if confidence intervals from a bootstrap should be augmented to the lme4 
   results object. Define the upper bound of the confidence interval.}
-  \item{saveData}{Logical: Should the data frame be attached to the output as an attribut?}
+  \item{saveData}{Logical: Should the data frame be attached to the output as an attribute?}
 }
 %% \details{}
 \value{

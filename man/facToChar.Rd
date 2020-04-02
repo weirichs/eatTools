@@ -14,7 +14,7 @@ a data frame
 }
   \item{from}{
 %%     ~~Describe \code{file} here~~
-which column class shuld be transformed?
+which column class should be transformed?
 }
   \item{to}{
 %%     ~~Describe \code{file} here~~

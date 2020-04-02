@@ -12,7 +12,7 @@ meanAgree( dat , tolerance = 0 , weight.mean = TRUE )
 \arguments{
   \item{dat}{
 %%     ~~Describe \code{file} here~~
-Data frame with at least two columns, with examiness in the rows and raters in the columns.
+Data frame with at least two columns, with examinees in the rows and raters in the columns.
 }
   \item{tolerance}{
 %%     ~~Describe \code{file} here~~

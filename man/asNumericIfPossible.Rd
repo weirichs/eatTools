@@ -4,7 +4,7 @@
 Convert a Vector or Data Frame Into Numeric Values If Possible
 }
 \description{
-This function converts vectors of all kinds to \code{numeric}. The function can also be used to converte all
+This function converts vectors of all kinds to \code{numeric}. The function can also be used to convert all
 columns of a data frame to class \code{numeric} for which this conversion is possible
 i.e. without creating \code{NA} when it fails. Non-convertible columns are maintained.
 }

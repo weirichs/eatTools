@@ -23,7 +23,7 @@ whether to include NA values in the table. See help file of \code{table} for mor
 }
 }
 \value{
-A freqency table
+A frequency table
 }
 \author{
 Sebastian Weirich
