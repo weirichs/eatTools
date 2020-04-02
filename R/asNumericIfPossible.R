@@ -2,15 +2,15 @@ asNumericIfPossible <- function(x, maintain.factor.scores = TRUE, force.string =
   UseMethod("asNumericIfPossible")
 }
 
-asNumericIfPossible.default <- function(x, ...) {
+asNumericIfPossible.default <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
   stop("Unknown input type or class. Input has to be of type numeric, factor, character or data.frame.")
 }
 
-asNumericIfPossible.numeric <- function(x, ...) {
+asNumericIfPossible.numeric <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
   x
 }
 
-asNumericIfPossible.logical <- function(x, ...) {
+asNumericIfPossible.logical <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
   as.numeric(x)
 }
 
@@ -27,7 +27,7 @@ asNumericIfPossible.factor <- function(x, maintain.factor.scores = TRUE, force.s
   as.numeric(x)
 }
 
-asNumericIfPossible.character <- function(x, force.string = TRUE, varName = NULL, ...) {
+asNumericIfPossible.character <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
   if ( is.null(varName)) {
        varName <- "Variable"
   }  else {
@@ -52,7 +52,7 @@ asNumericIfPossible.character <- function(x, force.string = TRUE, varName = NULL
   y
 }
 
-asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE){
+asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL){
   df_list <- lapply( colnames(x), FUN = function(nam) { asNumericIfPossible(x=x[[nam]],maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors, varName = nam)})
   out <- as.data.frame(df_list, stringsAsFactors = FALSE)
   colnames(out) <- colnames(x)
