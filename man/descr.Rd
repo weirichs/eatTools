@@ -1,11 +1,11 @@
-\name{desk}
-\alias{desk}
+\name{descr}
+\alias{descr}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Descriptive statistics for one or several variables}
 \description{Function computes descriptive statistics for one variable
 or several variables within a data frame.}
 \usage{
-desk (variable,na=NA, p.weights = NULL, na.rm = FALSE) }
+descr (variable,na=NA, p.weights = NULL, na.rm = FALSE) }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{variable}{
@@ -56,10 +56,10 @@ is estimated according to Cochran (1977): \eqn{sigma_x^2=n/((n-1)*w_s^2)*Sigma(w
 p value
 }
   \item{Median}{
-median of numeric varables
+median of numeric variables
 }
   \item{SD}{
-standard deviation of numeric varables
+standard deviation of numeric variables
 }
   \item{Var}{
 variance of numeric variables
@@ -72,7 +72,7 @@ Cochran W. G. (1977). \emph{Sampling Techniques} (3rd Edn). Wiley, New York
 Sebastian Weirich
 }
 \examples{
-data(rater)
-desk(rater)
+data(mtcars)
+descr(mtcars)
 }
 

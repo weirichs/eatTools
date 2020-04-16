@@ -43,7 +43,8 @@ tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "alwa
                 }
                 dLong<- melt(dataFrame, measure.vars = colnames(dataFrame), na.rm=FALSE)
                 freqT<- table(dLong[,"value"], useNA = useNA)
-                names(freqT) <- recode(names(freqT), "NA='NA'")
+                isna <- which(is.na(names(freqT)))
+                if ( length(isna)>0) { names(freqT)[isna] <- "NA"}
                 return(freqT)}
                 
 intGen <- function ( vars, upto = 3) {

@@ -1,4 +1,4 @@
-desk <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
+descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
          suppressWarnings(variable <- asNumericIfPossible( data.frame(as.matrix(variable),stringsAsFactors = FALSE) , force.string = TRUE))
          if(!is.null(p.weights)) {
              Mis.weight <- FALSE
