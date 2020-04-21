@@ -33,10 +33,10 @@ a data frame
 Sebastian Weirich
 }
 \examples{
-data(rater)
+data(mtcars)
 ### original classes
-sapply(rater, class)
-rater1 <- facToChar(rater, from = "character", to = "factor")
-sapply(rater1, class)
+sapply(mtcars, class)
+mtcars1 <- facToChar(mtcars, from = "numeric", to = "character")
+sapply(mtcars1, class)
 }
 

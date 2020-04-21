@@ -30,7 +30,7 @@ a structured list of variable names
 Sebastian Weirich
 }
 \examples{
-data(rater)
-existsBackgroundVariables(rater, 2:4)
+data(mtcars)
+existsBackgroundVariables(mtcars, 2:4)
 }
 
