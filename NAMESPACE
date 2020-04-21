@@ -51,7 +51,5 @@ importFrom("boot",boot.ci)
 importFrom("stats", AIC, BIC, anova, logLik, median, na.omit, pnorm, sd, sigma, var, t.test, contr.treatment, vcov, runif, weighted.mean)
 # eatModel tools
 importFrom("Hmisc", wtd.table, wtd.mean, wtd.var)
-importFrom("irr", agree, kappa2)
 importFrom("combinat", combn)
-importFrom("readxl", read_excel)
 
