@@ -1,3 +1,7 @@
+<!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/weirichs/eatTools.svg?branch=master)](https://travis-ci.org/weirichs/eatTools)
+  <!-- badges: end -->
+
 # eatTools
 
 ## Overview
