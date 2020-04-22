@@ -8,8 +8,8 @@ Date: 2020-04-22
 Author: Martin Hecht, Sebastian Weirich, Karoline Sachse, Nicole Mahler, Benjamin Becker, Alexander Robitzsch
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
 Description:
-   Package contains additional functions required for R packages eatModel,
-   eatRep, and eatGADS. Most functions are related to data preparation.
+   Package contains additional functions required for R packages 'eatModel',
+   'eatRep', and 'eatGADS'. Most functions are related to data preparation.
 License: GPL (>= 2)
 LazyData: true
 LazyLoad: yes
