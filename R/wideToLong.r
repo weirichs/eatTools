@@ -11,7 +11,8 @@ wideToLong <- function(datWide, noImp, imp) {
               namo <- unlist(lapply(imp, FUN = function ( v ) { v[i]}))         ### alte Namen
               dat  <- datWide[,c(noImp, namo)]
               dat[,"imp"] <- i
-              recSt<- paste("'",namo , "' = '" , names(imp),"'",sep="", collapse="; ")
-              colnames(dat) <- recode(colnames(dat), recSt)
+              for ( j in 1:length(namo)) {
+                 colnames(dat)[match(namo[j], colnames(dat))] <- names(imp)[j]
+              }
               return(dat)}))
       return(datl)}

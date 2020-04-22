@@ -41,18 +41,12 @@ tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "alwa
                    if(verbose == TRUE ) {cat(paste("Warning! Argument of 'tableUnlist' has to be of class 'data.frame'. Object will be converted to data.frame.\n",sep=""))}
                    dataFrame <- data.frame(dataFrame, stringsAsFactors=FALSE)
                 }
-                dLong<- melt(dataFrame, measure.vars = colnames(dataFrame), na.rm=FALSE)
-                freqT<- table(dLong[,"value"], useNA = useNA)
+                vek  <- do.call("c", lapply(dataFrame, FUN = function ( col ) { return(col)}))
+                freqT<- table(vek, useNA = useNA)
                 isna <- which(is.na(names(freqT)))
                 if ( length(isna)>0) { names(freqT)[isna] <- "NA"}
                 return(freqT)}
-                
-intGen <- function ( vars, upto = 3) {
-          snip <- paste(lapply(2:upto, FUN = function ( v ) {
-                  spl <- data.frame ( combn(vars,v), stringsAsFactors = FALSE)
-                  sni <- paste(lapply(spl, FUN = function ( x ) { paste(x, collapse = " : ")}), collapse = " + ")
-                  return(sni) }), collapse = " + ")
-          return(snip)}
+
           
 contr.wec.weighted <- function (x, omitted, weights) {
     rawfreq <- table(x)
