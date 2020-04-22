@@ -34,7 +34,3 @@ b <- c(10, 11, 12, 10, 11, 12)
 match(a, b)
 whereAre(a=a, b=b)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }

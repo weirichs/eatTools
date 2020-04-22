@@ -32,7 +32,3 @@ values <- rnorm(10,0,1.5) * 100 + 500
 num.to.cat(x = values, cut.points = 390+0:3*75)
 num.to.cat(x = values, cut.points = 390+0:3*75, cat.values = c("1a", "1b", 2:4))
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }

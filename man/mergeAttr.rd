@@ -97,7 +97,3 @@ attr(df3[,"y"], "variable.label")
 df4 <- mergeAttr(df1, df2, all = TRUE, onlyVarValLabs = FALSE)
 attr(df4[,"y"], "variable.label")
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }
