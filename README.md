@@ -1,6 +1,7 @@
 <!-- badges: start -->
   [![Travis build status](https://travis-ci.org/weirichs/eatTools.svg?branch=master)](https://travis-ci.org/weirichs/eatTools)
-  <!-- badges: end -->
+  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/weirichs/eatTools?branch=master&svg=true)](https://ci.appveyor.com/project/weirichs/eatTools)
+<!-- badges: end -->
 
 # eatTools
 
