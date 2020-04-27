@@ -3,6 +3,8 @@
 language: R
 cache: packages
 
+warnings_are_errors: true
+
 r:
   - oldrel
   - release
@@ -18,3 +20,9 @@ matrix:
       os: osx
     - r:  oldrel
       os: osx
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'

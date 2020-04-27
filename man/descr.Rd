@@ -5,7 +5,7 @@
 \description{Function computes descriptive statistics for one variable
 or several variables within a data frame.}
 \usage{
-descr (variable,na=NA, p.weights = NULL, na.rm = FALSE) }
+descr (variable, na = NA, p.weights = NULL, na.rm = FALSE) }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{variable}{
