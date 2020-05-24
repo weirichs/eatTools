@@ -25,8 +25,8 @@ descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
                      }
                      if(isFALSE(Mis.weight)) {
                         Sum    <- sum( y * p.weights , na.rm = na.rm)
-                        Mean   <- wtd.mean(x = y, weights = p.weights, na.rm = na.rm)
-                        Var    <- wtd.var(x = y, weights = p.weights, na.rm = na.rm)
+                        Mean   <- weighted.mean(x = y, w = p.weights, na.rm = na.rm)
+                        Var    <- wtdVar(x = y, weights = p.weights, na.rm = na.rm)
                         N      <- sum(p.weights)
                         N.valid<- sum(p.weights[which(!is.na(y))])              ### 't1' = erster Term der Formel
                         t1     <- length(na.omit(y)) / ( (length(na.omit(y)) - 1) * sum(p.weights)^2)
@@ -37,3 +37,9 @@ descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
                      return(dataFrame)} ))
          rownames(ret) <- colnames(variable)
          return(ret)}
+         
+wtdVar <- function ( x , weights , na.rm) {
+          d <- data.frame ( variable = x, wgt = weights, stringsAsFactors = FALSE)
+          if ( na.rm == TRUE ) {d <- na.omit(d)}                                ### w.var aus Weighted.Desc.Stats hat kein na.rm Argument, deshalb dieses umstaendlche hier mit dem data.frame
+          r <- w.var(x = d[,"variable"], mu = d[,"wgt"])
+          return(r)}

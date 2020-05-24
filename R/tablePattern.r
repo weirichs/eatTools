@@ -12,16 +12,16 @@ tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no
                   }
                   notInData <- setdiff(pattern, x)
                   if ( length(notInData) > 0) {
-                       x <- factor(x, levels = as.character(pattern))
+                       y <- factor(x, levels = as.character(pattern))
                   }
                 }
                   if(missing(weights)) {
-                     Table <- table(x, useNA =useNA )
+                     Table <- table(y, useNA =useNA )
                   }  else  {
                      if ( length(notInData) > 0) {
                           x <- c(x, notInData)
                           weights<- c(weights, rep(0, length(notInData)))
                      }
-                     Table <- wtd.table(x = x, weights = weights, na.rm =na.rm  )$sum.of.weights
+                     Table <- wtdTable(x = x, weights = weights, na.rm =na.rm  )
                   }
                 return(Table)}

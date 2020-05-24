@@ -24,3 +24,13 @@ Returns a contrast matrix based on weighted effect coding.
 \author{
 Sebastian Weirich, based upon the \code{contr.wec} function of the \code{wec} package
 }
+\examples{
+### exemplary data according to wec paper
+dat <- data.frame ( group = as.factor(c(rep(1,3), rep(2,2))), wgt = c(2/3, 4/3, 2, 3/8, 5/8))
+### default contrasts
+contrasts(dat[,"group"])
+### weighted effect coding for weighted data
+contr.wec.weighted(x= dat[,"group"], omitted=1,weights=dat[,"wgt"])
+### equal to weighted effect coding: wec::contr.wec(x= dat[,"group"], omitted=1)
+contr.wec.weighted(x= dat[,"group"], omitted=1,weights=rep(1, nrow(dat)))
+}
