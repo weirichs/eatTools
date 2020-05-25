@@ -37,9 +37,13 @@ descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
                      return(dataFrame)} ))
          rownames(ret) <- colnames(variable)
          return(ret)}
-         
-wtdVar <- function ( x , weights , na.rm) {
-          d <- data.frame ( variable = x, wgt = weights, stringsAsFactors = FALSE)
-          if ( na.rm == TRUE ) {d <- na.omit(d)}                                ### w.var aus Weighted.Desc.Stats hat kein na.rm Argument, deshalb dieses umstaendlche hier mit dem data.frame
-          r <- w.var(x = d[,"variable"], mu = d[,"wgt"])
-          return(r)}
+
+wtdVar <- function ( x , weights , na.rm = TRUE) {
+    if (na.rm) {
+      na <- is.na(x) | is.na(weights)
+      x <- x[!na]
+      weights <- weights[!na]
+    }
+
+    out <- sum(weights * (x - weighted.mean(x, weights)) ^ 2) / (sum(weights) - 1)
+    return(out)}

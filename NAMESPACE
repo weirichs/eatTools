@@ -34,5 +34,5 @@ export(contr.wec.weighted)
 # getlme4
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment)
 # eatModel tools
-importFrom("data.table", setDT)
-importFrom("Weighted.Desc.Stat", w.var)
+import("data.table")
+
