@@ -37,13 +37,3 @@ descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
                      return(dataFrame)} ))
          rownames(ret) <- colnames(variable)
          return(ret)}
-
-wtdVar <- function ( x , weights , na.rm = TRUE) {
-    if (na.rm) {
-      na <- is.na(x) | is.na(weights)
-      x <- x[!na]
-      weights <- weights[!na]
-    }
-
-    out <- sum(weights * (x - weighted.mean(x, weights)) ^ 2) / (sum(weights) - 1)
-    return(out)}

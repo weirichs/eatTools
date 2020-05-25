@@ -29,6 +29,8 @@ export(tablePattern)
 export(descr)
 export(wideToLong)
 export(contr.wec.weighted)
+export(wtdTable)
+export(wtdVar)
 
 ### imports
 # getlme4
