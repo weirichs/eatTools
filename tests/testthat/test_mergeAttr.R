@@ -8,7 +8,7 @@ attr(mtcars_p1$mpg, "label") <- "some label"
 attr(mtcars_p2$drat, "label") <- "some label 2"
 
 test_that("mergeAttr", {
-  out <- mergeAttr(mtcars_p1, mtcars_p2, all = T)
+  out <- mergeAttr(mtcars_p1, mtcars_p2, all = TRUE, onlyVarValLabs = FALSE)
   expect_equal(attr(out$mpg, "label"), "some label")
   expect_equal(attr(out$drat, "label"), "some label 2")
 })
