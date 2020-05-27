@@ -1,7 +1,7 @@
 \name{catch_asNumericIfPossible}
 \alias{catch_asNumericIfPossible}
 \title{
-Use asNumericIfPossible with modified warning.
+Use \code{asNumericIfPossible} with modified warning.
 }
 \description{
 This function uses \code{asNumericIfPossible} but lets the user change the warning

@@ -11,7 +11,7 @@ wideToLong (datWide, noImp, imp)
 \arguments{
   \item{datWide}{
 %%     ~~Describe \code{file} here~~
-Data set in the wideformat, i.e. one row per examinee
+Data set in the wide format, i.e. one row per examinee
 }
   \item{noImp}{
 %%     ~~Describe \code{file} here~~
