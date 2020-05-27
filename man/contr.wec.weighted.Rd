@@ -2,7 +2,7 @@
 \alias{contr.wec.weighted}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Calculates contrasts for a weighted factor variable based on weighted effect coding}
-\description{Function works equivalent to \code{contr.wec} from the codewec package, but allows
+\description{Function works equivalent to \code{contr.wec} from the \code{wec} package, but allows
 for weighted contrasts.}
 \usage{
 contr.wec.weighted (x, omitted, weights)}
