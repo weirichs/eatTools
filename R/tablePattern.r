@@ -14,14 +14,16 @@ tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no
                   if ( length(notInData) > 0) {
                        y <- factor(x, levels = as.character(pattern))
                   }
+                }  else  {
+                   y <- x
                 }
                   if(missing(weights)) {
                      Table <- table(y, useNA =useNA )
                   }  else  {
                      if ( length(notInData) > 0) {
-                          x <- c(x, notInData)
+                          x <- c(as.character(x), as.character(notInData))
                           weights<- c(weights, rep(0, length(notInData)))
                      }
-                     Table <- wtdTable(x = x, weights = weights, na.rm =na.rm  )
+                     Table <- wtdTable(x = as.character(x), weights = weights, na.rm =na.rm  )
                   }
                 return(Table)}
