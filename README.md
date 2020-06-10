@@ -8,7 +8,7 @@
 
 ## Overview
 
-eatTools contains additional functions required for R packages eatModel, eatRep, eatPrep and eatGADS. Most functions are related to data preparation.
+`eatTools` contains additional functions required for `R` packages `eatModel`, `eatRep`, `eatPrep` and `eatGADS`. Most functions are related to data preparation.
 
 ## Installation
 

@@ -1,9 +1,9 @@
 \name{wideToLong}
 \alias{wideToLong}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Transform wide format data sets into the long format necessary for eatRep analyses}
+\title{Transform wide format data sets into the long format necessary for \code{eatRep} analyses}
 \description{Data from large-scale assessments often are provided in the wide format.
-This function easily transform data into the long format required by eatRep.}
+This function easily transform data into the long format required by \code{eatRep}.}
 \usage{
 wideToLong (datWide, noImp, imp)
 }
@@ -11,7 +11,7 @@ wideToLong (datWide, noImp, imp)
 \arguments{
   \item{datWide}{
 %%     ~~Describe \code{file} here~~
-Data set in the wide format, i.e. one row per examinee
+Data set in the wide format, i.e. one row per person
 }
   \item{noImp}{
 %%     ~~Describe \code{file} here~~

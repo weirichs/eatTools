@@ -2,7 +2,7 @@
 \alias{tableUnlist}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Frequency table for data frames, e.g. across multiple columns}
-\description{Replaces the somehow buggy function combination table(unlist(data)).}
+\description{Replaces the somehow buggy function combination \code{table(unlist(data))}.}
 \usage{
 tableUnlist(dataFrame, verbose = TRUE, useNA = c("no", "ifany",
     "always"))
