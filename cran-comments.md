@@ -1,3 +1,8 @@
+## Resubmission
+This is a resubmission. In this version I have 
+* changed the text in the title field into title case
+* provided more descriptive information about package functionality in the description field
+
 ## Test environments
 * local OS X install, R 3.6.2
 * OS X (on travis-ci), release

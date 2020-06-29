@@ -1,15 +1,15 @@
 Package: eatTools
 Type: Package
-Title: Additional functions for educational assessment tools
-Version: 0.2.23
+Title: Additional Functions for Educational Assessment Tools
+Version: 0.2.24
 Depends: R (>= 3.5.0)
 Imports: stats, data.table
-Date: 2020-06-19
-Author: Martin Hecht, Sebastian Weirich, Karoline Sachse, Nicole Mahler, Benjamin Becker, Alexander Robitzsch
+Date: 2020-06-29
+Author: Sebastian Weirich, Martin Hecht, Karoline Sachse, Nicole Mahler, Benjamin Becker
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
 Description:
-   Package contains additional functions required for R packages 'eatModel',
-   'eatRep', 'eatPrep' and 'eatGADS'. Most functions are related to data preparation.
+   Miscellaneous functions for descriptive analyses, character vector manipulations, 
+   weighted statistics, vector class modification. 
 License: GPL (>= 2)
 LazyData: true
 LazyLoad: yes
