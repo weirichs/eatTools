@@ -1,15 +1,15 @@
 Package: eatTools
 Type: Package
-Title: Additional Functions for Educational Assessment Tools
-Version: 0.2.25
+Title: Miscellaneous Functions for the Analysis of Educational Assessments
+Version: 0.3.0
 Depends: R (>= 3.5.0)
 Imports: stats, data.table
 Date: 2020-07-09
 Author: Sebastian Weirich, Martin Hecht, Karoline Sachse, Nicole Mahler, Benjamin Becker
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
 Description:
-   Miscellaneous functions for descriptive analyses, character vector manipulations, 
-   weighted statistics, vector class modification. 
+   Miscellaneous functions for data cleaning and data analysis of educational assessments as a lightweight dependency. 
+   Includes functions for descriptive analyses, character vector manipulations and weighted statistics. 
 License: GPL (>= 2)
 LazyData: true
 LazyLoad: yes

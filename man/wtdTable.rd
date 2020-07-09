@@ -26,8 +26,7 @@ from \code{x} as well as from \code{weights} prior to variance estimation.
 a frequency table
 }
 \author{
-Sebastian Weirich, according to the second example of
-https://stackoverflow.com/questions/18585977/frequency-tables-with-weighted-data-in-r
+Sebastian Weirich
 }
 \examples{
 x <- c(50, 1, 50)

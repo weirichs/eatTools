@@ -16,11 +16,3 @@
 # Install eatTools from GitHub via
 devtools::install_github("weirichs/eatTools")
 ```
-
-## Usage
-
-```R
-library(eatTools)
-
-```
-

@@ -14,3 +14,7 @@ test_that("weighted contrasts", {
 })
 
 
+test_that("weighted contrasts errors", {
+  dat2 <- data.frame ( group = c(rep(1,3), rep(2,2)), wgt = c(2/3, 4/3, 2, 3/8, 5/8))
+  expect_error(contr.wec.weighted(x= dat2[,"group"], omitted=1,weights=rep(1,nrow(dat))), "Variable 'x' must be of class 'factor'.\n")
+})

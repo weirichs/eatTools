@@ -28,7 +28,8 @@ gsubAll <- function(string, old, new) {
 ### uses no longer package "stringr"
 halveString <- function (string, pattern, first = TRUE )  {
   allSplit<- strsplit(x = string, split = pattern)
-  if(first==TRUE)  {
+  stopifnot(length(first) == 1)
+  if(first)  {
     ret <- as.matrix(data.frame(X1 = unlist(lapply(allSplit, FUN = function (l) { l[1]})),
                                 X2 = unlist(lapply(1:length(allSplit), FUN = function (l) {
                                   if(length(allSplit[[l]]) == 1 )  { ret <- NA } else { ret <- substring(string[l], first = nchar(allSplit[[l]][1])+2 ) }

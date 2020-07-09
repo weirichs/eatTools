@@ -3,7 +3,7 @@ context("frequency tables")
 ### example from wec paper
 dat <- data.frame ( group = as.factor(c(rep(1,3), rep(2,2))), wgt = c(2/3, 4/3, 2, 3/8, 5/8))
 t1  <- tablePattern(x=dat[,"group"],pattern = 0:2)
-t2  <- tablePattern(x=dat[,"group"],pattern = 2:3)
+out <- capture_output(t2  <- tablePattern(x=dat[,"group"],pattern = 2:3))
 t3  <- tablePattern(x=dat[,"group"],pattern = 0:3, weights = dat[,"wgt"])
 
 

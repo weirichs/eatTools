@@ -1,7 +1,8 @@
 ## Resubmission
 This is a resubmission. In this version I have 
-* changed the text in the title field into title case
-* provided more descriptive information about package functionality in the description field
+* changed the description (title and text) to emphasize the purpose of the package 
+* we have added a package help page, describing the package's focus in more detail (this package does NOT contain course material; it is mainly a lightweight dependency for the packages eatRep, eatGADS, eatPrep and eatModel, which will be subsequently submitted to CRAN)
+* improved the R code as suggested
 
 ## Test environments
 * local OS X install, R 3.6.2

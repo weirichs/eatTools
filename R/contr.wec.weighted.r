@@ -1,5 +1,5 @@
 contr.wec.weighted <- function (x, omitted, weights) {
-    if ( class(x) != "factor") {stop("Variable 'x' must be of class 'factor'.\n")}
+    if (!identical(class(x), "factor")) {stop("Variable 'x' must be of class 'factor'.\n")}
     rawfreq <- table(x)
     if ( length( which(rawfreq == 0))>0) {cat(paste("Warning: Drop ",length( which(rawfreq == 0))," empty level(s): '",paste(names(rawfreq)[which(rawfreq ==0)], collapse="', '"),"'.\n",sep=""))}
     frequencies <- wtdTable(x, weights = weights)

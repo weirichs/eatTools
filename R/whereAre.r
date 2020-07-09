@@ -7,7 +7,7 @@ whereAre <- function(a,b,quiet=FALSE) {
                cat("No common elements in a and b. \n")
                reihe <- NULL
             }  else {
-               if(quiet==FALSE) { if(length(intersect(a,b[,2])) > 0) {if(length(setdiff(a,b[,2]))>0)      {cat("Not all Elemente of a included in b. \n")} } }
+               if(!quiet) { if(length(intersect(a,b[,2])) > 0) {if(length(setdiff(a,b[,2]))>0)      {cat("Not all Elemente of a included in b. \n")} } }
                a <- na.omit(unique(a))                                          ### Sofern vorhanden, werden missing values aus a entfernt
                b <- na.omit(b)                                                  ### Sofern vorhanden, werden missing values aus b entfernt; aber: Rangplatz der
                if(length(a)>0) {                                                ### der nicht fehlenden Elemente in b bleibt erhalten
