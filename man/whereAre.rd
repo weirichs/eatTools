@@ -5,7 +5,7 @@
 \description{The function closely resembles the \code{match} function, but allows for
 multiple matches.}
 \usage{
-whereAre(a,b,quiet=FALSE)
+whereAre(a,b,verbose=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,7 +17,7 @@ a scalar
 %%     ~~Describe \code{file} here~~
 a numeric or character vector
 }
-  \item{quiet}{
+  \item{verbose}{
 %%     ~~Describe \code{file} here~~
 logical: print messages on console?
 }

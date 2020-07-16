@@ -4,7 +4,7 @@
 \title{Frequency table for data frames, e.g. across multiple columns}
 \description{Replaces the somehow buggy function combination \code{table(unlist(data))}.}
 \usage{
-tableUnlist(dataFrame, verbose = TRUE, useNA = c("no", "ifany",
+tableUnlist(dataFrame, useNA = c("no", "ifany",
     "always"))
 }
 %- maybe also 'usage' for other objects documented here.
@@ -12,10 +12,6 @@ tableUnlist(dataFrame, verbose = TRUE, useNA = c("no", "ifany",
   \item{dataFrame}{
 %%     ~~Describe \code{file} here~~
 Data frame with more than one column.
-}
-  \item{verbose}{
-%%     ~~Describe \code{file} here~~
-Logical: print messages to console?
 }
   \item{useNA}{
 %%     ~~Describe \code{file} here~~

@@ -5,7 +5,7 @@
 \description{Function computes descriptive statistics for one variable
 or several variables within a data frame.}
 \usage{
-descr (variable, na = NA, p.weights = NULL, na.rm = FALSE) }
+descr (variable, na = NA, p.weights = NULL, na.rm = FALSE, verbose=TRUE) }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{variable}{
@@ -23,6 +23,9 @@ optional: vector with individual weights if weighted statistics should be comput
   \item{na.rm}{
 %%     ~~Describe \code{file} here~~
 logical: should missings be removed prior to estimation?
+}
+  \item{verbose}{
+logical: Print messages to console?
 }
 }
 \value{

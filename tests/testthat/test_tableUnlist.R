@@ -10,3 +10,8 @@ test_that("tableUnlist", {
   expect_equal(out["a"], c(a = 6))
   expect_equal(out["b"], c(b = 3))
 })
+
+### test fuer warnings
+test_that("tableUnlist warnings", {
+  expect_warning(tableUnlist(dataFrame=as.matrix(df)), "Argument of 'tableUnlist' has to be of class 'data.frame'. Object will be converted to data.frame.", fixed = TRUE)
+})

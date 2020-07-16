@@ -1,10 +1,10 @@
 Package: eatTools
 Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
-Version: 0.3.0
+Version: 0.3.1
 Depends: R (>= 3.5.0)
 Imports: stats, data.table
-Date: 2020-07-09
+Date: 2020-07-16
 Author: Sebastian Weirich, Martin Hecht, Karoline Sachse, Nicole Mahler, Benjamin Becker
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
 Description:

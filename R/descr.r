@@ -1,4 +1,4 @@
-descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
+descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE, verbose=TRUE) {
          suppressWarnings(variable <- asNumericIfPossible( data.frame(as.matrix(variable),stringsAsFactors = FALSE) , force.string = TRUE))
          if(!is.null(p.weights)) {
              Mis.weight <- FALSE
@@ -6,12 +6,14 @@ descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE) {
          } else { Mis.weight <- TRUE}
          onlyMis  <- sapply(variable, FUN = function ( y ) { all( is.na(y) ) } )
          if(sum(onlyMis)>0) {
-            cat("Following variables are excluded due to missing or non-numeric values: \n    ")
-            cat(paste0("'", paste(colnames(variable)[which(onlyMis)], collapse = "', '"), "' \n"))
+            if ( verbose ) {
+                  cat("Following variables are excluded due to missing or non-numeric values: \n    ")
+                  cat(paste0("'", paste(colnames(variable)[which(onlyMis)], collapse = "', '"), "' \n"))
+            }
             variable <- variable[, -which(onlyMis), drop = FALSE ]
          }
          if ( ncol ( variable ) == 0 ) {
-            cat("No non-missing numeric variables found.\n")
+            if (verbose){cat("No non-missing numeric variables found.\n")}
             return(NULL)
          }
          ret      <- do.call("rbind", lapply(variable, FUN = function ( y ) {

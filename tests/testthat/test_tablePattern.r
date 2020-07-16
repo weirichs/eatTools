@@ -17,4 +17,7 @@ test_that("unweighted and weighted frequency tables", {
   expect_equal(as.numeric(t3), c(0,4,1,0))
 })
 
-
+### test fuer warnings
+test_that("tablePattern warnings", {
+  expect_warning(tablePattern(x=dat[,"group"],pattern = 0:1), "Found additional values not defined in 'pattern':\n2\nConcatenate additional values to 'pattern'.")
+})

@@ -5,9 +5,7 @@ tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no
                if(length(pattern)>0) {
                   additional.values <- na.omit( setdiff(x,pattern))
                   if( length( additional.values ) > 0 )   {
-                     cat("Warning: Found additional values not defined in 'pattern':\n")
-                     cat(paste(additional.values,collapse=", ")); cat("\n")
-                     cat("Concatenate additional values to 'pattern'.\n")
+                     warning("Found additional values not defined in 'pattern':\n", paste(additional.values,collapse=", "), "\nConcatenate additional values to 'pattern'.")
                      pattern <- c(pattern, additional.values)
                   }
                   notInData <- setdiff(pattern, x)

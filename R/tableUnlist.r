@@ -1,8 +1,8 @@
 ### Hilfsfunktion, ersetzt table(unlist( ... ))
-tableUnlist <- function(dataFrame, verbose = TRUE, useNA = c("no","ifany", "always"))   {
+tableUnlist <- function(dataFrame, useNA = c("no","ifany", "always"))   {
                 useNA<- match.arg(useNA)
                 if( !"data.frame" %in% class(dataFrame) ) {
-                   if(verbose) {cat(paste("Warning! Argument of 'tableUnlist' has to be of class 'data.frame'. Object will be converted to data.frame.\n",sep=""))}
+                   warning("Argument of 'tableUnlist' has to be of class 'data.frame'. Object will be converted to data.frame.")
                    dataFrame <- data.frame(dataFrame, stringsAsFactors=FALSE)
                 }
                 vek  <- do.call("c", lapply(dataFrame, FUN = function ( col ) { return(col)}))
