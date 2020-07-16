@@ -1,4 +1,3 @@
-context("Wide to long")
 
 datWide <- data.frame ( id = paste0("P",1:5), weight = abs(rnorm(5,10,1)),
                         country = c("USA", "BRA", "TUR", "GER", "AUS"),

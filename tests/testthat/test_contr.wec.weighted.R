@@ -1,4 +1,3 @@
-context("define weighted contrasts")
 
 ### example from wec paper
 dat <- data.frame ( group = as.factor(c(rep(1,3), rep(2,2))), wgt = c(2/3, 4/3, 2, 3/8, 5/8))

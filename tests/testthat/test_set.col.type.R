@@ -1,4 +1,3 @@
-context("Set column type")
 
 ###
 test_that("Insert one column in data.frame by name", {

@@ -1,4 +1,3 @@
-context("Convert vectors to numeric if possible")
 
 ### set up test vectors
 num <- 3:1

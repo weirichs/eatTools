@@ -1,4 +1,3 @@
-context("Descriptive statistics functions")
 
 descr_template <- readRDS("helper_matcars_descr.rds")
 wtm <- readRDS("wtm.rds")
