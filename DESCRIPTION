@@ -8,8 +8,9 @@ Date: 2020-07-09
 Author: Sebastian Weirich, Martin Hecht, Karoline Sachse, Nicole Mahler, Benjamin Becker
 Maintainer: Sebastian Weirich <sebastian.weirich@iqb.hu-berlin.de>
 Description:
-   Miscellaneous functions for data cleaning and data analysis of educational assessments as a lightweight dependency. 
-   Includes functions for descriptive analyses, character vector manipulations and weighted statistics. 
+   Miscellaneous functions for data cleaning and data analysis of educational assessments. Includes functions for descriptive 
+   analyses, character vector manipulations and weighted statistics. Mainly a lightweight dependency for the packages eatRep, 
+   eatGADS, eatPrep and eatModel (which will be subsequently submitted to CRAN).
 License: GPL (>= 2)
 LazyData: true
 LazyLoad: yes

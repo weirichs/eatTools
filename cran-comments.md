@@ -1,11 +1,10 @@
 ## Resubmission
-This is a resubmission. In this version I have 
-* changed the description (title and text) to emphasize the purpose of the package 
-* we have added a package help page, describing the package's focus in more detail (this package does NOT contain course material; it is mainly a lightweight dependency for the packages eatRep, eatGADS, eatPrep and eatModel, which will be subsequently submitted to CRAN)
-* improved the R code as suggested
+This is a resubmission. In this version we have 
+* changed the package description as suggested (now includes the information from the last submission comments)
+* improved the R code as suggested (calls to cat() have been replaced by warning() and message())
 
 ## Test environments
-* local OS X install, R 3.6.2
+* local OS X install, R 4.0.2
 * OS X (on travis-ci), release
 * ubuntu 14.04 (on travis-ci), oldrel, release, devel
 * windows (on AppVeyor), release 
