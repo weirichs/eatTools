@@ -30,10 +30,12 @@ export(wideToLong)
 export(contr.wec.weighted)
 export(wtdTable)
 export(wtdVar)
+export(wtdHetcor)
 
 ### imports
-# getlme4
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment)
+importFrom("wCorr", weightedCorr)
+importFrom("plyr", alply)
 # eatModel tools
 import("data.table")
 
