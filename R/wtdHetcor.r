@@ -32,7 +32,7 @@ wtdHetcor <- function ( dataFrame, vars=NULL, weights=NULL, out = c("wide", "lon
                   eval(parse(text=str1))
                   z[,"cor"] <- out
                   return(z)}))
-        wide   <- dcast(wb, Var1~Var2, value.var = "cor")
+        wide   <- data.table::dcast(wb, Var1~Var2, value.var = "cor")
         if ( out == "wide") {return(wide)}
         if ( out == "long") {return(wb)}
         if ( out == "both") {return(list ( long=wb, wide=wide))}}

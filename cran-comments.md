@@ -1,7 +1,8 @@
 ## Resubmission
 This is a resubmission. In this version we have 
-* changed the package description as suggested (now includes the information from the last submission comments)
-* improved the R code as suggested (calls to cat() have been replaced by warning() and message())
+* changed the package description as suggested (package names now in single quotes)
+* changed the author listing as suggested (using Authors@R now)
+* added a function for weighted correlation matrices 
 
 ## Test environments
 * local OS X install, R 4.0.2
