@@ -1,9 +1,9 @@
 Package: eatTools
 Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
-Version: 0.3.5
+Version: 0.3.6
 Depends: R (>= 3.5.0)
-Imports: stats, data.table, plyr, reshape2, wCorr
+Imports: stats, data.table
 Date: 2020-07-23
 Authors@R: c(
     person("Sebastian", "Weirich", email = "sebastian.weirich@iqb.hu-berlin.de", role = c("aut", "cre")),

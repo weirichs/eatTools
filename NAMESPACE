@@ -30,13 +30,7 @@ export(wideToLong)
 export(contr.wec.weighted)
 export(wtdTable)
 export(wtdVar)
-export(wtdHetcor)
 
 ### imports
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment)
-importFrom("wCorr", weightedCorr)
-importFrom("plyr", alply)
-#importFrom("reshape2", dcast)
-# eatModel tools
 import("data.table")
-
