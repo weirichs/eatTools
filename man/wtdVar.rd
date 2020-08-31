@@ -2,7 +2,7 @@
 \alias{wtdVar}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Computed weighted variance}
-\description{This functions works quite equally as the \code{wtd.var} function
+\description{This functions works quite equally as the \code{\link[Hmisc]{wtd.var}} function
 from the \code{Hmisc} package.}
 \usage{
 wtdVar(x , weights , na.rm = FALSE)}

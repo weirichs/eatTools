@@ -2,7 +2,7 @@
 \alias{wtdTable}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Computed weighted frequency tables}
-\description{This functions works quite equally as the \code{wtd.table} function
+\description{This functions works quite equally as the \code{\link[Hmisc]{wtd.table}} function
 from the \code{Hmisc} package.}
 \usage{
 wtdTable(x , weights , na.rm = FALSE)}
