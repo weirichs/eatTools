@@ -1,8 +1,6 @@
 ## Resubmission
 This is a resubmission. In this version we have 
-* changed the package description as suggested (package names now in single quotes)
-* changed the author listing as suggested (using Authors@R now)
-* added a function for weighted correlation matrices 
+* add some reference literature for the implemented methods
 
 ## Test environments
 * local OS X install, R 4.0.2

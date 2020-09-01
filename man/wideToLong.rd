@@ -19,7 +19,7 @@ character vector of non-imputed variables which are desired for following analys
 }
   \item{imp}{
 %%     ~~Describe \code{file} here~~
-Names list of character vectors which include the imputed variables which are desired for following analyses
+Named list of character vectors which include the imputed variables which are desired for following analyses
 }
 }
 \value{
