@@ -52,6 +52,13 @@ asNumericIfPossible.character <- function(x, maintain.factor.scores = TRUE, forc
   y
 }
 
+asNumericIfPossible.matrix <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
+  matrix_as_vec <- as.vector(x)
+  out_vec <- asNumericIfPossible(matrix_as_vec, maintain.factor.scores = maintain.factor.scores, force.string = force.string,
+                      transform.factors = transform.factors, varName = "Matrix")
+  matrix(out_vec, nrow = nrow(x))
+}
+
 asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL){
   df_list <- lapply( colnames(x), FUN = function(nam) { asNumericIfPossible(x=x[[nam]],maintain.factor.scores = maintain.factor.scores, force.string = force.string, transform.factors = transform.factors, varName = nam)})
   out <- as.data.frame(df_list, stringsAsFactors = FALSE)
