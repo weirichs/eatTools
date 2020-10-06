@@ -11,63 +11,52 @@ asNumericIfPossible.numeric <- function(x, maintain.factor.scores = TRUE, force.
 }
 
 asNumericIfPossible.logical <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
-  if (!is.null(dim(x))) {
-    x <- matrix(as.numeric(x), nrow=nrow(x), ncol=ncol(x), dimnames=dimnames(x))
-  } else {
-    x <- as.numeric(x)
-  }
-  return(x)
+  as.numeric(x)
 }
 
 asNumericIfPossible.factor <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
   if(transform.factors == FALSE) return(x)
-  if (!is.null(dim(x))) {
-      warning("Input 'x' was a matrix. If columns of matrices should be separately transformed to numeric (if possible), 'x' should be a data.frame.")
-  }
   if(maintain.factor.scores) {
-    y <- as.character(x)
-    y <- asNumericIfPossible(y, maintain.factor.scores = maintain.factor.scores,
+    x <- as.character(x)
+    y <- asNumericIfPossible(x, maintain.factor.scores = maintain.factor.scores,
                        force.string = force.string, varName=varName)
     # Maintaint type factor if asNumeric was unsuccessful
     if(is.character(y)) return(as.factor(y))
-    if (!is.null(dim(x))) {
-       y <- matrix(y, nrow=nrow(x), ncol=ncol(x), dimnames=dimnames(x))
-    }
     return(y)
   }
-  if (!is.null(dim(x))) {
-      x <- matrix(as.numeric(x), nrow=nrow(x), ncol=ncol(x), dimnames=dimnames(x))
-  } else {
-    x <- as.numeric(x)
-  }
-  return(x)
+  as.numeric(x)
 }
 
 asNumericIfPossible.character <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
-  if (!is.null(dim(x))) {
-      warning("Input 'x' was a matrix. If columns of matrices should be separately transformed to numeric (if possible), 'x' should be a data.frame.")
-  }
   if ( is.null(varName)) {
        varName <- "Variable"
   }  else {
        varName <- paste0("'", varName, "'")
   }
-  y <- suppressWarnings(as.numeric(x))
-  if ( isTRUE(force.string)) {
-     if ( length(which(is.na(y))) > length(which(is.na(x))) ) {
-        warning(paste0(varName, " has been coerced to numeric, NAs have been induced."), call. = FALSE)
-     }
-  }  else  {
-     if ( length(which(is.na(y))) > length(which(is.na(x))) ) {
-        warning(paste0(varName, " can not be transformed to numeric. Use force.string = TRUE to force this."), call. = FALSE)
-        y <- x                                                                  ### y wird wieder mit x ueberschrieben
-     }
+  y <- tryCatch(as.numeric(x), warning = function(w) {
+    out <- suppressWarnings(as.numeric(x))
+    class(out) <- c("warning", "numeric")
+    out
+  })
+  if(force.string) {
+    if("warning" %in% class(y)) {
+      warning(paste0(varName, " has been coerced to numeric, NAs have been induced."), call. = FALSE)
+      class(y) <- class(y)[[2]]
+    }
+    return(y)
+  }
+  if("warning" %in% class(y)) {
+    warning(paste0(varName, " can not be transformed to numeric. Use force.string = TRUE to force this."), call. = FALSE)
+    return(x)
+  }
+  y
+}
 
-  }
-  if (!is.null(dim(x)) && is.null(dim(y))) {
-     y <- matrix(y, nrow=nrow(x), ncol=ncol(x), dimnames=dimnames(x))
-  }
-  return(y)
+asNumericIfPossible.matrix <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
+  matrix_as_vec <- as.vector(x)
+  out_vec <- asNumericIfPossible(matrix_as_vec, maintain.factor.scores = maintain.factor.scores, force.string = force.string,
+                      transform.factors = transform.factors, varName = "Matrix")
+  matrix(out_vec, nrow = nrow(x), dimnames = dimnames(x))
 }
 
 asNumericIfPossible.data.frame <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL){

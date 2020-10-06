@@ -85,18 +85,12 @@ test_that("Extract original call to retrieve variable name", {
                as.list(rep("Variable", 20)))
 })
 
-
-
-# matrices
-######
-matrix_char <- matrix(data = c(letters[1:4]), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
-matrix_char2 <- matrix(data = c(1:4), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
+# normal matrices
+matrix_char <- matrix(data = c(letters[1:4]), nrow=2)
+matrix_char2 <- matrix(data = c(1:4), nrow=2)
 class(matrix_char2) <- "character"
-matrix_num <- matrix(data = c(1:4), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
-matrix_mix <- matrix(data = c(letters[1:2], 1:2), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
-# not necessary to test factors, as there are no factor-matrices
-matrix_fac <- matrix(data = factor(letters[1:4]), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
-
+matrix_num <- matrix(data = c(1:4), nrow=2)
+matrix_mix <- matrix(data = c(letters[1:2], 1:2), nrow=2)
 
 test_that("Matrices asnumeric defaults", {
   out_num <- asNumericIfPossible(matrix_num)
@@ -116,6 +110,39 @@ test_that("Matrices asnumeric defaults", {
   expect_warning(out_mix <- asNumericIfPossible(matrix_mix),
                  "'Matrix' has been coerced to numeric, NAs have been induced.")
   expect_equal(out_mix, matrix(c(NA_real_, NA_real_, 1, 2), nrow = 2, ncol = 2))
+})
+
+# matrices with dimnames
+######
+matrix_charD <- matrix(data = c(letters[1:4]), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
+matrix_char2D <- matrix(data = c(1:4), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
+class(matrix_char2D) <- "character"
+matrix_numD <- matrix(data = c(1:4), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
+matrix_mixD <- matrix(data = c(letters[1:2], 1:2), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
+# not necessary to test factors, as there are no factor-matrices
+matrix_facD <- matrix(data = factor(letters[1:4]), nrow=2, dimnames= list(c("row1", "row2"), c("col1", "col2") ))
+
+
+test_that("Matrices asnumeric defaults", {
+  out_num <- asNumericIfPossible(matrix_numD)
+  expect_equal(out_num, matrix_numD)
+  expect_equal(colnames(out_num), colnames(matrix_numD))
+  expect_equal(rownames(out_num), rownames(matrix_numD))
+
+  out_char2 <- asNumericIfPossible(matrix_char2D)
+  expect_equal(out_char2, matrix_numD)
+  expect_equal(colnames(out_char2), colnames(matrix_char2D))
+  expect_equal(rownames(out_char2), rownames(matrix_char2D))
+
+  expect_warning(out_char <- asNumericIfPossible(matrix_charD),
+                 "'Matrix' has been coerced to numeric, NAs have been induced.")
+  expect_equal(out_char, matrix(NA_real_, nrow = 2, ncol = 2,
+                                dimnames= list(c("row1", "row2"), c("col1", "col2") )))
+
+  expect_warning(out_mix <- asNumericIfPossible(matrix_mixD),
+                 "'Matrix' has been coerced to numeric, NAs have been induced.")
+  expect_equal(out_mix, matrix(c(NA_real_, NA_real_, 1, 2), nrow = 2, ncol = 2,
+                               dimnames= list(c("row1", "row2"), c("col1", "col2") )))
 })
 
 test_that("Matrices asnumeric other options", {
