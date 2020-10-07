@@ -1,4 +1,4 @@
-# eatTools 0.3.7
+# eatTools 0.3.8
 
 * `asNumericIfPossible()` now works with matrices
 
