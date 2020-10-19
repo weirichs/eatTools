@@ -4,7 +4,7 @@ Title: Miscellaneous Functions for the Analysis of Educational Assessments
 Version: 0.3.8
 Depends: R (>= 3.5.0)
 Imports: stats, data.table
-Date: 2020-10-06
+Date: 2020-10-19
 Authors@R: c(
     person("Sebastian", "Weirich", email = "sebastian.weirich@iqb.hu-berlin.de", role = c("aut", "cre")),
     person("Martin", "Hecht", role = c("aut")),
