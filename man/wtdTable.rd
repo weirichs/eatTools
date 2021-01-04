@@ -25,9 +25,6 @@ from \code{x} as well as from \code{weights} prior to variance estimation.
 \value{
 a frequency table
 }
-\author{
-Sebastian Weirich
-}
 \examples{
 x <- c(50, 1, 50)
 w <- c(1, 4, 1)

@@ -25,9 +25,6 @@ Named list of character vectors which include the imputed variables which are de
 \value{
 A data.frame in the long format.
 }
-\author{
-Sebastian Weirich
-}
 \examples{
 ### create arbitrary wide format large-scale assessment data for two
 ### subjects, each with three imputations
