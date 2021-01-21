@@ -15,6 +15,7 @@ export(whereAre)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
+export(do_call_rbind_withName)
 
 # eatRep usage
 export(existsBackgroundVariables)

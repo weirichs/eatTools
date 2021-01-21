@@ -1,0 +1,33 @@
+
+df_list <- lapply(mtcars, function(x) {
+  data.frame(m = mean(x), sd = sd(x))
+})
+df_list2 <- lapply(mtcars, function(x) {
+  c(m = mean(x), sd = sd(x))
+})
+
+###
+test_that("do call with rbind", {
+  out <- do_call_rbind_withName(df_list, colName = "variable")
+  expect_equal(names(out), c("variable", "m", "sd"))
+  expect_equal(out[1, "m"], mean(mtcars[, 1]))
+  expect_equal(out[10, "sd"], sd(mtcars[, 10]))
+})
+
+
+test_that("errors", {
+  expect_error(do_call_rbind_withName(df_list, colName = 1),
+               "'colName' must be a character vector of length 1.")
+  expect_error(do_call_rbind_withName(df_list, name = as.character(1:10), colName = "variable"),
+               "'name' must be a character vector of identical length as 'df_list'.")
+  expect_error(do_call_rbind_withName(df_list[[1]], colName = "variable"),
+               "'df_list' must be a list of data.frames.")
+  expect_error(do_call_rbind_withName(df_list2, colName = "variable"),
+               "'df_list' must be a list of data.frames.")
+
+  df_list[[2]] <- df_list[[2]][, 1, drop = FALSE]
+
+  expect_error(do_call_rbind_withName(df_list, colName = "variable"),
+               "numbers of columns of arguments do not match")
+
+})
