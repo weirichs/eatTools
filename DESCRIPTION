@@ -1,7 +1,7 @@
 Package: eatTools
 Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
-Version: 0.3.8.9000
+Version: 0.4.0
 Depends: R (>= 3.5.0)
 Imports: stats, data.table
 Date: 2020-10-19
@@ -20,6 +20,7 @@ Description:
    Functions for weighted statistics refer to
    Wolter (2007) <doi:10.1007/978-0-387-35099-8>.
 License: GPL (>= 2)
+URL: https://github.com/weirichs/eatTools
 LazyData: true
 LazyLoad: yes
 Suggests:

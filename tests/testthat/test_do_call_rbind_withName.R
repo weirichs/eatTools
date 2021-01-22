@@ -14,6 +14,26 @@ test_that("do call with rbind", {
   expect_equal(out[10, "sd"], sd(mtcars[, 10]))
 })
 
+test_that("obscure colNames", {
+  out <- do_call_rbind_withName(df_list, colName = "placeholder")
+  expect_equal(names(out), c("placeholder", "m", "sd"))
+
+  out2 <- do_call_rbind_withName(df_list, colName = "rep.name..nrow.df..")
+  expect_equal(names(out2), c("rep.name..nrow.df..", "m", "sd"))
+})
+
+test_that("obscure other colNames", {
+  df_list3 <- lapply(mtcars, function(x) {
+    data.frame(placeholder = mean(x), "rep.name..nrow.df.." = sd(x))
+  })
+
+  expect_error(do_call_rbind_withName(df_list3, colName = "placeholder"),
+               "'colName' is already in use in the elements of 'df_list'.")
+
+  out2 <- do_call_rbind_withName(df_list3, colName = "variable")
+  expect_equal(names(out2), c("variable", "placeholder", "rep.name..nrow.df.."))
+})
+
 
 test_that("errors", {
   expect_error(do_call_rbind_withName(df_list, colName = 1),
