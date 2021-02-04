@@ -12,6 +12,7 @@ export(gsubAll)
 export(num.to.cat)
 export(insert.col)
 export(whereAre)
+export(recodeLookup)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
