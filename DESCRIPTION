@@ -27,4 +27,3 @@ Suggests:
     testthat,
     covr
 NeedsCompilation: no
-Packaged: 2018-12-14 15:00:40 UTC; Benjamin Becker
