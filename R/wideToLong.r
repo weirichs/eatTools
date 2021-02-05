@@ -17,7 +17,7 @@ wideToLong <- function(datWide, noImp, imp, multipleColumns = TRUE, variable.nam
                    lookup<- data.frame ( old = as.vector(unlist(namo)), new = names(imp), stringsAsFactors = FALSE)
                    colnames(dat) <- recodeLookup(colnames(dat), lookup)
               }  else  {
-                   dat  <- data.frame(melt(as.data.table(datWide[,c(all.Names[["noImp"]], namo)]), id.vars = all.Names[["noImp"]], measure.vars = namo, variable.name = variable.name, value.name = value.name ,na.rm = TRUE), stringsAsFactors = FALSE)
+                   dat  <- data.frame(data.table::melt(data.table::as.data.table(datWide[,c(all.Names[["noImp"]], namo)]), id.vars = all.Names[["noImp"]], measure.vars = namo, variable.name = variable.name, value.name = value.name ,na.rm = TRUE), stringsAsFactors = FALSE)
               }
               dat[,"imp"] <- i
               return(dat)}))
