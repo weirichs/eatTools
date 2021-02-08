@@ -20,9 +20,19 @@ test_that("Recode numeric", {
 })
 
 test_that("Recode string", {
-  lookup1 <- data.frame(old = letters[1:3], new = letters[5:3])
+  lookup1 <- data.frame(old = letters[1:3], new = letters[5:3], stringsAsFactors = FALSE)
   out <- recodeLookup(letters[1:3], lookup1)
   expect_equal(out, letters[5:3])
+})
+
+test_that("Recode with factors", {
+  lookup1 <- data.frame(old = letters[1:3], new = letters[5:3], stringsAsFactors = FALSE)
+  out <- recodeLookup(factor(letters[1:3]), lookup1)
+  expect_equal(out, letters[5:3])
+
+  lookup2 <- data.frame(old = letters[1:3], new = letters[5:3], stringsAsFactors = TRUE)
+  out2 <- recodeLookup(letters[1:3], lookup2)
+  expect_equal(out2, factor(letters[5:3]))
 })
 
 test_that("Recode with NAs", {
@@ -39,6 +49,17 @@ test_that("Recode with NAs", {
   expect_equal(out3, c(3, NA, 5, 3, 3))
 })
 
+test_that("Recode into/from different types", {
+  lookup1 <- data.frame(old = 1:3, new = letters[1:3], stringsAsFactors = FALSE)
+  out <- recodeLookup(1:5, lookup1)
+  expect_equal(out, c(letters[1:3],4:5))
+
+  lookup2 <- data.frame(old = letters[1:3], new = 1:3, stringsAsFactors = FALSE)
+  out2 <- recodeLookup(letters[1:5], lookup2)
+  expect_equal(out2, c(1:3, letters[4:5]))
+
+})
+
 test_that("Recode in data.frame", {
   mtcars1 <- mtcars
   lookup1 <- data.frame(old = c(4, 6, 8), new = c(40, 60, 80))
@@ -46,13 +67,14 @@ test_that("Recode in data.frame", {
   expect_equal(mtcars1$cyl, c(mtcars$cyl * 10))
 })
 
-requireNamespace("haven", quietly = TRUE)
-if("haven" %in% rownames(installed.packages())){
-test_that("Recode labeled", {
-  lookup1 <- data.frame(old = 1, new = 1)
-  lookup1$old <- haven::labelled(lookup1$old)
-  lookup1$new <- haven::labelled(lookup1$new)
 
-  expect_silent(recodeLookup(1:3, lookup1))
+#lookup_haven <- data.frame(old = 1, new = 1)
+#lookup_haven$old <- haven::labelled(lookup_haven$old)
+#lookup_haven$new <- haven::labelled(lookup_haven$new)
+#saveRDS(lookup_haven, "tests/testthat/helper_haven_lookup.RDS")
+
+test_that("Recode labeled", {
+  lookup_haven <- readRDS("helper_haven_lookup.RDS")
+  expect_silent(recodeLookup(1:3, lookup_haven))
 })
-}
+
