@@ -11,11 +11,13 @@ tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no
                   notInData <- setdiff(pattern, x)
                   if ( length(notInData) > 0) {
                        y <- factor(x, levels = as.character(pattern))
+                  }  else {
+                       y <- x
                   }
                 }  else  {
-                   y <- x
+                  y <- x
                 }
-                  if(missing(weights)) {
+                if(missing(weights)) {
                      Table <- table(y, useNA =useNA )
                   }  else  {
                      if ( length(notInData) > 0) {
