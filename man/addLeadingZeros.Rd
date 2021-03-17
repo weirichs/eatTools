@@ -1,5 +1,5 @@
 \name{addLeadingZerosToCharInt}
-\alias{recodeLookupaddLeadingZerosToCharInt}
+\alias{addLeadingZerosToCharInt}
 \title{Add leading zeros to all columns that can be identified as integers in a character data.frame}
 \description{Adds leading zeros to all columns that can be identified as integers in a data.frame that consists of character columns only.}
 \usage{
