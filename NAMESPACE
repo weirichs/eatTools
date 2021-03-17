@@ -13,6 +13,7 @@ export(num.to.cat)
 export(insert.col)
 export(whereAre)
 export(recodeLookup)
+export(addLeadingZerosToCharInt)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)

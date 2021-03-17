@@ -17,7 +17,11 @@ a data.frame of only character columns and the same dimension as the input data.
 Karoline Sachse
 }
 \examples{
-dat <- data.frame(v1 = c("0","300","e",NA), v2=c("0","90","10000",NA),v3=c("k","kk","kkk",NA),v4=NA,v5=c("0","90","100","1"))
+dat <- data.frame(v1 = c("0","300","e",NA),
+                  v2=c("0","90","10000",NA),
+                  v3=c("k","kk","kkk",NA),
+                  v4=NA,
+                  v5=c("0","90","100","1"))
 dat <- set.col.type(dat)
 addLeadingZerosToCharInt(dat)
 }
