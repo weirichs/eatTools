@@ -1,3 +1,5 @@
+* bug fix in `descr()`. missing handling in variable when additional weights are used  
+
 # eatTools 0.5.0
 
 * new function `recodeLookup()` allows recoding of a variable based on a look up table
