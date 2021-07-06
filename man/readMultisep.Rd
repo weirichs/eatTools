@@ -18,6 +18,7 @@ A data frame containing a representation of the data in the file.
 }
 
 \examples{
+\dontrun{
 filePath <- tempfile(fileext = ".txt")
 dat <- data.frame(v1 = c("0","300","e",NA),
                   v2=c("0","90","10000",NA),
@@ -26,4 +27,5 @@ dat <- data.frame(v1 = c("0","300","e",NA),
                   v5=c("0","90","100","1"))
 write.table(dat, file = filePath, row.names = FALSE, col.names = FALSE, sep = "]&;")
 readMultisep(filePath, sep="]&;")
+}
 }
