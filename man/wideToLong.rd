@@ -25,7 +25,7 @@ Named list of character vectors which include the imputed variables which are de
   \item{multipleColumns}{
 Logical: use one column for each imputed variable (if more than one imputed variable is used)?
 Alternatively, only one column for all imputed variables is used (this is the default behavior
-of the \code{\link[reshape2]{melt}} function from the \code{reshape2} package).
+of the \code{melt} function from the \code{reshape2} package).
 }
   \item{variable.name}{
 Applies only if \code{multipleColumns = "TRUE"}: name of variable used to store measured variable names

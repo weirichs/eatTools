@@ -1,7 +1,7 @@
 \name{recodeLookup}
 \alias{recodeLookup}
 \title{Recode a variable according to a lookup table}
-\description{Recodes the values of a variable. Function resembles the \code{\link[car]{recode}}
+\description{Recodes the values of a variable. Function resembles the \code{recode}
 function from the \code{car} package, but uses a lookup table to specify old and new values. }
 \usage{
 recodeLookup(var, lookup)
