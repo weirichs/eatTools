@@ -2,21 +2,21 @@
 
 |field    |value                        |
 |:--------|:----------------------------|
-|version  |R version 4.0.2 (2020-06-22) |
+|version  |R version 4.1.0 (2021-05-18) |
 |os       |Windows 10 x64               |
 |system   |x86_64, mingw32              |
 |ui       |RStudio                      |
 |language |(EN)                         |
-|collate  |German_Germany.1252          |
-|ctype    |German_Germany.1252          |
+|collate  |English_United States.1252   |
+|ctype    |English_United States.1252   |
 |tz       |Europe/Berlin                |
-|date     |2021-01-25                   |
+|date     |2021-07-06                   |
 
 # Dependencies
 
 |package  |old   |new   |<U+0394>  |
 |:--------|:-----|:-----|:--|
-|eatTools |0.3.8 |0.4.0 |*  |
+|eatTools |0.5.0 |0.6.0 |*  |
 
 # Revdeps
 
