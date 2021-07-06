@@ -1,3 +1,4 @@
+* new function `readMultisep()` reads in data.frames with separator characters >=1Byte
 * new function `addLeadingZerosToCharInt()` adds leading zeros to all columns that can be identified as integers in a character data.frame
 * bug fix in `descr()`. missing handling in variable when additional weights are used  
 
