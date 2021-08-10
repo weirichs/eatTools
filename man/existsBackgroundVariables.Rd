@@ -5,7 +5,7 @@
 \description{Function is necessary for \code{eatRep} and \code{eatModel} as well
 and therefore exported to namespace.}
 \usage{
-existsBackgroundVariables (dat, variable)
+existsBackgroundVariables (dat, variable, warnIfMissing = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,6 +16,10 @@ A data frame
   \item{variable}{
 %%     ~~Describe \code{file} here~~
 column number or variable name
+}
+  \item{warnIfMissing}{
+%%     ~~Describe \code{file} here~~
+Logical: gives a warning if the variable contains missing values
 }
 }
 \value{

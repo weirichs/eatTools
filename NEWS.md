@@ -1,3 +1,8 @@
+# eatTools 0.7.0
+
+* new function `na_omit_selection()` drops rows containing missing values in selected columns
+* existsBackgroundVariables: add optional warning if variables contains missing values
+
 # eatTools 0.6.0
 
 * new function `readMultisep()` reads in data.frames with separator characters >=1Byte

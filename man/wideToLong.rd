@@ -28,10 +28,10 @@ Alternatively, only one column for all imputed variables is used (this is the de
 of the \code{melt} function from the \code{reshape2} package).
 }
   \item{variable.name}{
-Applies only if \code{multipleColumns = "TRUE"}: name of variable used to store measured variable names
+Applies only if \code{multipleColumns = "FALSE"}: name of variable used to store measured variable names
 }
   \item{value.name}{
-Applies only if \code{multipleColumns = "TRUE"}: name of variable used to store values
+Applies only if \code{multipleColumns = "FALSE"}: name of variable used to store values
 }
 }
 \value{

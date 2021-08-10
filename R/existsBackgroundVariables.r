@@ -1,4 +1,4 @@
-existsBackgroundVariables <- function(dat, variable )  {
+existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
            if(!is.null(variable[1]))  {
                if ( !is.na(variable[1])) {
                      if ( length(variable) != length(unique(variable)) ) {stop("Variable definition is not unique.")}
@@ -18,6 +18,7 @@ existsBackgroundVariables <- function(dat, variable )  {
                         if(ncol(dat) < max(variable) ) {stop("Designated column number exceeds number of columns in dataset.")}
                         varColumn <- variable
                      }
+                     if (warnIfMissing) { checkMis(dat, varColumn) }
                      return(colnames(dat)[varColumn])
               }  else {
                      return(NULL)
@@ -25,3 +26,8 @@ existsBackgroundVariables <- function(dat, variable )  {
             }  else {
                return(NULL)
             } }
+
+checkMis  <- function (dat, varColumn) {
+             lapply(varColumn, FUN = function ( col ) {
+                 isna <- length(which(is.na(dat[,col])))
+                 if (isna>0) {warning(paste0("Found ",isna," missing values in variable '",colnames(dat)[col],"'.") )} }) }
