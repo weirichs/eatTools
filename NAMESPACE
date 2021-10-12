@@ -16,6 +16,7 @@ export(num.to.cat)
 export(insert.col)
 export(whereAre)
 export(recodeLookup)
+export(roundDF)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
