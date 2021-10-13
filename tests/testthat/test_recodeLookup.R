@@ -74,7 +74,9 @@ test_that("Recode in data.frame", {
 #saveRDS(lookup_haven, "tests/testthat/helper_haven_lookup.RDS")
 
 test_that("Recode labeled", {
+  # lookup_haven <- readRDS("tests/testthat/helper_haven_lookup.RDS")
   lookup_haven <- readRDS("helper_haven_lookup.RDS")
-  expect_silent(recodeLookup(1:3, lookup_haven))
+  expect_error(recodeLookup(1:3, lookup_haven),
+               "Variable class 'haven_labelled' is not supported by recodeLookup.")
 })
 
