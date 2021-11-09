@@ -1,6 +1,6 @@
-# eatTools 0.7.0.9000
+# eatTools 0.7.1
 
-* new function `roundDF` rounds all variables in a `data.frame`
+* new function `roundDF` rounds all numeric variables in a `data.frame`
 
 # eatTools 0.7.0
 
