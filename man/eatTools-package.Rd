@@ -1,6 +1,6 @@
+\name{eatTools-package}
+\alias{eatTools-package}
 \docType{package}
-\name{eatTools}
-\alias{eatTools}
 \title{eatTools: Miscellaneous Functions for the Analysis of Educational Assessments}
 \description{
 The \code{eatTools} package provides various groups of functions. The main groups of functions include:

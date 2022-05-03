@@ -18,6 +18,8 @@ export(whereAre)
 export(recodeLookup)
 export(roundDF)
 export(pwc)
+export(mergeAttr)
+export(makeDataFrame)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)

@@ -1,3 +1,9 @@
+# eatTools 0.7.2
+
+* new function `makeDataFrame` for internal use in eatRep and eatModel packages converts tbl to data.frame
+* new function `mergeAttr` mainly for internal use in eatRep and eatModel packages restores attributes after merging and provides messages if merging units are not unique or only partially matches
+* new function `pwc` computes part-whole-correlation between an item and the whole scale (except this item)
+
 # eatTools 0.7.1
 
 * new function `roundDF` rounds all numeric variables in a `data.frame`
