@@ -1,17 +1,17 @@
 # eatTools 0.7.2
 
-* new function `makeDataFrame` for internal use in eatRep and eatModel packages converts tbl to data.frame
-* new function `mergeAttr` mainly for internal use in eatRep and eatModel packages restores attributes after merging and provides messages if merging units are not unique or only partially matches
-* new function `pwc` computes part-whole-correlation between an item and the whole scale (except this item)
+* new function `makeDataFrame()` for internal use in `eatRep` and `eatModel` packages converts `tibbles` and `data.tables` to data.frame
+* new function `mergeAttr()` mainly for internal use in `eatRep` and `eatModel` packages restores attributes after merging and provides messages if merging units are not unique or only partially matches
+* new function `pwc()` computes part-whole-correlation between an item and the whole scale (except this item)
 
 # eatTools 0.7.1
 
-* new function `roundDF` rounds all numeric variables in a `data.frame`
+* new function `roundDF()` rounds all numeric variables in a `data.frame`
 
 # eatTools 0.7.0
 
 * new function `na_omit_selection()` drops rows containing missing values in selected columns
-* existsBackgroundVariables: add optional warning if variables contains missing values
+* `existsBackgroundVariables()`: add optional warning if variables contains missing values
 
 # eatTools 0.6.0
 
