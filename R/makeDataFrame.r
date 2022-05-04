@@ -1,4 +1,10 @@
 makeDataFrame <- function(dat, name = "dat") {
-    if(!"data.frame" %in% class(dat) || "tbl" %in% class(dat) || "data.table" %in% class(dat) ) { cat(paste0("Convert '",name,"' of class '",paste(class(dat), collapse="', '"),"' to a data.frame.\n"))
-        dat <- data.frame ( dat, stringsAsFactors = FALSE)}
-    return(dat)}
+  if(inherits(dat, c("tbl", "data.table"))) {
+    old_classes <- paste(class(dat), collapse="', '")
+    message("Convert '", name, "' of class '", old_classes, "' to a data.frame.")
+      dat <- data.frame ( dat, stringsAsFactors = FALSE)
+  }
+  if(!inherits(dat, c("data.frame"))) {
+    stop("'", name, "' is neither a 'data.frame', 'tibble' or 'data.table' object.")
+  }
+  return(dat)}
