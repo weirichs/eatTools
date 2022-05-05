@@ -15,7 +15,3 @@ test_that("mtcars", {
   # expect_equal(out$item, sort(names(mtcars))) ## aktuell passiert das hier
 })
 
-test_that("iris", {
-  out <- pwc(iris)
-  expect_equal(names(out), c("item", "corr", "partWholeCorr"))
-})
