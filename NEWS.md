@@ -1,3 +1,8 @@
+# eatTools 0.7.2.9000
+
+* new function `isNestedFast()` for checking the uniqueness of a variable within an identifier variablen in a data.frame
+
+
 # eatTools 0.7.2
 
 * new function `makeDataFrame()` for internal use in `eatRep` and `eatModel` packages converts `tibbles` and `data.tables` to data.frame

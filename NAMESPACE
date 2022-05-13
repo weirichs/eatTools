@@ -25,6 +25,7 @@ export(makeDataFrame)
 export(catch_asNumericIfPossible)
 export(do_call_rbind_withName)
 export(readMultisep)
+export(isNestedFast)
 
 # eatRep usage
 export(existsBackgroundVariables)
@@ -42,6 +43,7 @@ export(contr.wec.weighted)
 export(wtdTable)
 export(wtdVar)
 export(na_omit_selection)
+
 
 ### imports
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment, cor)
