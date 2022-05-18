@@ -25,7 +25,6 @@ export(makeDataFrame)
 export(catch_asNumericIfPossible)
 export(do_call_rbind_withName)
 export(readMultisep)
-export(isNestedFast)
 
 # eatRep usage
 export(existsBackgroundVariables)
