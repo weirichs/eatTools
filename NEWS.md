@@ -1,6 +1,6 @@
 # eatTools 0.7.2.9000
 
-* new function `isNestedFast()` for checking the uniqueness of a variable within an identifier variable in a data.frame
+* added some unit tests
 
 # eatTools 0.7.2
 
