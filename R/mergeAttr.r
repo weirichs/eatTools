@@ -8,9 +8,9 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
      ### pruefen, ob die level der by-variablen in dem anderen datensatz enthalten sind
              levs  <- apply(X=byvars, MARGIN = 1, FUN = function (v) {
                       nix <- setdiff(unique(y[,v[["y"]]]), unique(x[,v[["x"]]]))
-                      if ("match" %in% verb) {if(length(nix)>0) {message(paste0(length(nix), " ",unitName,"(s) of merging variable '",v[["y"]],"' from data set '",yName,"' not included in data set '",xName,"'."))}}
+                      if ("match" %in% verb) {if(length(nix)>0) {message(paste0(length(nix), " of ",length(unique(y[,v[["y"]]])), " " , unitName,"(s) of merging variable '",v[["y"]],"' from data set '",yName,"' not included in data set '",xName,"'."))}}
                       niy <- setdiff(unique(x[,v[["x"]]]), unique(y[,v[["y"]]]))
-                      if ("match" %in% verb) {if(length(niy)>0) {message(paste0(length(niy), " ",unitName,"(s) of merging variable '",v[["x"]],"' from data set '",xName,"' not included in data set '",yName,"'."))}} })
+                      if ("match" %in% verb) {if(length(niy)>0) {message(paste0(length(niy), " of ",length(unique(x[,v[["x"]]])), " ", unitName,"(s) of merging variable '",v[["x"]],"' from data set '",xName,"' not included in data set '",yName,"'."))}} })
      ### pruefen, ob die level der by-variablen unique sind
              if ( nrow(byvars)>1) {
                    xvar<- set.col.type(x[,byvars[,"x"]])
