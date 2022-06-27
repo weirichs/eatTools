@@ -42,7 +42,7 @@ export(contr.wec.weighted)
 export(wtdTable)
 export(wtdVar)
 export(na_omit_selection)
-
+export(print_and_capture)
 
 ### imports
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment, cor)
