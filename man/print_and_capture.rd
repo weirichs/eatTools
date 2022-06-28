@@ -22,6 +22,8 @@ a string which may be combined with messages
 }
 \examples{
 frequency.table <- as.table(matrix(c(12,0,5,7),2,2))
-attr(frequency.table, "dimnames") <- list("sex" = c("male", "female"), "migration" = c(TRUE, FALSE))
-message("Some combinations of variables with zero observations: \n",print_and_capture(frequency.table, spaces = 5))
+attr(frequency.table, "dimnames") <- list("sex" = c("male", "female"),
+        "migration" = c(TRUE, FALSE))
+message("Some combinations of variables with zero observations: \n",
+        print_and_capture(frequency.table, spaces = 5))
 }
