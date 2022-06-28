@@ -3,7 +3,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Easy integration of (small) tables into (error) messages}
 \description{Some (error) messages are more understandable if small (frequency)
-tables are used for clearness. The function simplifies integration of these tables.}
+tables are used for clearness. The function simplifies integration of these tables.
+The function is intended to be used in combination with \code{\link{message}},
+\code{\link{stop}}, or \code{\link{cat}}, for example.}
 \usage{
 print_and_capture (x, spaces = 0) }
 %- maybe also 'usage' for other objects documented here.
@@ -20,8 +22,6 @@ a string which may be combined with messages
 }
 \examples{
 frequency.table <- as.table(matrix(c(12,0,5,7),2,2))
-attr(frequency.table, "dimnames") <- list("sex" = c("male", "female"),
-                "migration" = c(TRUE, FALSE))
-message("Some combinations of variables with zero observations: \n",
-        print_and_capture(frequency.table, spaces = 5))
+attr(frequency.table, "dimnames") <- list("sex" = c("male", "female"), "migration" = c(TRUE, FALSE))
+message("Some combinations of variables with zero observations: \n",print_and_capture(frequency.table, spaces = 5))
 }
