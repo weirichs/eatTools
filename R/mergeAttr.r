@@ -2,9 +2,9 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
      ### verbose setzen
              verb  <- setVerbose(verbose, choices = c("match", "unique", "class", "dataframe"))
      ### das muessen data.frames sein
-   x <- makeDataFrame(x)
-   y <- makeDataFrame(y)
-             byvars<- data.frame ( x=by.x, y=by.y, clx = sapply(x[,by.x,drop=FALSE], class), cly = sapply(y[,by.y,drop=FALSE], class), stringsAsFactors = FALSE)
+             x <- makeDataFrame(x)
+             y <- makeDataFrame(y)
+             byvars<- data.frame ( x=by.x, y=by.y, clx = sapply(x[,by.x,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), cly = sapply(y[,by.y,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), stringsAsFactors = FALSE)
      ### pruefen, ob die level der by-variablen in dem anderen datensatz enthalten sind
              levs  <- apply(X=byvars, MARGIN = 1, FUN = function (v) {
                       nix <- setdiff(unique(y[,v[["y"]]]), unique(x[,v[["x"]]]))

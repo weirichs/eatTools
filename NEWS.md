@@ -1,3 +1,7 @@
+# eatTools 0.7.3.9000
+
+* bug fix in `mergeAttr()` when variables have more than one class  
+
 # eatTools 0.7.3
 
 * new function `print_and_capture()` mainly for internal use in `eatRep` and `eatCodebook` packages allows for easy integration of (small) tables into (error) messages
