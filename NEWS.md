@@ -1,6 +1,7 @@
 # eatTools 0.7.3.9000
 
 * bug fix in `mergeAttr()` when variables have more than one class  
+* `mergeAttr()` gives warning if merging variables have NAs
 
 # eatTools 0.7.3
 

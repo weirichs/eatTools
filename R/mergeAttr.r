@@ -5,6 +5,9 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
              x <- makeDataFrame(x)
              y <- makeDataFrame(y)
              byvars<- data.frame ( x=by.x, y=by.y, clx = sapply(x[,by.x,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), cly = sapply(y[,by.y,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), stringsAsFactors = FALSE)
+     ### missings auf merge-Variablen?
+             foox  <- lapply(byvars[,"x"], FUN = function (vx) { if ( length(which(is.na(x[,vx]))) > 0) {warning(paste0("Merging variable '",vx,"' in dataset 'x' contains ",length(which(is.na(x[,vx])))," missing values."))}})
+             fooy  <- lapply(byvars[,"y"], FUN = function (vy) { if ( length(which(is.na(y[,vy]))) > 0) {warning(paste0("Merging variable '",vy,"' in dataset 'y' contains ",length(which(is.na(y[,vy])))," missing values."))}})
      ### pruefen, ob die level der by-variablen in dem anderen datensatz enthalten sind
              levs  <- apply(X=byvars, MARGIN = 1, FUN = function (v) {
                       nix <- setdiff(unique(y[,v[["y"]]]), unique(x[,v[["x"]]]))

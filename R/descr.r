@@ -1,8 +1,10 @@
 descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE, verbose=TRUE) {
          suppressWarnings(variable <- asNumericIfPossible( data.frame(as.matrix(variable),stringsAsFactors = FALSE) , force.string = TRUE))
+         unwgtN <- FALSE                                                        ### initialisieren: unweighted N? (das ist nur noetig, wenn descr() von eatRep::conv.mean() aufgerufen wird
          if(!is.null(p.weights)) {
              Mis.weight <- FALSE
              stopifnot( length(p.weights) == nrow(variable) )
+             if(isTRUE(attr(p.weights, "onlyUnweightedN"))) {unwgtN <- TRUE}
          } else { Mis.weight <- TRUE}
          onlyMis  <- sapply(variable, FUN = function ( y ) { all( is.na(y) ) } )
          if(sum(onlyMis)>0) {
@@ -33,6 +35,10 @@ descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE, verbose=TRUE)
                         Var    <- wtdVar(x = y, weights = p.weights, na.rm = na.rm)
                         N      <- sum(p.weights)
                         N.valid<- sum(p.weights[valid])                         ### 't1' = erster Term der Formel
+                        if(unwgtN) {
+                           N      <- length(y)                                  ### wird ueberschrieben, wnn IMMER ungewichtete Ns berichtet werden sollen
+                           N.valid<- length(na.omit(y))
+                        }
                         t1     <- length(na.omit(y)) / ( (length(na.omit(y)) - 1) * sum(p.weights[valid])^2)
                         t2     <- sum(p.weights[valid]^2 * ((na.omit(y) - Mean)^2))
                         err    <- sqrt(t1*t2)                                   ### https://en.wikipedia.org/wiki/Weighted_arithmetic_mean
