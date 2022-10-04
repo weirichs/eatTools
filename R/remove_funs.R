@@ -26,9 +26,9 @@ gsubAll <- function(string, old, new) {
 
 ### splits the string only on the first or the last occurrence of the separator
 ### uses no longer package "stringr"
-halveString <- function (string, pattern, first = TRUE )  {
+halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )  {
+  if( !(inherits(colnames, "character") && length(colnames)==2 && length(unique(colnames)) == 2 )) {stop("'colnames' must be a unique character vector of length 2.")}
   allSplit<- strsplit(x = string, split = pattern)
-  stopifnot(length(first) == 1)
   if(first)  {
     ret <- as.matrix(data.frame(X1 = unlist(lapply(allSplit, FUN = function (l) { l[1]})),
                                 X2 = unlist(lapply(1:length(allSplit), FUN = function (l) {
@@ -46,4 +46,5 @@ halveString <- function (string, pattern, first = TRUE )  {
                                   if(length(l)==1) { ret <- NA}  else { ret <- l[length(l)]}
                                   return(ret)})), stringsAsFactors = FALSE))
   }
+  if(!all(colnames == colnames(ret))) {colnames(ret) <- colnames}
   return(ret)}

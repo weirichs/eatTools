@@ -2,6 +2,7 @@
 
 * bug fix in `mergeAttr()` when variables have more than one class  
 * `mergeAttr()` gives warning if merging variables have NAs
+* optional colnames argument in `halveString()` function 
 
 # eatTools 0.7.3
 

@@ -6,7 +6,7 @@
 of occurrences of the splitting sign defines the number of splits. \code{halveString}
 allows to split the string in only two parts, no matter how often the splitting sign occurs.}
 \usage{
-halveString (string, pattern, first = TRUE )
+halveString (string, pattern, first = TRUE , colnames=c("X1", "X2"))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,12 +23,12 @@ character vector (or object which can be coerced to such) to use for splitting.
 Logical: Relevant if the pattern occurs more than one time in the string. Defines whether
 the first (default) or last occurrence is used for splitting.
 }
+  \item{colnames}{
+Optional: character vector of length 2 to specify the colnames of the resulting data.frame.
+}
 }
 \value{
 A data.frame with two columns
-}
-\author{
-Sebastian Weirich
 }
 \examples{
 str <- c("John_Bolton", "Richard_Milhouse_Nixon", "Madonna")
