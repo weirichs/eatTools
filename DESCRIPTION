@@ -3,7 +3,7 @@ Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
 Version: 0.7.3
 Depends: R (>= 3.5.0)
-Imports: stats, data.table
+Imports: stats, data.table, plyr
 Authors@R: c(
     person("Sebastian", "Weirich", email = "sebastian.weirich@iqb.hu-berlin.de", role = c("aut", "cre")),
     person("Martin", "Hecht", role = c("aut")),
