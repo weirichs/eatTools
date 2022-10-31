@@ -1,10 +1,10 @@
-\name{rbind.common}
-\alias{rbind.common}
+\name{rbind_compact}
+\alias{rbind_compact}
 \title{Combine data.frames by row, using only common columns.}
 \description{\code{rbind}s a list of data.frames, using only these columns which occur
 in each of the single data.frames.}
 \usage{
-rbind.common(...)
+rbind_compact(...)
 }
 \arguments{
   \item{...}{
@@ -28,8 +28,8 @@ df2 <- data.frame ( d = 100, a = 11:13)
 df3 <- data.frame ( d = 1000, x = 101:103)
 
 ### one common col
-rbind.common(df1, df2)
+rbind_compact(df1, df2)
 
 ### no common cols
-rbind.common(df1, df2, df3)
+rbind_compact(df1, df2, df3)
 }
