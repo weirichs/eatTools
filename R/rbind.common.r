@@ -3,11 +3,9 @@ rbind.common <- function(...) {
       dfs <- list(...)
       if (length(dfs) == 0) {return()}
       if (is.list(dfs[[1]]) && !is.data.frame(dfs[[1]])) { dfs <- dfs[[1]] }
-      dfs <- plyr::compact(dfs)
-      ### alternativ, wenn kein plyr importiert werden soll, irgendwi sowas (?)
-      # notNull <- which(lapply(dfs, FUN = function (x) {!is.null(x)}))
-      # if (length(notNull)==0) {return()})
-      # dfs <- dfs[notNull]
+      #dfs <- plyr::compact(dfs)
+      dfs[sapply(dfs, is.null)] <- NULL
+
       if (length(dfs) == 0) {return()}
       if (length(dfs) == 1) {return(dfs[[1]])}
       isdf<- vapply(dfs, is.data.frame, logical(1))                             ### Check that all inputs are data frames
