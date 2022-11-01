@@ -20,7 +20,7 @@ export(roundDF)
 export(pwc)
 export(mergeAttr)
 export(makeDataFrame)
-export(rbind_compact)
+export(rbind_common)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
