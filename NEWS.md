@@ -1,6 +1,6 @@
-# eatTools 0.7.3.9000
+# eatTools 0.7.4
 
-* new function `rbind_common()` rbind a list of data.frames and selects only common columns
+* new function `rbind_common()` rbinds a list of data.frames and selects only common columns
 * bug fix in `mergeAttr()` when variables have more than one class
 * `mergeAttr()` gives warning if merging variables have NAs
 * optional colnames argument in `halveString()` function 
