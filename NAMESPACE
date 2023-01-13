@@ -1,3 +1,4 @@
+S3method(asNumericIfPossible, default)
 S3method(asNumericIfPossible, logical)
 S3method(asNumericIfPossible, numeric)
 S3method(asNumericIfPossible, character)

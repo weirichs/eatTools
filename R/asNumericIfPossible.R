@@ -3,7 +3,7 @@ asNumericIfPossible <- function(x, maintain.factor.scores = TRUE, force.string =
 }
 
 asNumericIfPossible.default <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {
-  stop("Unknown input type or class. Input has to be of type numeric, factor, character or data.frame.")
+  stop("Unknown input type or class. Input has to be of class numeric, factor, character or data.frame. If you have used a specific package to import data (e.g., haven) consider transforming your data to factor or character beforehand.")
 }
 
 asNumericIfPossible.numeric <- function(x, maintain.factor.scores = TRUE, force.string = TRUE, transform.factors = TRUE, varName = NULL) {

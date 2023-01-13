@@ -7,6 +7,13 @@ char_mixed <- c("la", "le", "1")
 fac_num <- as.factor(char_num)
 fac_mixed <- as.factor(char_mixed)
 fac_char <- as.factor(char_char)
+vec_test <- 1:3
+class(vec_test) <- "test"
+
+test_that("Default", {
+  expect_error(asNumericIfPossible(vec_test),
+               "Unknown input type or class. Input has to be of class numeric, factor, character or data.frame. If you have used a specific package to import data (e.g., haven) consider transforming your data to factor or character beforehand.", fixed = TRUE)
+})
 
 test_that("Numeric vector", {
   expect_equal(asNumericIfPossible(num), num)
