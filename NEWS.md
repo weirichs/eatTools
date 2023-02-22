@@ -1,3 +1,5 @@
+* adapt `halveString()` for patterns with more than 1 character
+
 # eatTools 0.7.4
 
 * new function `rbind_common()` rbinds a list of data.frames and selects only common columns

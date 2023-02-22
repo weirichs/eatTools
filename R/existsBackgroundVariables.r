@@ -15,6 +15,7 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
                   			varColumn <- match(variable, colnames(dat))
                  	   }
                      if(is.numeric(variable))   {
+                        if ( !all(round(variable) == variable)) {stop(paste0("If provided as column number, variable '",variable,"' must be integer."))}
                         if(ncol(dat) < max(variable) ) {stop("Designated column number exceeds number of columns in dataset.")}
                         varColumn <- variable
                      }
