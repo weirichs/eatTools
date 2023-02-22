@@ -28,7 +28,7 @@ Optional: character vector of length 2 to specify the colnames of the resulting 
 }
 }
 \value{
-A data.frame with two columns
+A matrix with two columns
 }
 \examples{
 str <- c("John_Bolton", "Richard_Milhouse_Nixon", "Madonna")

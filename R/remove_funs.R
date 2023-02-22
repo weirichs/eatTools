@@ -32,12 +32,12 @@ halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )
   if(first)  {
     ret <- as.matrix(data.frame(X1 = unlist(lapply(allSplit, FUN = function (l) { l[1]})),
                                 X2 = unlist(lapply(1:length(allSplit), FUN = function (l) {
-                                  if(length(allSplit[[l]]) == 1 )  { ret <- NA } else { ret <- substring(string[l], first = nchar(allSplit[[l]][1])+2 ) }
+                                  if(length(allSplit[[l]]) == 1 )  { ret <- NA } else {ret <- substring(string[l], first = nchar(allSplit[[l]][1])+1+nchar(pattern) ) }
                                   return(ret)})), stringsAsFactors = FALSE))
   }  else  {
     ret <- as.matrix(data.frame(X1 = unlist(lapply(1:length(allSplit), FUN = function (l) {
                                      if (length(allSplit[[l]]) > 1 ) {
-                                         val <- substr(string[l],1,nchar(string[l])-(nchar(allSplit[[l]][length(allSplit[[l]])])+1))
+                                         val <- substr(string[l],1,nchar(string[l])-(nchar(allSplit[[l]][length(allSplit[[l]])])+nchar(pattern)))
                                      }  else  {
                                          val <- string[l]
                                      }
