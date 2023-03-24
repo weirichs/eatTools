@@ -1,6 +1,7 @@
 # eatTools 0.7.4.9000
 
 * adapt `halveString()` for patterns with more than 1 character
+* add messages to `mergeAttr()` if combinations of merge variables from one data set do not occur in the other data set
 
 # eatTools 0.7.4
 
