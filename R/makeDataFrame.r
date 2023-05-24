@@ -10,6 +10,7 @@ makeDataFrame <- function(dat, name = "dat", minRow = 1, onlyWarn=TRUE) {
     if(nrow(dat) < minRow) {
         if(onlyWarn) {
            warning("'",name,"' has only ",nrow(dat), " rows.")
+        }
         else  {
            stop("'",name,"' has only ",nrow(dat), " rows.")
         }
