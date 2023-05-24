@@ -28,11 +28,13 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
              }
              if ("unique" %in% verb) {if ( length(xby) != length(unique(xby))) { message("Merging levels are not unique in data set '", xName, "'.")}}
              if ("unique" %in% verb) {if ( length(yby) != length(unique(yby))) { message("Merging levels are not unique in data set '", yName, "'.")}}
-     ### pruefen, ob die Kombinationen der levels der by-variablen in dem anderen datensatz enthalten sind
-             nix   <- setdiff(yby, xby)
-             if ("match" %in% verb && length(nix)>0 ) {message(paste0(length(nix), " of ",length(unique(yby)), " " , unitName,"(s) of merging variable combination '",paste(byvars[,"y"], collapse= "'+'"),"' from data set '",yName,"' not included in data set '",xName,"'."))}
-             niy   <- setdiff(xby, yby)
-             if ("match" %in% verb && length(niy)>0 ) {message(paste0(length(niy), " of ",length(unique(xby)), " " , unitName,"(s) of merging variable combination '",paste(byvars[,"x"], collapse= "'+'"),"' from data set '",xName,"' not included in data set '",yName,"'."))}
+     ### pruefen, ob die Kombinationen der levels der by-variablen in dem anderen datensatz enthalten sind ... das natuerlich nur, wenn es mehr als eine by-variable gibt
+             if ( nrow(byvars)>1) {
+                   nix   <- setdiff(yby, xby)
+                   if ("match" %in% verb && length(nix)>0 ) {message(paste0(length(nix), " of ",length(unique(yby)), " " , unitName,"(s) of merging variable combination '",paste(byvars[,"y"], collapse= "'+'"),"' from data set '",yName,"' not included in data set '",xName,"'."))}
+                   niy   <- setdiff(xby, yby)
+                   if ("match" %in% verb && length(niy)>0 ) {message(paste0(length(niy), " of ",length(unique(xby)), " " , unitName,"(s) of merging variable combination '",paste(byvars[,"x"], collapse= "'+'"),"' from data set '",xName,"' not included in data set '",yName,"'."))}
+             }
      ### von allen by-variablen die Klassen homogenisieren, falls gewuenscht
              for ( i in 1:nrow(byvars) ) {
                    if ( length(unique(unlist(byvars[i,c("clx", "cly")]))) > 1 ) {

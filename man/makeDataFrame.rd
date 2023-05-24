@@ -6,13 +6,20 @@
 which expected to be \code{data.frames} for further processing are converted to data.frame when their class
 is \code{tbl}, for example.}
 \usage{
-makeDataFrame (dat, name = "dat")}
+makeDataFrame (dat, name = "dat", minRow = 1, onlyWarn=TRUE)}
 \arguments{
   \item{dat}{
-An object which is intended to be a \code{data.frame}.
+An object which is intended to be a data.frame.
 }
   \item{name}{
-Optional: name of \code{data.frame} for use in messages
+Optional: name of data.frame for use in messages
+}
+  \item{minRow}{
+When used internally, function report when data.frame has less rows than specified in \code{minRow}.
+}
+  \item{onlyWarn}{
+If \code{TRUE}, function warns if data.frame has less rows than specified in \code{minRow}.
+Otherwise, functions aborts with an error message.
 }
 }
 \value{

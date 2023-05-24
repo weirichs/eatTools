@@ -10,7 +10,7 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
                      if(is.character(variable))  {
                   	 	  misVariable <- setdiff(variable, colnames(dat))
                   			if(length(misVariable)>0) {
-                           stop("Can't find ",length(misVariable)," variable(s) in dataset: '", paste( misVariable,collapse="', '"))
+                           stop("Can't find ",length(misVariable)," variable(s) in dataset: '", paste( misVariable,collapse="', '"), "'")
                         }
                   			varColumn <- match(variable, colnames(dat))
                  	   }
