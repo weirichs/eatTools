@@ -27,6 +27,7 @@ export(rbind_common)
 export(catch_asNumericIfPossible)
 export(do_call_rbind_withName)
 export(readMultisep)
+export(seq2)
 
 # eatRep usage
 export(existsBackgroundVariables)
