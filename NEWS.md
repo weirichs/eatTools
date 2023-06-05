@@ -1,5 +1,6 @@
 # eatTools 0.7.4.9000
 
+* added `seq2()` for sequence generation
 * adapt `halveString()` for patterns with more than 1 character
 * add messages to `mergeAttr()` if combinations of merge variables from one data set do not occur in the other data set
 * `makeDataFrame()` gives warning/errors if data.frame has less rows than expected at the least.
