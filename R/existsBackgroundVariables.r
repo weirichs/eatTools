@@ -1,4 +1,4 @@
-existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
+existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE, stopIfMissingOnVars = NULL )  {
            if(!is.null(variable[1]))  {
                if ( !is.na(variable[1])) {
                      if ( length(variable) != length(unique(variable)) ) {stop("Variable definition is not unique.")}
@@ -10,7 +10,7 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
                      if(is.character(variable))  {
                   	 	  misVariable <- setdiff(variable, colnames(dat))
                   			if(length(misVariable)>0) {
-                           stop("Can't find ",length(misVariable)," variable(s) in dataset: '", paste( misVariable,collapse="', '"), "'")
+                           stop(paste0("Can't find ",length(misVariable)," variable(s) in dataset: '", paste( misVariable,collapse="', '"), "'"))
                         }
                   			varColumn <- match(variable, colnames(dat))
                  	   }
@@ -19,7 +19,7 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
                         if(ncol(dat) < max(variable) ) {stop("Designated column number exceeds number of columns in dataset.")}
                         varColumn <- variable
                      }
-                     if (warnIfMissing) { checkMis(dat, varColumn) }
+                     if (warnIfMissing) { checkMis(dat, varColumn, stopIfMissingOnVars=stopIfMissingOnVars) }
                      return(colnames(dat)[varColumn])
               }  else {
                      return(NULL)
@@ -28,7 +28,14 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE )  {
                return(NULL)
             } }
 
-checkMis  <- function (dat, varColumn) {
+checkMis  <- function (dat, varColumn, stopIfMissingOnVars) {
              lapply(varColumn, FUN = function ( col ) {
                  isna <- length(which(is.na(dat[,col])))
-                 if (isna>0) {warning(paste0("Found ",isna," missing values in variable '",colnames(dat)[col],"'.") )} }) }
+                 if (isna>0) {
+                     if ( colnames(dat)[col] %in% stopIfMissingOnVars) {
+                        stop(paste0("Found ",isna," missing values in variable '",colnames(dat)[col],"'.") )
+                     } else {
+                        warning(paste0("Found ",isna," missing values in variable '",colnames(dat)[col],"'.") )
+                     }
+                 }
+             })}
