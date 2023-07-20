@@ -33,9 +33,9 @@ checkMis  <- function (dat, varColumn, stopIfMissingOnVars) {
                  isna <- length(which(is.na(dat[,col])))
                  if (isna>0) {
                      if ( colnames(dat)[col] %in% stopIfMissingOnVars) {
-                        stop(paste0("Found ",isna," missing values in variable '",colnames(dat)[col],"'.") )
+                        stop("Found ",isna," missing values in variable '",colnames(dat)[col],"'.")
                      } else {
-                        warning(paste0("Found ",isna," missing values in variable '",colnames(dat)[col],"'.") )
+                        warning("Found ",isna," missing values in variable '",colnames(dat)[col],"'.")
                      }
                  }
              })}
