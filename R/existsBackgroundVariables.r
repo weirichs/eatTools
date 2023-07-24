@@ -1,32 +1,27 @@
 existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE, stopIfMissingOnVars = NULL )  {
-           if(!is.null(variable[1]))  {
-               if ( !is.na(variable[1])) {
-                     if ( length(variable) != length(unique(variable)) ) {stop("Variable definition is not unique.")}
-                     if(is.factor(variable))    {
-      							    v  <- as.character(variable)
-      							    rN <- removeNumeric(v)
-      							    if(all (nchar(rN) == 0 ) ) { variable <- as.numeric(v) } else { variable <- as.character(variable)}
-             			   }
-                     if(is.character(variable))  {
-                  	 	  misVariable <- setdiff(variable, colnames(dat))
-                  			if(length(misVariable)>0) {
-                           stop(paste0("Can't find ",length(misVariable)," variable(s) in dataset: '", paste( misVariable,collapse="', '"), "'"))
-                        }
-                  			varColumn <- match(variable, colnames(dat))
-                 	   }
-                     if(is.numeric(variable))   {
-                        if ( !all(round(variable) == variable)) {stop("If provided as column number, variable '",variable,"' must be integer.")}
-                        if(ncol(dat) < max(variable) ) {stop("Designated column number exceeds number of columns in dataset.")}
-                        varColumn <- variable
-                     }
-                     if (warnIfMissing) { checkMis(dat, varColumn, stopIfMissingOnVars=stopIfMissingOnVars) }
-                     return(colnames(dat)[varColumn])
-              }  else {
-                     return(NULL)
-              }
-            }  else {
-               return(NULL)
-            } }
+           if(is.null(variable))  {return(NULL)}
+           if(!is.vector(variable)) {stop("'variable' must be a numeric or character vector.")}
+           if(any(is.na(variable))) {stop("'variable' must not contain missing values (i.e., NA values).")}
+           if(length(variable) != length(unique(variable)) ) {stop("Variable definition is not unique.")}
+           if(is.factor(variable))    {
+	             v  <- as.character(variable)
+      				 rN <- removeNumeric(v)
+      				 if(all (nchar(rN) == 0 ) ) { variable <- as.numeric(v) } else { variable <- as.character(variable)}
+   			   }
+           if(is.character(variable))  {
+            	 misVariable <- setdiff(variable, colnames(dat))
+               if(length(misVariable)>0) {
+                  stop(paste0("Can't find ",length(misVariable)," variable(s) in dataset: '", paste( misVariable,collapse="', '"), "'"))
+               }
+               varColumn <- match(variable, colnames(dat))
+           }
+           if(is.numeric(variable))   {
+               if ( !all(round(variable) == variable)) {stop("If provided as column number, variable '",variable,"' must be integer.")}
+               if(ncol(dat) < max(variable) ) {stop("Designated column number exceeds number of columns in dataset.")}
+               varColumn <- variable
+           }
+           if (warnIfMissing) { checkMis(dat, varColumn, stopIfMissingOnVars=stopIfMissingOnVars) }
+           return(colnames(dat)[varColumn]) }
 
 checkMis  <- function (dat, varColumn, stopIfMissingOnVars) {
              lapply(varColumn, FUN = function ( col ) {
