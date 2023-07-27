@@ -18,9 +18,8 @@ column number or variable name
 Logical: gives a warning if the variable contains missing values
 }
   \item{stopIfMissingOnVars}{
-Optional: Applies only if \code{warnIfMissing = TRUE}. Character vectors with
-variable names where missings are strictly forbidden. If missings occur on these
-variables, function stops with an error instead of simply producing a warning.
+Character vector of variable names. Only for these variables, warnings as raised
+through \code{warnIfMissing = TRUE} are turned into errors.
 }
 }
 \value{
