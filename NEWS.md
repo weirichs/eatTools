@@ -1,5 +1,6 @@
 # eatTools 0.7.4.9000
 
+* new function `makeTria()` for internal use in `eatTools` and `eatModel` reshapes covariance/correlation matrices into triangular shape
 * adapt `halveString()` for patterns with more than 1 character
 * add messages to `mergeAttr()` if combinations of merge variables from one data set do not occur in the other data set
 * `makeDataFrame()` gives warning/errors if data.frame has less rows than expected at the least.
