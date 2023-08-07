@@ -2,7 +2,7 @@
 \alias{makeTria}
 \title{Reshapes an unordert covariance/correlation matrix into triangular shape}
 \description{Function is mainly used for \code{\link{wtdHetcor}} and
-\code{\link[eatModel]{q3FromRes}} functions in the eatModel package:
+\code{q3FromRes} functions in the eatModel package:
 Triangular covariance/correlation matrices are tidily reshaped.}
 \usage{
 makeTria (dfr)}
