@@ -1,7 +1,9 @@
 
-insert.col <- function ( dat , toinsert , after ) {
+insert.col <- function (dat, toinsert, after) {
+  if(!is.data.frame(dat)) {
+    stop("Argument dat must be a data.frame.")
+  }
 
-  stopifnot ( is.data.frame ( dat ) )
   if ( is.character ( toinsert ) ) toinsert <- which ( colnames ( dat ) %in% toinsert )
   if ( is.character ( after ) ) after <- which ( colnames ( dat ) %in% after )
   stopifnot ( is.numeric ( toinsert ) )

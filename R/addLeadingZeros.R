@@ -1,7 +1,13 @@
 
 addLeadingZerosToCharInt <- function(dat) {
-  stopifnot(is.data.frame(dat))
-  stopifnot(all(sapply(dat, is.character )))
+  if(!is.data.frame(dat)) {
+    stop("Argument dat must be a data.frame.")
+  }
+  is_character <- sapply(dat, is.character )
+  if(!all(is_character)) {
+    stop("All columns in dat need to be of class character.")
+  }
+
   pattern <- "(^(-|\\+)?\\d+$)|(^(-|\\+)?(\\d*)e(-|\\+)?(\\d+)$)"
   elToCorrect <- lapply(dat,function(hh) grepl(pattern, hh)|is.na(hh))
   isna <- lapply(dat,function(hh) is.na(hh))

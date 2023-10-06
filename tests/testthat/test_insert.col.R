@@ -1,7 +1,8 @@
 
 
 test_that("Errors", {
-  expect_error(insert.col(1), "is.data.frame(dat) is not TRUE", fixed = TRUE)
+  expect_error(insert.col(1),
+               "Argument dat must be a data.frame.")
 })
 
 ###
