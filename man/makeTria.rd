@@ -1,9 +1,9 @@
 \name{makeTria}
 \alias{makeTria}
 \title{Reshapes an unordered covariance/correlation matrix into triangular shape}
-\description{Function is mainly used for \code{wtdHetcor} function from the
+\description{Function is mainly used for \code{eatAnalysis::wtdHetcor} function from the
 \code{eatAnalysis} package (\url{https://github.com/beckerbenj/eatAnalysis/})
-and the \code{\link[eatModel]{q3FromRes}} function in the \code{eatModel}
+and the \code{eatModel::q3FromRes} function in the \code{eatModel}
 package: Triangular covariance/correlation matrices are tidily reshaped.}
 \usage{
 makeTria (dfr)}
