@@ -1,8 +1,6 @@
 
 insert.col <- function (dat, toinsert, after) {
-  if(!is.data.frame(dat)) {
-    stop("Argument dat must be a data.frame.")
-  }
+  dat <- makeDataFrame(dat)
 
   if ( is.character ( toinsert ) ) toinsert <- which ( colnames ( dat ) %in% toinsert )
   if ( is.character ( after ) ) after <- which ( colnames ( dat ) %in% after )
