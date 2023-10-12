@@ -1,9 +1,9 @@
 \name{insert.col}
 \alias{insert.col}
-\title{Insert Columns into a \column{data.frame} at a Specific Position
+\title{Insert Columns into a \code{data.frame} at a Specific Position
 }
 \description{
-  Insert columns into a \column{data.frame} at a specific position. Transforms \code{tibble} or \code{data.table} to \code{data.frame}.
+  Insert columns into a \code{data.frame} at a specific position. Transforms \code{tibble} or \code{data.table} to \code{data.frame}.
 }
 \usage{
   insert.col(dat, toinsert, after)
