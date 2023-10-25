@@ -9,8 +9,10 @@ dat <- set.col.type(dat)
 addLeadingZerosToCharInt(dat)
 
 test_that("Errors", {
-  expect_error(addLeadingZerosToCharInt(1), "is.data.frame(dat) is not TRUE", fixed = TRUE)
-  expect_error(addLeadingZerosToCharInt(mtcars), "all(sapply(dat, is.character)) is not TRUE", fixed = TRUE)
+  expect_error(addLeadingZerosToCharInt(1),
+               "Argument dat must be a data.frame.")
+  expect_error(addLeadingZerosToCharInt(mtcars),
+               "All columns in dat need to be of class character.")
 })
 
 test_that("Factor vector drop levels", {

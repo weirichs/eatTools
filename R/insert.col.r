@@ -1,7 +1,7 @@
 
-insert.col <- function ( dat , toinsert , after ) {
+insert.col <- function (dat, toinsert, after) {
+  dat <- makeDataFrame(dat)
 
-  stopifnot ( is.data.frame ( dat ) )
   if ( is.character ( toinsert ) ) toinsert <- which ( colnames ( dat ) %in% toinsert )
   if ( is.character ( after ) ) after <- which ( colnames ( dat ) %in% after )
   stopifnot ( is.numeric ( toinsert ) )

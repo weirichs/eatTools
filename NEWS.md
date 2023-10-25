@@ -1,5 +1,6 @@
 # eatTools 0.7.4.9000
 
+* internal fixes to tests (removed language dependency)
 * new function `makeTria()` for internal use in `eatTools` and `eatModel` reshapes covariance/correlation matrices into triangular shape
 * added `seq2()` for sequence generation
 * adapt `halveString()` for patterns with more than 1 character

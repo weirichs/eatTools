@@ -46,8 +46,5 @@ test_that("errors", {
                "'df_list' must be a list of data.frames.")
 
   df_list[[2]] <- df_list[[2]][, 1, drop = FALSE]
-
-  expect_error(do_call_rbind_withName(df_list, colName = "variable"),
-               "numbers of columns of arguments do not match")
-
+  expect_error(do_call_rbind_withName(df_list, colName = "variable"))
 })
