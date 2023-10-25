@@ -4,6 +4,7 @@
 * added `seq2()` for sequence generation
 * adapt `halveString()` for patterns with more than 1 character
 * add messages to `mergeAttr()` if combinations of merge variables from one data set do not occur in the other data set
+* add messages to `mergeAttr()` if the two data.frames intended to merge contain additional common variables (beyond thy by-variables)
 * `makeDataFrame()` gives warning/errors if data.frame has less rows than expected at the least.
 * `existsBackgroundVariables()` gives warning/errors if variables have missing values, depending on how critical the missing values are considered to be
 

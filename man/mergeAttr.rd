@@ -15,8 +15,7 @@ mergeAttr(x, y, by = intersect(names(x), names(y)),
       by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
       sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE,
       homoClass = TRUE, unitName = "unit", xName = "x", yName = "y",
-      verbose = c("match", "unique", "class", "dataframe"))}
-%- maybe also 'usage' for other objects documented here.
+      verbose = c("match", "unique", "class", "dataframe", "common"))}
 \arguments{
   \item{x}{
 %%     ~~Describe \code{file} here~~
@@ -97,7 +96,8 @@ relevant if \code{mergeAttr} is called from other functions.
 Optional: Choose whether messages concerning missing levels in by-variables should be printed
 on console (\code{"match"}), or messages concerning uniqueness of by-variables (\code{"unique"}),
 or messages concerning different classes of by-variables (\code{"class"}), or messages concerning
-appropriate class (\code{data.frame}) of \code{x} and \code{y} (\code{"dataframe"}). Multiple choices
+appropriate class (\code{data.frame}) of \code{x} and \code{y} (\code{"dataframe"}), or messages
+concerning additional common variables (except by-variables; \code{"common"})). Multiple choices
 are possible, e.g. \code{verbose = c("match", "class")}. If \code{verbose = TRUE}, all
 messages are printed, if \code{verbose = FALSE}, no messages are printed at all. The default
 is equivalent to \code{verbose = TRUE}.
