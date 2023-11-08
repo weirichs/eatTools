@@ -4,13 +4,15 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
      ### das muessen data.frames sein
              x     <- makeDataFrame(x)
              y     <- makeDataFrame(y)
-             byvars<- data.frame ( x=by.x, y=by.y, clx = sapply(x[,by.x,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), cly = sapply(y[,by.y,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), stringsAsFactors = FALSE)
+             byvars<- data.frame ( x=by.x, y=by.y,
+                clx = sapply(x[,by.x,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}),
+                cly = sapply(y[,by.y,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), stringsAsFactors = FALSE)
      ### schauen, ob zusaetzlich zu den by-Variablen noch weitere gemeinsame Variablen in den Datensaetzen existieren
      ### die kriegen dann ja das suffix. Fall ja, message ausgeben
              comm  <- intersect(colnames(x), colnames(y))
-             commby<- setdiff(comm, unique(unlist(byvars[,1:2])))
-             if(length(commby)>0) {
-                if ("match" %in% verb) {
+             if ("common" %in% verb) {
+                commby<- setdiff(comm, unique(unlist(byvars[,1:2])))
+                if(length(commby)>0) {
                     message("Additional common variables (beyond the 'by'-variables) found: '",
                        paste(commby, collapse="', '"), "'. Add suffixes '",paste(suffixes, collapse="', '"),
                        "' to these variables in the result data.frame.")
