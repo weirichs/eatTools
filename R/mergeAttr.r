@@ -1,10 +1,21 @@
-mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE, homoClass = TRUE, unitName = "unit", xName = "x", yName = "y", verbose = c("match", "unique", "class", "dataframe")) {
+mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE, homoClass = TRUE, unitName = "unit", xName = "x", yName = "y", verbose = c("match", "unique", "class", "dataframe", "common")) {
      ### verbose setzen
-             verb  <- setVerbose(verbose, choices = c("match", "unique", "class", "dataframe"))
+             verb  <- setVerbose(verbose, choices = c("match", "unique", "class", "dataframe", "common"))
      ### das muessen data.frames sein
-             x <- makeDataFrame(x)
-             y <- makeDataFrame(y)
+             x     <- makeDataFrame(x)
+             y     <- makeDataFrame(y)
              byvars<- data.frame ( x=by.x, y=by.y, clx = sapply(x[,by.x,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), cly = sapply(y[,by.y,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), stringsAsFactors = FALSE)
+     ### schauen, ob zusaetzlich zu den by-Variablen noch weitere gemeinsame Variablen in den Datensaetzen existieren
+     ### die kriegen dann ja das suffix. Fall ja, message ausgeben
+             comm  <- intersect(colnames(x), colnames(y))
+             commby<- setdiff(comm, unique(unlist(byvars[,1:2])))
+             if(length(commby)>0) {
+                if ("match" %in% verb) {
+                    message("Additional common variables (beyond the 'by'-variables) found: '",
+                       paste(commby, collapse="', '"), "'. Add suffixes '",paste(suffixes, collapse="', '"),
+                       "' to these variables in the result data.frame.")
+                }
+             }
      ### missings auf merge-Variablen?
              foox  <- lapply(byvars[,"x"], FUN = function (vx) { if ( length(which(is.na(x[,vx]))) > 0) {warning(paste0("Merging variable '",vx,"' in dataset 'x' contains ",length(which(is.na(x[,vx])))," missing values."))}})
              fooy  <- lapply(byvars[,"y"], FUN = function (vy) { if ( length(which(is.na(y[,vy]))) > 0) {warning(paste0("Merging variable '",vy,"' in dataset 'y' contains ",length(which(is.na(y[,vy])))," missing values."))}})

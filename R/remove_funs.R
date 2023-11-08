@@ -25,26 +25,19 @@ gsubAll <- function(string, old, new) {
 
 
 ### splits the string only on the first or the last occurrence of the separator
-### uses no longer package "stringr"
 halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )  {
   if( !(inherits(colnames, "character") && length(colnames)==2 && length(unique(colnames)) == 2 )) {stop("'colnames' must be a unique character vector of length 2.")}
-  allSplit<- strsplit(x = string, split = pattern)
-  if(first)  {
-    ret <- as.matrix(data.frame(X1 = unlist(lapply(allSplit, FUN = function (l) { l[1]})),
-                                X2 = unlist(lapply(1:length(allSplit), FUN = function (l) {
-                                  if(length(allSplit[[l]]) == 1 )  { ret <- NA } else {ret <- substring(string[l], first = nchar(allSplit[[l]][1])+1+nchar(pattern) ) }
-                                  return(ret)})), stringsAsFactors = FALSE))
-  }  else  {
-    ret <- as.matrix(data.frame(X1 = unlist(lapply(1:length(allSplit), FUN = function (l) {
-                                     if (length(allSplit[[l]]) > 1 ) {
-                                         val <- substr(string[l],1,nchar(string[l])-(nchar(allSplit[[l]][length(allSplit[[l]])])+nchar(pattern)))
-                                     }  else  {
-                                         val <- string[l]
-                                     }
-                                     return(val)})),
-                                X2 = unlist(lapply(allSplit, FUN = function (l) {
-                                  if(length(l)==1) { ret <- NA}  else { ret <- l[length(l)]}
-                                  return(ret)})), stringsAsFactors = FALSE))
+  if(!first) {
+     front<- sub(paste0(pattern, "[^",pattern,"]+$"), "", string)
+     back <- sub(paste0(".*",pattern,"|^[^",pattern,"]*$"), "", string)
+     back[back==""] <- NA
   }
-  if(!all(colnames == colnames(ret))) {colnames(ret) <- colnames}
+  if(first) {
+     front<- gsub(paste0(pattern, ".*"),"",string)
+     back <- sub(paste0("^([^",pattern,"]+)",pattern), "", string)
+     len1 <- which(unlist(lapply(strsplit(x=string, split=pattern), length))==1)
+     if(length(len1)>0) {back[len1] <- NA}
+  }
+  ret <- matrix(c(front, back), ncol=2, dimnames=list(NULL, colnames))
   return(ret)}
+
