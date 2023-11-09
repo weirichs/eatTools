@@ -1,9 +1,9 @@
 \name{halveString}
 \alias{halveString}
 \title{Split string exactly in two parts}
-\description{\code{strsplit} splits a string according to a specific sign. The number
-of occurrences of the splitting sign defines the number of splits. \code{halveString}
-allows to split the string in only two parts, no matter how often the splitting sign occurs.}
+\description{\code{strsplit} splits a string according to a specific regular expression. The number
+of occurrences of the splitting regular expression defines the number of splits. \code{halveString}
+allows to split the string in only two parts, no matter how often the splitting regular expression occurs.}
 \usage{
 halveString (string, pattern, first = TRUE , colnames=c("X1", "X2"))
 }
@@ -33,5 +33,5 @@ halveString(str, pattern = "_", first=FALSE)
 
 # split patterns with more than one character and regular expression
 str2 <- c("John._.Bolton", "Richard._.Milhouse._.Nixon", "Madonna")
-halveString(str2, pattern = "\\._\\.", first=FALSE)
+halveString(str2, pattern = encodeString("._."), first=FALSE)
 }
