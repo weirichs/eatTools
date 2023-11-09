@@ -34,3 +34,10 @@ test_that("adapt messages", {
   expect_equal(messages[3], "Merging levels are not unique in data set 'school questionnaire'.\n")
 })
 
+
+test_that("messages2", {
+  df2[,"happy"] <- c(FALSE, FALSE, TRUE)
+  messages <- capture_messages(out <- mergeAttr(df1, df2, all = TRUE,
+     setAttr=FALSE, by="id", verbose="common", suffixes = c("_first", "_second")))
+  expect_equal(messages, "Additional common variables (beyond the 'by'-variables) found: 'happy'. Add suffixes '_first', '_second' to these variables in the result data.frame.\n")
+})

@@ -1,25 +1,20 @@
 \name{halveString}
 \alias{halveString}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Split string exactly in two parts}
-\description{\code{strsplit} splits a string according to a specific sign. The number
-of occurrences of the splitting sign defines the number of splits. \code{halveString}
-allows to split the string in only two parts, no matter how often the splitting sign occurs.}
+\description{\code{strsplit} splits a string according to a specific regular expression. The number
+of occurrences of the splitting regular expression defines the number of splits. \code{halveString}
+allows to split the string in only two parts, no matter how often the splitting regular expression occurs.}
 \usage{
 halveString (string, pattern, first = TRUE , colnames=c("X1", "X2"))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{string}{
-%%     ~~Describe \code{file} here~~
 A character vector.
 }
   \item{pattern}{
-%%     ~~Describe \code{file} here~~
 character vector (or object which can be coerced to such) to use for splitting.
 }
   \item{first}{
-%%     ~~Describe \code{file} here~~
 Logical: Relevant if the pattern occurs more than one time in the string. Defines whether
 the first (default) or last occurrence is used for splitting.
 }
@@ -31,8 +26,12 @@ Optional: character vector of length 2 to specify the colnames of the resulting 
 A matrix with two columns
 }
 \examples{
-str <- c("John_Bolton", "Richard_Milhouse_Nixon", "Madonna")
-strsplit(str, split = "_")
-halveString(str, pattern = "_")
-halveString(str, pattern = "_", first=FALSE)
+str1 <- c("John_Bolton", "Richard_Milhouse_Nixon", "Madonna")
+strsplit(str1, split = "_")
+halveString(str1, pattern = "_")
+halveString(str1, pattern = "_", first=FALSE)
+
+# split patterns with more than one character and regular expression
+str2 <- c("John._.Bolton", "Richard._.Milhouse._.Nixon", "Madonna")
+halveString(str2, pattern = encodeString("._."), first=FALSE)
 }
