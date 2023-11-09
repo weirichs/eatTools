@@ -27,9 +27,9 @@ A matrix with two columns
 }
 \examples{
 str1 <- c("John_Bolton", "Richard_Milhouse_Nixon", "Madonna")
-strsplit(str, split = "_")
-halveString(str, pattern = "_")
-halveString(str, pattern = "_", first=FALSE)
+strsplit(str1, split = "_")
+halveString(str1, pattern = "_")
+halveString(str1, pattern = "_", first=FALSE)
 
 # split patterns with more than one character and regular expression
 str2 <- c("John._.Bolton", "Richard._.Milhouse._.Nixon", "Madonna")
