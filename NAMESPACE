@@ -47,6 +47,7 @@ export(wtdVar)
 export(na_omit_selection)
 export(print_and_capture)
 export(makeTria)
+export(buildExpr)
 
 ### imports
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment, cor)
