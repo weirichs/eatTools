@@ -46,4 +46,21 @@ test_that("halveString2", {
 })
 
 
+paths <- c("BB/DHW/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__DHW__ANCHOR.pvl", "BB/GL/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GL__ANCHOR.pvl",  "BB/GM/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GM__ANCHOR.pvl")
+test_that("halveString3", {
+  d1  <- halveString(paths, pattern = "__", colnames= c("a", "b"))
+  expect_equal(d1[,"b"], c("DHW__ANCHOR.pvl", "GL__ANCHOR.pvl",  "GM__ANCHOR.pvl"))
+  expect_equal(d1[,"a"], c("BB/DHW/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB", "BB/GL/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB", "BB/GM/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB"))
+})
 
+test_that("halveString4", {
+  d1  <- halveString(paths, pattern = "__", first=FALSE, colnames= c("a", "b"))
+  expect_equal(d1[,"b"], rep("ANCHOR.pvl", 3))
+  expect_equal(d1[,"a"], c("BB/DHW/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__DHW", "BB/GL/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GL","BB/GM/LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GM"))
+})
+
+test_that("halveString5", {
+  d1  <- halveString(paths, pattern = "/", first=FALSE, colnames= c("a", "b"))
+  expect_equal(d1[,"b"], c("LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__DHW__ANCHOR.pvl", "LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GL__ANCHOR.pvl",  "LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GM__ANCHOR.pvl"))
+  expect_equal(d1[,"a"], c("BB/DHW", "BB/GL", "BB/GM" ))
+})
