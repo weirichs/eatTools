@@ -31,13 +31,11 @@ halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )
      front<- sub(paste0(pattern, "[^",pattern,"]+$"), "", string)
      back <- sub(paste0(".*",pattern,"|^[^",pattern,"]*$"), "", string)
      back[back==""] <- NA
+     ret <- matrix(c(front, back), ncol=2, dimnames=list(NULL, colnames))
   }
   if(first) {
-     front<- gsub(paste0(pattern, ".*"),"",string)
-     back <- sub(paste0("^([^",pattern,"]+)",pattern), "", string)
-     len1 <- which(unlist(lapply(strsplit(x=string, split=pattern), length))==1)
-     if(length(len1)>0) {back[len1] <- NA}
+     ret <- rbind_fill_vector(regmatches(string, regexpr(pattern, string), invert = TRUE))
+     colnames(ret) <- colnames
   }
-  ret <- matrix(c(front, back), ncol=2, dimnames=list(NULL, colnames))
   return(ret)}
 

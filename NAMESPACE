@@ -22,6 +22,7 @@ export(pwc)
 export(mergeAttr)
 export(makeDataFrame)
 export(rbind_common)
+export(rbind_fill_vector)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
@@ -47,6 +48,7 @@ export(wtdVar)
 export(na_omit_selection)
 export(print_and_capture)
 export(makeTria)
+export(`%$$%`)
 
 ### imports
 importFrom("stats", weighted.mean, median, na.omit, sd, var, t.test, contr.treatment, cor)

@@ -17,3 +17,15 @@ rbind_common <- function(...) {
       dat <- do.call(rbind, lapply(dfs, `[`, cols))
       return(dat)}
 
+rbind_fill_vector <- function (x) {
+     ### dimensionen muessen alle NULL sein
+       dims <- unlist(lapply(x, FUN = function (y) {is.null(dim(y))}))
+       if(!all(dims)) {warning("All elements of 'x' have to be nondimensional.")}
+     ### maximale laenge angeben und fehlende/leere mit NAs auffuellen
+       maxle<- max(sapply(x, length))
+       xa   <- lapply(x, FUN = function (y) {
+               if ( length(y) == 0)    {y <- rep(NA, maxle)}
+               if ( length(y) < maxle) {y <- c(y, rep(NA, times = maxle - length(y)))}
+               return(y)})
+       xbind<- do.call("rbind",xa)
+       return(xbind)}
