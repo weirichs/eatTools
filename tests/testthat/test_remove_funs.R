@@ -29,7 +29,7 @@ test_that("halveString1", {
   expect_equal(dim(d1), c(2,2))
   expect_equal(d1[,1], rep("a", 2))
   expect_equal(d1[,2], c("b__c", "_m___k__"))
-  expect_equal(d2[,1], c("a__b" ,"a___m___k__"))
+  expect_equal(d2[,1], c("a__b" ,"a___m___k"))
   expect_equal(d2[,2], c("c", NA))
 })
 
@@ -41,7 +41,7 @@ test_that("halveString2", {
   expect_equal(dim(d4), c(2,2))
   expect_equal(d3[,1], rep("a", 2))
   expect_equal(d3[,2], c("b.c", "m.k."))
-  expect_equal(d4[,1], c("a.b" ,"a.m.k."))
+  expect_equal(d4[,1], c("a.b" ,"a.m.k"))
   expect_equal(d4[,2], c("c", NA))
 })
 
@@ -64,3 +64,5 @@ test_that("halveString5", {
   expect_equal(d1[,"b"], c("LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__DHW__ANCHOR.pvl", "LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GL__ANCHOR.pvl",  "LV2011_MA_PV-Ziehung_ohneKBimHGM_BB__GM__ANCHOR.pvl"))
   expect_equal(d1[,"a"], c("BB/DHW", "BB/GL", "BB/GM" ))
 })
+
+

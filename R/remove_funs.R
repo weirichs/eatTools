@@ -28,14 +28,17 @@ gsubAll <- function(string, old, new) {
 halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )  {
   if( !(inherits(colnames, "character") && length(colnames)==2 && length(unique(colnames)) == 2 )) {stop("'colnames' must be a unique character vector of length 2.")}
   if(!first) {
-     front<- sub(paste0(pattern, "[^",pattern,"]+$"), "", string)
-     back <- sub(paste0(".*",pattern,"|^[^",pattern,"]*$"), "", string)
-     back[back==""] <- NA
-     ret <- matrix(c(front, back), ncol=2, dimnames=list(NULL, colnames))
+     ret <- rbind_fill_vector(regmatches(stringi::stri_reverse(string), regexpr(pattern, stringi::stri_reverse(string)), invert = TRUE))
+     for ( i in 1:ncol(ret)) {ret[,i] <- stringi::stri_reverse(ret[,i])}
+     na  <- which(apply(ret, MARGIN = 1, FUN = function(y) {any(is.na(y))}))    ### reverse muss wieder rueckgaengig gemacht werden, ausser fuer die NAs
+     ret <- ret[,c(2,1), drop=FALSE]                                            ### die sollen an der Stelle bleiben, wo sie sind
+     if(length(na)>0) {ret[na,] <- ret[na,c(2,1)]}                              ### falls es welche gibt, muss das rueckgaengig wieder rueckgaengig gemacht werden
   }
   if(first) {
      ret <- rbind_fill_vector(regmatches(string, regexpr(pattern, string), invert = TRUE))
-     colnames(ret) <- colnames
   }
+  ret[ret==""] <- NA                                                            ### keine leeren Strings, sondern NAs
+  colnames(ret) <- colnames
   return(ret)}
+
 
