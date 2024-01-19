@@ -3,7 +3,11 @@ Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
 Version: 0.7.5
 Depends: R (>= 4.0.0)
-Imports: stats, data.table, stringi
+Imports: 
+    stats,
+    data.table,
+    stringi,
+    checkmate
 Authors@R: c(
     person("Sebastian", "Weirich", email = "sebastian.weirich@iqb.hu-berlin.de", role = c("aut", "cre")),
     person("Martin", "Hecht", role = c("aut")),
