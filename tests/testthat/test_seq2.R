@@ -19,4 +19,3 @@ test_that("non numeric input for seq2 throws an error", {
   )
 })
 # add check for argument length
-
