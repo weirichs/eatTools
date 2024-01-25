@@ -7,15 +7,25 @@ test_that("seq2", {
 test_that("non numeric input for seq2 throws an error", {
   expect_error(
     seq2("d", "t"),
-    "Must be of type 'number', not 'character'"
+    "Assertion on 'from' failed: Must be of type 'numeric', not 'character'."
   )
   expect_error(
     seq2("d"),
-    "Must be of type 'number', not 'character'"
+    "Assertion on 'from' failed: Must be of type 'numeric', not 'character'."
   )
   expect_error(
-    seq2(TRUE, FALSE),
-    "Must be of type 'number', not 'logical'"
+    seq2(1, FALSE),
+    "Assertion on 'to' failed: Must be of type 'numeric', not 'logical'."
   )
 })
-# add check for argument length
+test_that("non-scalar input for either 'to' or 'from' argument for seq2 throws an error", {
+  expect_error(
+    seq2(1:3, 9),
+    "Assertion on 'from' failed: Must have length 1, but has length 3."
+  )
+  expect_error(
+    seq2(1, 3:9),
+    "Assertion on 'to' failed: Must have length 1, but has length 7."
+  )
+})
+# checks for missing objects?
