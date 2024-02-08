@@ -99,4 +99,3 @@ extract_original_call <- function(fun_name, escape) {
   #browser()
   as.list(sys.calls()[[call_number]])
 }
-
