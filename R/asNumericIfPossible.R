@@ -2,7 +2,9 @@ asNumericIfPossible <- function(x, maintain.factor.scores = TRUE, force.string =
   checkmate::assert_logical(maintain.factor.scores, len = 1)
   checkmate::assert_logical(force.string, len = 1)
   checkmate::assert_logical(transform.factors, len = 1)
-  #checkmate::assert_character(varName)
+  if (!is.null(varName)){
+    checkmate::assert_character(varName)
+  }
   UseMethod("asNumericIfPossible")
 }
 
