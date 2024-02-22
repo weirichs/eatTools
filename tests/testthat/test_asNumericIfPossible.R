@@ -14,7 +14,6 @@ test_that("Default", {
   expect_error(asNumericIfPossible(vec_test),
                "Unknown input type or class. Input has to be of class numeric, factor, character or data.frame. If you have used a specific package to import data (e.g., haven) consider transforming your data to factor or character beforehand.", fixed = TRUE)
 })
-
 test_that("Numeric vector", {
   expect_equal(asNumericIfPossible(num), num)
 })
@@ -52,6 +51,20 @@ test_that("Character vector (levels always kept, maintain scores has not impact)
                c(NA_real_, NA_real_, NA_real_))
 })
 
+test_that("If input for maintain.factor.scores, force.string and transform.factors are not scalar logical, it throws an error.", {
+  expect_error(
+    asNumericIfPossible(char_num, maintain.factor.scores = "TRUE"),
+    "Assertion on 'maintain.factor.scores' failed: Must be of type 'logical', not 'character'."
+  )
+  expect_error(
+    asNumericIfPossible(char_num, force.string = 3),
+    "Assertion on 'force.string' failed: Must be of type 'logical', not 'double'."
+  )
+  expect_error(
+    asNumericIfPossible(char_num, transform.factors = c(TRUE, TRUE)),
+    "Assertion on 'transform.factors' failed: Must have length 1, but has length 2."
+  )
+})
 
 # data frames
 #######
