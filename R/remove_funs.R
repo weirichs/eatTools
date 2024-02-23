@@ -30,6 +30,9 @@ gsubAll <- function(string, old, new) {
 
 ### splits the string only on the first or the last occurrence of the separator
 halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )  {
+  checkmate::assert_character(string)
+  checkmate::assert_character(pattern, len = 1)
+  checkmate::assert_logical(first, len = 1)
   if( !(inherits(colnames, "character") && length(colnames)==2 && length(unique(colnames)) == 2 )) {stop("'colnames' must be a unique character vector of length 2.")}
   if(!first) {
      ret <- rbind_fill_vector(regmatches(stringi::stri_reverse(string), regexpr(pattern, stringi::stri_reverse(string)), invert = TRUE))
