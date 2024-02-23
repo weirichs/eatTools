@@ -3,6 +3,8 @@ removeNonNumeric <- function ( string ) {gsub("[^0-9]","",string)}
 
 ### entfernt bestimmtes Pattern aus einem String
 removePattern     <- function ( string, pattern ) {
+  checkmate::assert_character(string)
+  checkmate::assert_character(pattern, len = 1)
   splitt <- strsplit(string, pattern)
   ret    <- unlist(lapply(splitt, FUN = function ( y ) { paste(y, collapse="")}))
   return(ret)}
