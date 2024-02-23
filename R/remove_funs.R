@@ -12,6 +12,8 @@ removePattern     <- function ( string, pattern ) {
 removeNumeric <- function ( string ) {gsub("0|1|2|3|4|5|6|7|8|9","",string)}
 
 crop <- function ( x , char = " " ) {
+  checkmate::assert_character(x)
+  checkmate::assert_vector(char, len = 1)
   if ( char %in% c ( "\\" , "+" , "*" , "." , "(" , ")" , "[" , "]" , "{" , "}" , "|" , "^" , "$" ) ) {char <- paste ( "\\" , char , sep = "" ) }
   gsub ( paste ( "^" , char , "+|" , char , "+$" , sep = "" ) , "" , x ) }
 
