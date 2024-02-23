@@ -1,7 +1,5 @@
 
-removeNonNumeric <- function ( string ) {
-  checkmate::assert_character(string)
-  gsub("[^0-9]","",string)}
+removeNonNumeric <- function ( string ) {gsub("[^0-9]","",string)}
 
 ### entfernt bestimmtes Pattern aus einem String
 removePattern     <- function ( string, pattern ) {
