@@ -9,7 +9,9 @@ removePattern     <- function ( string, pattern ) {
   ret    <- unlist(lapply(splitt, FUN = function ( y ) { paste(y, collapse="")}))
   return(ret)}
 
-removeNumeric <- function ( string ) {gsub("0|1|2|3|4|5|6|7|8|9","",string)}
+removeNumeric <- function ( string ) {
+  checkmate::assert_character(string)
+  gsub("0|1|2|3|4|5|6|7|8|9","",string)}
 
 crop <- function ( x , char = " " ) {
   checkmate::assert_character(x)
