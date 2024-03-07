@@ -1,5 +1,6 @@
 contr.wec.weighted <- function (x, omitted, weights) {
-    if (!identical(class(x), "factor")) {stop("Variable 'x' must be of class 'factor'.")}
+    checkmate::assert_factor(x)
+    #if (!identical(class(x), "factor")) {stop("Variable 'x' must be of class 'factor'.")}
     checkmate::assert_character(omitted)
     checkmate::assert_numeric(weights, lower = 0)
     rawfreq <- table(x)
