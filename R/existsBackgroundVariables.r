@@ -1,6 +1,6 @@
 existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE, stopIfMissingOnVars = NULL )  {
            checkmate::assert_data_frame(dat)
-           lapply(list(warnIfMissing, stopIfMissingOnVars), checkmate::assert_logical, len=1)
+           #lapply(list(warnIfMissing, stopIfMissingOnVars), checkmate::assert_logical, len=1)
            if(is.null(variable))  {return(NULL)}
            if(!is.vector(variable)) {stop("'variable' must be a numeric or character vector.")}
            if(any(is.na(variable))) {stop("'variable' must not contain missing values (i.e., NA values).")}
