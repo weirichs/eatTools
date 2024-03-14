@@ -1,5 +1,6 @@
 contr.wec.weighted <- function (x, omitted, weights) {
     if (!identical(class(x), "factor")) {stop("Variable 'x' must be of class 'factor'.")}
+    checkmate::assert_numeric(weights, lower = 0)
     rawfreq <- table(x)
     if ( length( which(rawfreq == 0))>0) {warning("Drop ",length( which(rawfreq == 0))," empty level(s): '",paste(names(rawfreq)[which(rawfreq ==0)], collapse="', '"))}
     frequencies <- wtdTable(x, weights = weights)
