@@ -2,6 +2,7 @@
 ### z.B. table.muster(a, c(1,5,7,8,9)) sucht, wie oft jede Zahl in "mustervektor" in "vektor" vorkommt
 ### Warnung, wenn zusaetzliche Zahlen in Vektor stehen
 tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no", "ifany", "always")) {
+               checkmate::assert_vector(x)
                if(length(pattern)>0) {
                   additional.values <- na.omit( setdiff(x,pattern))
                   if( length( additional.values ) > 0 )   {
