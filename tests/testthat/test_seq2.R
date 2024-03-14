@@ -28,4 +28,3 @@ test_that("non-scalar input for either 'to' or 'from' argument for seq2 throws a
     "Assertion on 'to' failed: Must have length 1, but has length 7."
   )
 })
-# checks for missing objects?
