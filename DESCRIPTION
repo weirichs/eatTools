@@ -13,7 +13,8 @@ Authors@R: c(
     person("Martin", "Hecht", role = c("aut")),
     person("Karoline", "Sachse", role = c("aut")),
     person("Benjamin", "Becker", role = c("aut")),
-    person("Nicole", "Mahler", role = c("aut")))
+    person("Nicole", "Mahler", role = c("aut")),
+    person("Edna", "Grewers", role = c("ctb")))
 Description:
    Miscellaneous functions for data cleaning and data analysis of educational assessments. Includes functions for descriptive 
    analyses, character vector manipulations and weighted statistics. Mainly a lightweight dependency for the packages 'eatRep', 
