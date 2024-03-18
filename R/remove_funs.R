@@ -15,7 +15,7 @@ removeNumeric <- function ( string ) {
 
 crop <- function ( x , char = " " ) {
   checkmate::assert_character(x)
-  checkmate::assert_vector(char, len = 1)
+  checkmate::assert_vector(char, len = 1, strict = TRUE)
   if ( char %in% c ( "\\" , "+" , "*" , "." , "(" , ")" , "[" , "]" , "{" , "}" , "|" , "^" , "$" ) ) {char <- paste ( "\\" , char , sep = "" ) }
   gsub ( paste ( "^" , char , "+|" , char , "+$" , sep = "" ) , "" , x ) }
 
