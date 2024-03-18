@@ -4,7 +4,6 @@
 tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no", "ifany", "always")) {
                checkmate::assert_vector(x)
                checkmate::assert_vector(pattern, null.ok = TRUE)
-               checkmate::assert_numeric(weights, len = length(x))
                if(length(pattern)>0) {
                   additional.values <- na.omit( setdiff(x,pattern))
                   if( length( additional.values ) > 0 )   {
@@ -23,6 +22,7 @@ tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no
                 if(missing(weights)) {
                      Table <- table(y, useNA =useNA )
                   }  else  {
+                     checkmate::assert_numeric(weights, len = length(x))
                      if ( length(notInData) > 0) {
                           x <- c(as.character(x), as.character(notInData))
                           weights<- c(weights, rep(0, length(notInData)))
