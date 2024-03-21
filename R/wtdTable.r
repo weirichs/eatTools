@@ -11,4 +11,3 @@ wtdTable <- function ( x, weights, na.rm = FALSE) {
             tab   <- Table[sort(Table[,"variable"],index.return=TRUE)$ix, "n"]
             names(tab) <- sort(Table[,"variable"])
             return(tab)}
-
