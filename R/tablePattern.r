@@ -3,7 +3,7 @@
 ### Warnung, wenn zusaetzliche Zahlen in Vektor stehen
 tablePattern <- function(x, pattern = NULL, weights, na.rm = TRUE, useNA = c("no", "ifany", "always")) {
                checkmate::assert_vector(x)
-               checkmate::assert_vector(pattern, null.ok = TRUE)
+               checkmate::assert_vector(pattern, null.ok = TRUE, unique = TRUE)
                if(length(pattern)>0) {
                   additional.values <- na.omit( setdiff(x,pattern))
                   if( length( additional.values ) > 0 )   {
