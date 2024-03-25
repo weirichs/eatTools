@@ -1,5 +1,5 @@
 whereAre <- function(a,b,verbose=TRUE) {
-            checkmate::assert_scalar(a)
+            checkmate::assert_vector(a)
             checkmate::assert_vector(b)
             checkmate::assert_logical(verbose)
             b <- data.frame(1:length(b),b,stringsAsFactors=FALSE)               ### zusaetzliche Syntaxbefehle sind notwendig, damit die Funktion mit missing values umgehen kann.
