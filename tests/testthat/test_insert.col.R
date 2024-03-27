@@ -2,7 +2,7 @@
 
 test_that("Errors", {
   expect_error(insert.col(1),
-               "'dat' is neither a 'data.frame', 'tibble' or 'data.table' object.")
+               "'dat' is neither a 'data.frame', 'matrix', 'tibble' or 'data.table' object.")
 })
 
 ###

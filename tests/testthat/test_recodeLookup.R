@@ -2,7 +2,7 @@
 
 test_that("Errors", {
   expect_error(recodeLookup(1:3, "a"),
-               "The lookup table must be a data.frame or matrix.")
+               "'dat' is neither a 'data.frame', 'matrix', 'tibble' or 'data.table' object.")
   expect_error(recodeLookup(1:3, mtcars),
                "The lookup table must have two colums.")
   expect_error(recodeLookup(1:3, data.frame(old = rep(1, 2), new = 2:1)),
