@@ -1,7 +1,7 @@
 Package: eatTools
 Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
-Version: 0.7.5
+Version: 0.7.6
 Depends: R (>= 4.0.0)
 Imports: 
     stats,

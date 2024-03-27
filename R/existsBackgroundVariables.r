@@ -1,11 +1,10 @@
 existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE, stopIfMissingOnVars = NULL )  {
            checkmate::assert_data_frame(dat)
-           checkmate::assert_vector(variable, null.ok = TRUE)
+           checkmate::assert_vector(variable, null.ok = TRUE, unique=TRUE)
            checkmate::assert_logical(warnIfMissing, len = 1)
            checkmate::assert_character(stopIfMissingOnVars, null.ok = TRUE)
            if(is.null(variable))  {return(NULL)}
            if(any(is.na(variable))) {stop("'variable' must not contain missing values (i.e., NA values).")}
-           if(length(variable) != length(unique(variable)) ) {stop("Variable definition is not unique.")}
            if(is.factor(variable))    {
 	             v  <- as.character(variable)
       				 rN <- removeNumeric(v)
