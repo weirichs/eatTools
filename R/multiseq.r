@@ -1,4 +1,5 @@
 multiseq <- function ( v ) {
+    checkmate::assert_vector(v)
 		names ( v ) <- seq ( along = v )
 		s <- mapply ( function ( vv , v ) {
 								vvv <- v[v==vv]

@@ -1,5 +1,6 @@
 ### Matrix dreieckig machen
 makeTria <- function(dfr) {
+        dfr <- makeDataFrame(dfr)
         cols <- sort(sapply(dfr[,-1, drop=FALSE],
                 FUN = function (d) {min(which(!is.na(d))) }))
         dfr  <- dfr[,c(colnames(dfr)[1], names(cols))]
@@ -8,6 +9,3 @@ makeTria <- function(dfr) {
         dfr  <- dfr[rows,]
         rownames(dfr) <- NULL
         return(dfr)}
-
-
-

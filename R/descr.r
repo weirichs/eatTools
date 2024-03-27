@@ -1,4 +1,6 @@
 descr <- function(variable,na=NA, p.weights = NULL, na.rm = FALSE, verbose=TRUE) {
+  checkmate::assert_numeric(p.weights, null.ok = TRUE)
+  lapply(list(na.rm, verbose), checkmate::assert_logical, len=1)
          suppressWarnings(variable <- asNumericIfPossible( data.frame(as.matrix(variable),stringsAsFactors = FALSE) , force.string = TRUE))
          unwgtN <- FALSE                                                        ### initialisieren: unweighted N? (das ist nur noetig, wenn descr() von eatRep::conv.mean() aufgerufen wird
          if(!is.null(p.weights)) {

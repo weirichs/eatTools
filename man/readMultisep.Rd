@@ -3,7 +3,7 @@
 \title{Read in data.frames with separator characters >=1Byte}
 \description{Read in character separated data.frames with separator characters >=1Byte.}
 \usage{
-readMultisep(file, sep)
+readMultisep(file, sep, colnames=TRUE)
 }
 \arguments{
   \item{file}{
@@ -11,6 +11,9 @@ the name of the file which the data are to be read from.
 }
   \item{sep}{
 the field separator character(s).
+}
+  \item{colnames}{
+logical. Whether first line in file contains colnames.
 }
 }
 \value{
