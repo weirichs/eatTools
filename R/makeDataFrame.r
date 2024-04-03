@@ -1,11 +1,11 @@
 makeDataFrame <- function(dat, name = "dat", minRow = 1, onlyWarn=TRUE) {
-  if(inherits(dat, c("tbl", "data.table"))) {
+  if(inherits(dat, c("tbl", "data.table", "matrix", "list"))) {
     old_classes <- paste(class(dat), collapse="', '")
     message("Convert '", name, "' of class '", old_classes, "' to a data.frame.")
       dat <- data.frame ( dat, stringsAsFactors = FALSE)
   }
   if(!inherits(dat, c("data.frame"))) {
-    stop("'", name, "' is neither a 'data.frame', 'tibble' or 'data.table' object.")
+    stop("'", name, "' is neither a 'data.frame', 'matrix', 'tibble' or 'data.table' object.")
   }
     if(nrow(dat) < minRow) {
         if(onlyWarn) {

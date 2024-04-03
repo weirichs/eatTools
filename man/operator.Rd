@@ -25,6 +25,8 @@ x \%$$\% y
 \examples{
 \dontrun{
 x <- list(value1 = 14, value2 = NULL)
+x$value2                 # NULL
 x$value_not_defined      # NULL
+x\%$$\%value2            # NULL
 x\%$$\%value_not_defined # error
 }}

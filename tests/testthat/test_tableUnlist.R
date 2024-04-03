@@ -13,5 +13,5 @@ test_that("tableUnlist", {
 
 ### test fuer warnings
 test_that("tableUnlist warnings", {
-  expect_warning(tableUnlist(dataFrame=as.matrix(df)), "Argument of 'tableUnlist' has to be of class 'data.frame'. Object will be converted to data.frame.", fixed = TRUE)
+  expect_message(tableUnlist(dataFrame=as.matrix(df)), "Convert 'dat' of class 'matrix', 'array' to a data.frame.")
 })

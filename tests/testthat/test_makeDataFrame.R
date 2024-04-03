@@ -6,9 +6,9 @@ rownames(mtcars_norownames) <- NULL
 
 test_that("data.table", {
   test_dt <- data.table::as.data.table(mtcars)
-  expect_message(out <- makeDataFrame(test_dt),
+ expect_message(out <- makeDataFrame(test_dt),
                  "Convert 'dat' of class 'data.table', 'data.frame' to a data.frame.")
-  expect_equal(out, mtcars_norownames)
+   expect_equal(out, mtcars_norownames)
 })
 
 test_that("tibble", {
@@ -25,5 +25,5 @@ test_that("data.frame", {
 
 test_that("other", {
   expect_error(out <- makeDataFrame(1),
-               "'dat' is neither a 'data.frame', 'tibble' or 'data.table' object.")
+               "'dat' is neither a 'data.frame', 'matrix', 'tibble' or 'data.table' object.")
 })
