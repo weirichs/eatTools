@@ -2,7 +2,7 @@
 
 * add argument checks using the checkmate package
 * bugfix in `halveString()` for splitting at the last instance of a regular expression
-* new function `rbind_fill_vector()` allows `rbind()` for non-dimensional vectors of unequal length, filling empty entries with NA
+* new function `rbind_fill_vector()` allows `rbind()` for unidimensional vectors of unequal length, filling empty entries with NA
 * new operator `%$$%` works for lists similar to `$` but gives error instead of NULL if the corresponding list element does not exist
 
 # eatTools 0.7.5
