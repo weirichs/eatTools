@@ -1,7 +1,9 @@
-makeDataFrame <- function(dat, name = "dat", minRow = 1, onlyWarn=TRUE) {
+makeDataFrame <- function(dat, name = "dat", minRow = 1, onlyWarn=TRUE, verbose=TRUE) {
+  checkmate::assert_logical(onlyWarn, len = 1)
+  checkmate::assert_logical(verbose, len = 1)
   if(inherits(dat, c("tbl", "data.table", "matrix", "list"))) {
     old_classes <- paste(class(dat), collapse="', '")
-    message("Convert '", name, "' of class '", old_classes, "' to a data.frame.")
+    if(verbose){message("Convert '", name, "' of class '", old_classes, "' to a data.frame.")}
       dat <- data.frame ( dat, stringsAsFactors = FALSE)
   }
   if(!inherits(dat, c("data.frame"))) {

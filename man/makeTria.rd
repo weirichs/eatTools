@@ -12,6 +12,16 @@ makeTria (dfr)}
 A data frame consisting of a row name column and a square matrix.
 }
 }
+\details{
+covariance/correlation matrices which are inherently symmetrical are often displayed
+in a space-saving manner by only showing the upper or lower triangular part, omitting the
+symmetrical counterpart. In R, covariance/correlation matrices tend to be displayed with their
+upper and lower halves. Whereas \code{\link[base]{lower.tri}} and \code{\link[base]{upper.tri}}
+allows to replace upper or lower half with \code{NA}s, the triangular shape could then be lost if the
+covariance/correlation matrix was provided in a long format and reshaped afterwards. \code{makeTria}
+sorts rows and colums appropriately to provide triangular shape if redundant entries are replaced by
+NA. Please note that the functions expects row names in the first column of the input data.frame.
+}
 \value{
 data frame.
 }

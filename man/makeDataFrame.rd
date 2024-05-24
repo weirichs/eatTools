@@ -6,7 +6,7 @@
 which expected to be \code{data.frames} for further processing are converted to data.frame when their class
 is \code{tbl}, for example.}
 \usage{
-makeDataFrame (dat, name = "dat", minRow = 1, onlyWarn=TRUE)}
+makeDataFrame (dat, name = "dat", minRow = 1, onlyWarn=TRUE, verbose=TRUE)}
 \arguments{
   \item{dat}{
 An object which is intended to be a data.frame.
@@ -20,6 +20,9 @@ When used internally, function report when data.frame has less rows than specifi
   \item{onlyWarn}{
 If \code{TRUE}, function warns if data.frame has less rows than specified in \code{minRow}.
 Otherwise, functions aborts with an error message.
+}
+  \item{verbose}{
+Logical: print messages to console?
 }
 }
 \value{
