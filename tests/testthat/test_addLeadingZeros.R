@@ -1,6 +1,7 @@
 
 ### set up test data frames
-dat <- data.frame(v1 = c("0","300","e",NA),
+dat <- data.frame(ID=c("112324234244","112324234245","131224234246","112324234247"),
+                  v1 = c("0","300","e",NA),
                   v2=c("0","90","10000",NA),
                   v3=c("k","kk","kkk",NA),
                   v4=NA,
