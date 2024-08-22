@@ -11,7 +11,7 @@ a data.frame consisting of character columns only
 }
 }
 \value{
-a data.frame of only character columns and the same dimensions as the input data.frame where all columns with integers are all of the same arity now due to added leading zeros.
+a data.frame of only character columns and the same dimensions as the input data.frame. In any column containing strings that can be converted to integers, these strings will be padded with leading zeros so that all values in the column have the same number of digits.
 }
 \author{
 Karoline Sachse

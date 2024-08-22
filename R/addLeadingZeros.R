@@ -15,7 +15,12 @@ addLeadingZerosToCharInt <- function(dat) {
   lenToCorrect <- unlist(lapply(dat, FUN=function(ii) { max(nchar(c(ii,"a")),na.rm=TRUE)}))
   act <- sapply(seq(along=dat), function(jj) all(elToCorrect[jj][[1]]) & !all(isna[jj][[1]]) & lenToCorrect[jj]>1)
    if(any(act)) {
-     dat[,act] <- data.frame(lapply(which(act), function(x) ifelse(is.na(dat[,x]), NA, stringi::stri_pad(dat[, x], width = lenToCorrect[x], side = "left", pad = "0"))))
+     dat[,act] <- data.frame(lapply(which(act), function(x) {
+       ifelse(is.na(dat[,x]),
+              NA,
+              stringi::stri_pad(dat[, x], width = lenToCorrect[x], side = "left", pad = "0"))
+       }))
+
   }
   return(dat)
 }
