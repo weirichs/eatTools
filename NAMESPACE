@@ -6,6 +6,7 @@ S3method(asNumericIfPossible, factor)
 S3method(asNumericIfPossible, data.frame)
 S3method(asNumericIfPossible, matrix)
 
+# eatPrep usage
 export(set.col.type)
 export(addLeadingZerosToCharInt)
 
