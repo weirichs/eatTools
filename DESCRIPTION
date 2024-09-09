@@ -24,7 +24,8 @@ Description:
    Functions for weighted statistics refer to
    Wolter (2007) <doi:10.1007/978-0-387-35099-8>.
 License: GPL (>= 2)
-URL: https://github.com/weirichs/eatTools
+URL: https://github.com/weirichs/eatTools,
+    https://weirichs.github.io/eatTools/
 Suggests:
     testthat,
     covr
