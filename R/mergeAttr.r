@@ -1,12 +1,12 @@
-mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE, homoClass = TRUE, unitName = "unit", xName = "x", yName = "y", verbose = c("match", "unique", "class", "dataframe", "common")) {
+mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE, homoClass = TRUE, unitName = "unit", xName = "x", yName = "y", verbose = c("match", "unique", "class", "dataframe", "common", "convert")) {
              checkmate::assert_character(suffixes, len = 2, unique = TRUE)
              lapply(list(all, all.x, all.y, sort, setAttr, onlyVarValLabs, homoClass), checkmate::assert_logical, len = 1)
              lapply(list(unitName, xName, yName), checkmate::assert_character, len = 1)
      ### verbose setzen
-             verb  <- setVerbose(verbose, choices = c("match", "unique", "class", "dataframe", "common"))
+             verb  <- setVerbose(verbose, choices = c("match", "unique", "class", "dataframe", "common", "convert"))
      ### das muessen data.frames sein
-             x     <- makeDataFrame(x)
-             y     <- makeDataFrame(y)
+             x     <- makeDataFrame(x, verbose = "convert" %in% verb)
+             y     <- makeDataFrame(y, verbose = "convert" %in% verb)
              byvars<- data.frame ( x=by.x, y=by.y,
                 clx = sapply(x[,by.x,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}),
                 cly = sapply(y[,by.y,drop=FALSE], FUN = function(z) {paste(class(z),collapse="_")}), stringsAsFactors = FALSE)
