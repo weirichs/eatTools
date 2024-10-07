@@ -80,6 +80,6 @@ test_that("recode with null", {
   lookup1 <- data.frame(old = c(4, 6, 8), new = c(40, 60, 80))
   looktab <- NULL
   cars2 <- NULL
-  expect_true(is.null(recodeLookup(mtcars1, looktab)))
-  expect_true(is.null(recodeLookup(cars2, lookup1)))
+  expect_true(all.equal(recodeLookup(mtcars1, looktab),mtcars1))
+  expect_true(all.equal(recodeLookup(cars2, lookup1), cars2))
 })
