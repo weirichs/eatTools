@@ -64,7 +64,7 @@ one of the data sets. Users are free to specify which kind of messages are desir
 <span>      by.x <span class="op">=</span> <span class="va">by</span>, by.y <span class="op">=</span> <span class="va">by</span>, all <span class="op">=</span> <span class="cn">FALSE</span>, all.x <span class="op">=</span> <span class="va">all</span>, all.y <span class="op">=</span> <span class="va">all</span>,</span>
 <span>      sort <span class="op">=</span> <span class="cn">TRUE</span>, suffixes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>,<span class="st">".y"</span><span class="op">)</span>, setAttr <span class="op">=</span> <span class="cn">TRUE</span>, onlyVarValLabs <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>      homoClass <span class="op">=</span> <span class="cn">TRUE</span>, unitName <span class="op">=</span> <span class="st">"unit"</span>, xName <span class="op">=</span> <span class="st">"x"</span>, yName <span class="op">=</span> <span class="st">"y"</span>,</span>
-<span>      verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"match"</span>, <span class="st">"unique"</span>, <span class="st">"class"</span>, <span class="st">"dataframe"</span>, <span class="st">"common"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>      verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"match"</span>, <span class="st">"unique"</span>, <span class="st">"class"</span>, <span class="st">"dataframe"</span>, <span class="st">"common"</span>, <span class="st">"convert"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -137,7 +137,8 @@ relevant if <code>mergeAttr</code> is called from other functions.</p></dd>
 on console (<code>"match"</code>), or messages concerning uniqueness of by-variables (<code>"unique"</code>),
 or messages concerning different classes of by-variables (<code>"class"</code>), or messages concerning
 appropriate class (<code>data.frame</code>) of <code>x</code> and <code>y</code> (<code>"dataframe"</code>), or messages
-concerning additional common variables (except by-variables; <code>"common"</code>)). Multiple choices
+concerning additional common variables (except by-variables; <code>"common"</code>)), or messages
+concerning converting of tibbles, tbls to data.frames (<code>"convert"</code>). Multiple choices
 are possible, e.g. <code>verbose = c("match", "class")</code>. If <code>verbose = TRUE</code>, all
 messages are printed, if <code>verbose = FALSE</code>, no messages are printed at all. The default
 is equivalent to <code>verbose = TRUE</code>.</p></dd>
@@ -192,7 +193,7 @@ is equivalent to <code>verbose = TRUE</code>.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>
