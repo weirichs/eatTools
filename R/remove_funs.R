@@ -32,10 +32,10 @@ gsubAll <- function(string, old, new) {
   old <- old[ind[["ix"]]]
   new <- new[ind[["ix"]]]
   for(i in seq_along(old)) {
-    string <- gsub(old[i], inter[i], string)
+    string <- gsub(old[i], inter[i], string, fixed = TRUE)
   }
   for(i in seq_along(old)) {
-    string <- gsub(inter[i], new[i], string)
+    string <- gsub(inter[i], new[i], string, fixed = TRUE)
   }
   return(string)}
 
