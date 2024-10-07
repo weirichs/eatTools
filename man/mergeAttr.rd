@@ -15,7 +15,7 @@ mergeAttr(x, y, by = intersect(names(x), names(y)),
       by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
       sort = TRUE, suffixes = c(".x",".y"), setAttr = TRUE, onlyVarValLabs = TRUE,
       homoClass = TRUE, unitName = "unit", xName = "x", yName = "y",
-      verbose = c("match", "unique", "class", "dataframe", "common"))}
+      verbose = c("match", "unique", "class", "dataframe", "common", "convert"))}
 \arguments{
   \item{x}{
 first data frame to be merged.
@@ -84,7 +84,8 @@ Optional: Choose whether messages concerning missing levels in by-variables shou
 on console (\code{"match"}), or messages concerning uniqueness of by-variables (\code{"unique"}),
 or messages concerning different classes of by-variables (\code{"class"}), or messages concerning
 appropriate class (\code{data.frame}) of \code{x} and \code{y} (\code{"dataframe"}), or messages
-concerning additional common variables (except by-variables; \code{"common"})). Multiple choices
+concerning additional common variables (except by-variables; \code{"common"})), or messages
+concerning converting of tibbles, tbls to data.frames (\code{"convert"}). Multiple choices
 are possible, e.g. \code{verbose = c("match", "class")}. If \code{verbose = TRUE}, all
 messages are printed, if \code{verbose = FALSE}, no messages are printed at all. The default
 is equivalent to \code{verbose = TRUE}.

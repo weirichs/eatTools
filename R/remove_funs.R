@@ -22,12 +22,22 @@ crop <- function ( x , char = " " ) {
 
 ### gsub for more than one pattern
 gsubAll <- function(string, old, new) {
-  stopifnot ( is.character(string), is.character(old), is.character(new), length(old) == length(new))
+  checkmate::assert_character(string)
+  lapply(list(old, new), FUN = checkmate::assert_character,unique=TRUE, any.missing = FALSE, min.len = 2)
+  stopifnot ( length(old) == length(new))
+  stopifnot (length(intersect(old, new))==0)                                    ### in einem Zwischenschritt unique IDs mit gleich vielen characters erzeugen
+  inter <- stringi::stri_rand_strings(n=length(old), length=12, pattern="[A-Za-z0-9]")
+  stopifnot(length(unique(inter)) == length(inter))
+  ind <- sort(nchar(old), decreasing = TRUE, index.return=TRUE)                 ### sortieren nach nchar(), wenn kuerzere strings in laengeren enthalten
+  old <- old[ind[["ix"]]]
+  new <- new[ind[["ix"]]]
   for(i in seq_along(old)) {
-    string <- gsub(old[i], new[i], string)
+    string <- gsub(old[i], inter[i], string, fixed = TRUE)
   }
-  return(string)
-}
+  for(i in seq_along(old)) {
+    string <- gsub(inter[i], new[i], string, fixed = TRUE)
+  }
+  return(string)}
 
 
 ### splits the string only on the first or the last occurrence of the separator

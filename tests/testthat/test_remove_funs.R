@@ -65,4 +65,9 @@ test_that("halveString5", {
   expect_equal(d1[,"a"], c("BB/DHW", "BB/GL", "BB/GM" ))
 })
 
-
+# problem: nested pattern
+test_that("gsubAll", {
+  string <- c("I1: erstes Item", "I12: zwoelftes Item", "I11: elftes Item")
+  string1<- gsubAll ( string, old = c("I11", "I12", "I1"), new = c("Item I11", "Item I12", "Item I1"))
+  expect_equal(string1, c("Item I1: erstes Item", "Item I12: zwoelftes Item", "Item I11: elftes Item"))
+})
