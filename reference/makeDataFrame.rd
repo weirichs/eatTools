@@ -3,7 +3,7 @@
 which expected to be data.frames for further processing are converted to data.frame when their class
 is tbl, for example."><meta property="og:description" content="Function is mainly used for internal checks in the eatRep and eatModel package: objects
 which expected to be data.frames for further processing are converted to data.frame when their class
-is tbl, for example."></head><body>
+is tbl, for example."><meta property="og:image" content="https://weirichs.github.io/eatTools/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -31,8 +31,7 @@ is tbl, for example."></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Converts <code>tbl</code> or <code>data.table</code> objects to plain <code>data.frames</code> for internal processing</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Converts <code>tbl</code> or <code>data.table</code> objects to plain <code>data.frames</code> for internal processing</h1>
 
       <div class="d-none name"><code>makeDataFrame.rd</code></div>
     </div>

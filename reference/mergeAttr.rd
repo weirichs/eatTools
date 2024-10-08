@@ -13,7 +13,7 @@ read.spss, variable and value labels are stored
 as attributes which get lost if data are merged subsequently. Moreover, function gives
 additional messages if (combinations of) by-variables are not unique in at least one data.frame,
 or if by-variables have different classes, or if some units of the by-variables are missing in
-one of the data sets. Users are free to specify which kind of messages are desirable."></head><body>
+one of the data sets. Users are free to specify which kind of messages are desirable."><meta property="og:image" content="https://weirichs.github.io/eatTools/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -41,8 +41,7 @@ one of the data sets. Users are free to specify which kind of messages are desir
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Merge Two Data Frames with additional messages and maintain variable attributes</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Merge Two Data Frames with additional messages and maintain variable attributes</h1>
 
       <div class="d-none name"><code>mergeAttr.rd</code></div>
     </div>

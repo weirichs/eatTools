@@ -3,7 +3,7 @@
 of occurrences of the splitting regular expression defines the number of splits. halveString
 allows to split the string in only two parts, no matter how often the splitting regular expression occurs."><meta property="og:description" content="strsplit splits a string according to a specific regular expression. The number
 of occurrences of the splitting regular expression defines the number of splits. halveString
-allows to split the string in only two parts, no matter how often the splitting regular expression occurs."></head><body>
+allows to split the string in only two parts, no matter how often the splitting regular expression occurs."><meta property="og:image" content="https://weirichs.github.io/eatTools/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -31,8 +31,7 @@ allows to split the string in only two parts, no matter how often the splitting 
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Split string exactly in two parts</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Split string exactly in two parts</h1>
 
       <div class="d-none name"><code>halveString.rd</code></div>
     </div>

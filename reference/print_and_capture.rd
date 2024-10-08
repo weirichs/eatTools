@@ -5,7 +5,7 @@ The function is intended to be used in combination with message,
 stop, or cat, for example."><meta property="og:description" content="Some (error) messages are more understandable if small (frequency)
 tables are used for clearness. The function simplifies integration of these tables.
 The function is intended to be used in combination with message,
-stop, or cat, for example."></head><body>
+stop, or cat, for example."><meta property="og:image" content="https://weirichs.github.io/eatTools/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -33,8 +33,7 @@ stop, or cat, for example."></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Easy integration of (small) tables into (error) messages</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Easy integration of (small) tables into (error) messages</h1>
 
       <div class="d-none name"><code>print_and_capture.rd</code></div>
     </div>

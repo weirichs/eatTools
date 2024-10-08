@@ -5,7 +5,7 @@ and the eatModel::q3FromRes function in the eatModel
 package: Triangular covariance/correlation matrices are tidily reshaped."><meta property="og:description" content="Function is mainly used for eatAnalysis::wtdHetcor function from the
 eatAnalysis package (https://github.com/beckerbenj/eatAnalysis/)
 and the eatModel::q3FromRes function in the eatModel
-package: Triangular covariance/correlation matrices are tidily reshaped."></head><body>
+package: Triangular covariance/correlation matrices are tidily reshaped."><meta property="og:image" content="https://weirichs.github.io/eatTools/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -33,8 +33,7 @@ package: Triangular covariance/correlation matrices are tidily reshaped."></head
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Reshapes an unordered covariance/correlation matrix into triangular shape</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Reshapes an unordered covariance/correlation matrix into triangular shape</h1>
 
       <div class="d-none name"><code>makeTria.rd</code></div>
     </div>
