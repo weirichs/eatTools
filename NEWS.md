@@ -1,4 +1,4 @@
-# eatTools <a href="https://weirichs.github.io/eatTools/"><img src="man/figures/logo.png" align="right" height="120" alt="eatTools website" /></a>
+# eatTools 0.7.7.9000
 
 * minor bugfixes when integers are very large in `addLeadingZerosToCharInt()` (Previously an error message was displayed.)
 * minor bugfixes in the messages of `mergeAttr()`
