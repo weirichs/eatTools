@@ -1,7 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# eatTools <a href="https://weirichs.github.io/eatTools/"><img src="man/figures/eatTools.svg" align="right" height="139" alt="eatTools website" /></a>
+# eatTools <a href="https://weirichs.github.io/eatTools/"><img src="man/figures/logo.png" align="right" height="120" alt="eatTools website" /></a>
 
 <!-- badges: start -->
 
