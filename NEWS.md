@@ -6,7 +6,7 @@
 * minor bugfixes in the display of `makeTria()`
 * messages can be turned off in `makeDataFrame()`
 * package sticker added
-* minor bugfix in `gsubAll()`
+* bugfixes in `gsubAll()`: Does not longer allow using regular expressions (internally, \code{gsub(..., fixed = TRUE)} is used. Function now begins with the longest string to avoid repeated modifications if strings in \code{old} match each other. See function documentation for further details.
 
 # eatTools 0.7.6
 
