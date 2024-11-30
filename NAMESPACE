@@ -24,6 +24,7 @@ export(mergeAttr)
 export(makeDataFrame)
 export(rbind_common)
 export(rbind_fill_vector)
+export(removeUmlaut)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
