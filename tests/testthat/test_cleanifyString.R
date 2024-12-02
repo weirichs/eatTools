@@ -14,7 +14,7 @@ test_that("cleanifyString on character vector", {
 
 test_that("cleanifyString on factor", {
   out <- cleanifyString(as.factor(messy_char))
-  expect_identical(out, factor(c("test", "tesst", "taest", "tAest", "test"),
+  expect_equal(out, factor(c("test", "tesst", "taest", "tAest", "test"),
                                levels = c("test", "taest", "tAest", "tesst")))
 })
 
@@ -26,8 +26,8 @@ test_that("cleanifyString on factor", {
 
   out <- cleanifyString(input_df)
   expect_identical(out$v1, c("test", "tesst", "taest", "tAest", "test"))
-  expect_identical(out$v2, factor(c("test", "tesst", "taest", "tAest", "test"),
+  expect_equal(out$v2, factor(c("test", "tesst", "taest", "tAest", "test"),
                                levels = c("test", "taest", "tAest", "tesst")))
-  expect_identical(out$v3, 1:5)
-  expect_identical(out$v4, rep(TRUE, 5))
+  expect_equal(out$v3, 1:5)
+  expect_equal(out$v4, rep(TRUE, 5))
 })

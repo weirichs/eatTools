@@ -8,6 +8,15 @@ cleanifyString(x)}
   \item{x}{
 a character variable, factor variable or \code{data.frame}
 }
+  \item{removeNonAlphaNum}{
+logical. If \code{TRUE}, all non-alphanumeric characters are removed. Default is \code{TRUE}.
+  }
+  \item{replaceSpecialChars}{
+logical. If \code{TRUE}, special characters are replaced. Default is \code{TRUE}.
+}
+  \item{oldEncoding}{
+character. The encoding of the input data if it should be transformed to \code{"UTF-8"}.
+}
 }
 \details{
 If unwanted characters are removed from a character string in a factor variable, this can lead
