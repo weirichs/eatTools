@@ -3,7 +3,9 @@
 \title{Removes special characters}
 \description{Removes special characters from a character string. Also applicable to factor variables and \code{data.frames}.}
 \usage{
-cleanifyString(x)}
+cleanifyString(x, removeNonAlphaNum = TRUE, replaceSpecialChars = TRUE,
+              oldEncoding = NULL, ...)
+}
 \arguments{
   \item{x}{
 a character variable, factor variable or \code{data.frame}
@@ -16,6 +18,9 @@ logical. If \code{TRUE}, special characters are replaced. Default is \code{TRUE}
 }
   \item{oldEncoding}{
 character. The encoding of the input data if it should be transformed to \code{"UTF-8"}.
+}
+  \item{...}{
+further arguments passed to other methods.
 }
 }
 \details{

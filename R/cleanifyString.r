@@ -20,6 +20,7 @@ cleanifyString.factor <- function(x, removeNonAlphaNum = TRUE, replaceSpecialCha
   new <- lapply(old, cleanifyString,
                 removeNonAlphaNum = removeNonAlphaNum, replaceSpecialChars = replaceSpecialChars, oldEncoding = oldEncoding, ...)
 
+  #browser()
   varNew <- factor(x = new[[1]], levels = unique(new[[2]]))
 
   return(varNew)}
