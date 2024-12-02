@@ -1,5 +1,9 @@
 # eatTools 0.7.7.9000
 
+* new function `cleanifyString()` removes non-alphanumeric characters and special characters from a string
+
+# eatTools 0.7.7
+
 * minor bugfixes when integers are very large in `addLeadingZerosToCharInt()` (Previously an error message was displayed.)
 * minor bugfixes in the messages of `mergeAttr()`
 * `recodeLookup()` return the original vector if the the user does not provide any recode table (i.e., if the argument is NULL). (Previously an error message was displayed.)
