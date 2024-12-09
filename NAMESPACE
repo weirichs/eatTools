@@ -5,6 +5,9 @@ S3method(asNumericIfPossible, character)
 S3method(asNumericIfPossible, factor)
 S3method(asNumericIfPossible, data.frame)
 S3method(asNumericIfPossible, matrix)
+S3method(cleanifyString, character)
+S3method(cleanifyString, factor)
+S3method(cleanifyString, data.frame)
 
 # eatPrep usage
 export(set.col.type)
@@ -24,6 +27,7 @@ export(mergeAttr)
 export(makeDataFrame)
 export(rbind_common)
 export(rbind_fill_vector)
+export(cleanifyString)
 
 # eatGADS usage
 export(catch_asNumericIfPossible)
