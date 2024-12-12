@@ -25,7 +25,7 @@ further arguments passed to other methods.
 }
 \details{
 If unwanted characters are removed from a character string in a factor variable, this can lead
-to a change in the factor structure (accoring to the reference category, for example). \code{cleanifyString}
+to a change in the factor structure (according to the reference category, for example). \code{cleanifyString}
 restores the factor structure after removing special characters. Function is mainly used internally in the
 \code{eatRep}, \code{eatGADS}, and \code{eatModel} packages.
 }
