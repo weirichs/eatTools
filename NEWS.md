@@ -1,6 +1,6 @@
-# eatTools 0.7.7.9000
+# eatTools 0.7.8
 
-* new function `cleanifyString()` removes non-alphanumeric characters and special characters from a string
+* new function `cleanifyString()` removes non-alphanumeric characters and special characters from a string or factor variable
 
 # eatTools 0.7.7
 
