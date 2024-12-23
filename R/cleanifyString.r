@@ -1,7 +1,7 @@
 cleanifyString <- function(x, removeNonAlphaNum = TRUE, replaceSpecialChars = TRUE,
                            oldEncoding = NULL, ...) {
-  lapply(c(removeNonAlphaNum, replaceSpecialChars, oldEncoding),
-         checkmate::assert_logical, len = 1)
+  lapply(c(removeNonAlphaNum, replaceSpecialChars), checkmate::assert_logical, len = 1)
+  checkmate::assert_character(oldEncoding, len = 1, null.ok = TRUE)
   UseMethod("cleanifyString")
   }
 

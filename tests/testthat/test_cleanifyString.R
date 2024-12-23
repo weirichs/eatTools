@@ -31,3 +31,14 @@ test_that("cleanifyString on factor", {
   expect_equal(out$v3, 1:5)
   expect_equal(out$v4, rep(TRUE, 5))
 })
+
+
+badString <- readRDS("helper_badString.rds")
+
+test_that("error on bad encoding", {
+  expect_warning(expect_error(cleanifyString(badString), "input string 13 is invalid"), "unable to translate 'Baden-W<fc>rttemberg' to a wide string")
+})
+
+# this should work: correct encoding
+cleanifyString(badString, oldEncoding = "latin1")
+
