@@ -1,3 +1,5 @@
+* `existsBackgroundVariables()` now allows to check the number of variables entered if, for example, several items but only one ID may be defined for a data record. It also checks which variable groups may overlap and which may not.
+
 # eatTools 0.7.8
 
 * new function `cleanifyString()` removes non-alphanumeric characters and special characters from a string or factor variable
