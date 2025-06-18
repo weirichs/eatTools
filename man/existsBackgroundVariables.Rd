@@ -12,7 +12,7 @@ existsBackgroundVariables (dat, variable, warnIfMissing = FALSE,
 A data frame
 }
   \item{variable}{
-column number or variable name
+vector of column number(s) or variable name(s)
 }
   \item{warnIfMissing}{
 Logical: gives a warning if the variable contains missing values
@@ -26,6 +26,7 @@ through \code{warnIfMissing = TRUE} are turned into errors.
 a structured list of variable names
 }
 \examples{
+# for more detailed examples, see help page of checkBackgroundVariables
 data(mtcars)
 existsBackgroundVariables(mtcars, 2:4)
 }

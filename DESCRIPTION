@@ -2,7 +2,7 @@ Package: eatTools
 Type: Package
 Title: Miscellaneous Functions for the Analysis of Educational Assessments
 Version: 0.7.8.9000
-Depends: R (>= 4.0.0)
+Depends: R (>= 4.1)
 Imports: 
     stats,
     data.table,
@@ -30,4 +30,4 @@ Suggests:
     testthat,
     covr
 NeedsCompilation: no
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
