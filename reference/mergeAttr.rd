@@ -166,11 +166,11 @@ is equivalent to <code>verbose = TRUE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">### maintain label</span></span></span>
 <span class="r-in"><span><span class="va">df4</span> <span class="op">&lt;-</span> <span class="fu">mergeAttr</span><span class="op">(</span><span class="va">df1</span>, <span class="va">df2</span>, all <span class="op">=</span> <span class="cn">TRUE</span>, onlyVarValLabs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 1 of 2 unit(s) of merging variable 'id' from data set 'y' not included in data set 'x'.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2 of 3 unit(s) of merging variable 'id' from data set 'x' not included in data set 'y'.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Merging levels are not unique in data set 'y'.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>    Merging variable pair 'id'&lt;==&gt;'id' has different classes: 'integer'&lt;==&gt;'factor'. Classes will be homogenized to 'character'.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>    Use 'homoClass = FALSE' to suppress this behavior.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 of 2 unit(s) of merging variable 'id' from data set 'y' not included in data set 'x'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 of 3 unit(s) of merging variable 'id' from data set 'x' not included in data set 'y'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Merging levels are not unique in data set 'y'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Merging variable pair 'id'&lt;==&gt;'id' has different classes: 'integer'&lt;==&gt;'factor'. Classes will be homogenized to 'character'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Use 'homoClass = FALSE' to suppress this behavior.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">df4</span><span class="op">[</span>,<span class="st">"happy"</span><span class="op">]</span>, <span class="st">"variable.label"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "happieness in the workplace"</span>
 <span class="r-in"><span></span></span>
@@ -178,9 +178,9 @@ is equivalent to <code>verbose = TRUE</code>.</p></dd>
 <span class="r-in"><span><span class="va">df5</span> <span class="op">&lt;-</span> <span class="fu">mergeAttr</span><span class="op">(</span><span class="va">df1</span>, <span class="va">df2</span>, all <span class="op">=</span> <span class="cn">TRUE</span>, onlyVarValLabs <span class="op">=</span> <span class="cn">FALSE</span>, unitName <span class="op">=</span> <span class="st">"student"</span>,</span></span>
 <span class="r-in"><span>       xName <span class="op">=</span> <span class="st">"student questionnaire"</span>, yName <span class="op">=</span> <span class="st">"school questionnaire"</span>,</span></span>
 <span class="r-in"><span>       verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"match"</span>, <span class="st">"unique"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 1 of 2 student(s) of merging variable 'id' from data set 'school questionnaire' not included in data set 'student questionnaire'.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2 of 3 student(s) of merging variable 'id' from data set 'student questionnaire' not included in data set 'school questionnaire'.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Merging levels are not unique in data set 'school questionnaire'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 of 2 student(s) of merging variable 'id' from data set 'school questionnaire' not included in data set 'student questionnaire'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 of 3 student(s) of merging variable 'id' from data set 'student questionnaire' not included in data set 'school questionnaire'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Merging levels are not unique in data set 'school questionnaire'.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -76,7 +76,7 @@ This is done to avoid repeated modifications if strings in <code>old</code> matc
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">### replace all numbers by words</span></span></span>
 <span class="r-in"><span><span class="va">txt</span> <span class="op">&lt;-</span> <span class="st">"1 example for 2 reasons in 4 seasons"</span></span></span>
 <span class="r-in"><span><span class="fu">gsubAll</span> <span class="op">(</span> <span class="va">txt</span>, old <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>, new <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>, <span class="st">"four"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "one example for 2JOCPthreeOyHgjC reasons in four seasons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "yjyOSJAWUmCifourLWhg1DIdTQ example for two reasons in four seasons"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

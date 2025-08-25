@@ -71,11 +71,11 @@ cat.values should be length(cut.points)+1.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">0</span>,<span class="fl">1.5</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span> <span class="op">+</span> <span class="fl">500</span></span></span>
 <span class="r-in"><span><span class="fu">num.to.cat</span><span class="op">(</span>x <span class="op">=</span> <span class="va">values</span>, cut.points <span class="op">=</span> <span class="fl">390</span><span class="op">+</span><span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">*</span><span class="fl">75</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 5 3 1 3 1 1 5 3 3 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2 4 5 3 4 3 1 5 2 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"cat.values")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 3 4 5</span>
 <span class="r-in"><span><span class="fu">num.to.cat</span><span class="op">(</span>x <span class="op">=</span> <span class="va">values</span>, cut.points <span class="op">=</span> <span class="fl">390</span><span class="op">+</span><span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">*</span><span class="fl">75</span>, cat.values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1a"</span>, <span class="st">"1b"</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "4"  "2"  "1a" "2"  "1a" "1a" "4"  "2"  "2"  "4" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "1b" "3"  "4"  "2"  "3"  "2"  "1a" "4"  "1b" "2" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"cat.values")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1a" "1b" "2"  "3"  "4" </span>
 </code></pre></div>
