@@ -31,10 +31,10 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
                           return(ret)}}, simplify = FALSE)), recursive = FALSE)
      ### pruefen, ob die level der by-variablen unique sind
              if ( nrow(byvars)>1) {
-                   xvar<- x[,byvars[,"x"]] |> dplyr::mutate_all(as.character)
+                   xvar<- set.col.type(x[,byvars[,"x"]])
                    txt <- paste0("paste(",paste("xvar[,",1:ncol(xvar), "]", collapse=", "), ", sep=\"_\")")
                    xby <- eval(parse(text=txt))
-                   yvar<- y[,byvars[,"y"]] |> dplyr::mutate_all(as.character)
+                   yvar<- set.col.type(y[,byvars[,"y"]])
                    txt <- paste0("paste(",paste("yvar[,",1:ncol(yvar), "]", collapse=", "), ", sep=\"_\")")
                    yby <- eval(parse(text=txt))
              }  else  {

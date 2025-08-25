@@ -1,6 +1,4 @@
-context("check for checking function of background variable consistency")
 data(data.timss1)
-
 
 varGroups <- list(ID = "IDSTUD", wgt = c("TOTWGT","JKZONE"), covars = c("female", "books", "lang", "migant"), depVar = "ASMMAT")
 
