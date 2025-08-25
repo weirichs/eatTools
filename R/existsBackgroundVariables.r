@@ -25,6 +25,31 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE, stop
            if (warnIfMissing) { checkMis(dat, varColumn, stopIfMissingOnVars=stopIfMissingOnVars) }
            return(colnames(dat)[varColumn]) }
 
+checkBackgroundVariables <- function(varList, len1 = NULL, overlap = NULL) {
+    ### check uniqueness
+           lapply(names(varList), FUN = function (nam) {if(length(varList[[nam]]) != length(unique(varList[[nam]]))) {stop(paste0("Variable '",nam,"' must be unique, but isn't. Duplicated values are '",paste(varList[[nam]][duplicated(varList[[nam]])], collapse="', '"),"'."))}})
+    ### check length
+           if(!is.null(len1)) {
+              comm <- intersect(names(varList), len1)
+              if(length(comm)>0) {
+                 lapply(comm, FUN = function (nam) {if( !is.null(varList[[nam]]) && length(varList[[nam]]) !=1) {stop(paste0("Variable '",nam,"' must have length 1, but has length ",length(varList[[nam]])," with values: '",paste(varList[[nam]], collapse="', '"),"'."))}})
+              }
+           }
+    ### check overlap
+           if(!is.null(overlap)) {
+              weg  <- unlist(lapply(overlap, FUN = function (o) {
+                      if(!is.null(varList[[o[["vars"]][2]]])) {
+                          comm <- intersect(varList[[o[["vars"]][1]]], varList[[o[["vars"]][2]]])
+                          if(length(comm) != o[["len"]]) {stop(paste0("'",o[["vars"]][[1]], "' and '", o[["vars"]][[2]],"' must have ",o[["len"]], " common elements, but have ",length(comm),": \n \n", print_and_capture(varList[c(o[["vars"]][[1]], o[["vars"]][[2]])], spaces = 5)))}
+                          return(o[["vars"]][2])}}))
+              if(!is.null(weg)) {noOv <- varList[-whereAre(weg, names(varList), verbose=FALSE)]} else {noOv <- varList}
+           } else {
+              noOv <- varList
+           }
+           if(length(unlist(noOv)) != length(unique(unlist(noOv)))) {stop(paste0("Overlapping variables: '",paste(unlist(noOv)[duplicated(unlist(noOv))], collapse="', '"),"'."))}
+    }
+
+
 checkMis  <- function (dat, varColumn, stopIfMissingOnVars) {
              lapply(varColumn, FUN = function ( col ) {
                  isna <- length(which(is.na(dat[,col])))

@@ -37,6 +37,7 @@ export(seq2)
 
 # eatRep usage
 export(existsBackgroundVariables)
+export(checkBackgroundVariables)
 export(removePattern)
 export(facToChar)
 export(crop)
