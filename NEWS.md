@@ -1,5 +1,7 @@
-* new exemplary dataset `data.timss1` borrowed from the BIFIEsurvey package for illustration purposes of the `existsBackgroundVariables()` function
-* new function `existsBackgroundVariables()` checks the consistency of the variables in a data set if the variables belong to different groups, which in turn have different properties, for example ID variables, weighting variables, replication weights or covariates.
+# eatTools 0.7.9
+
+* new exemplary dataset `data.timss1` borrowed from the BIFIEsurvey package for illustration purposes of the `checkBackgroundVariables()` function
+* new function `checkBackgroundVariables()` checks the consistency of the variables in a data set if the variables belong to different groups, which in turn have different properties, for example ID variables, weighting variables, replication weights or covariates.
 * `existsBackgroundVariables()` now allows to check the number of variables entered if, for example, several items but only one ID may be defined for a data record. It also checks which variable groups may overlap and which may not.
 
 # eatTools 0.7.8
