@@ -1,0 +1,145 @@
+# Package index
+
+## All functions
+
+- [`addLeadingZerosToCharInt()`](https://weirichs.github.io/eatTools/reference/addLeadingZeros.md)
+  : Add leading zeros to all columns that can be identified as integers
+  in a character data.frame
+
+- [`asNumericIfPossible()`](https://weirichs.github.io/eatTools/reference/asNumericIfPossible.md)
+  : Convert a Vector, Matrix or Data Frame Into Numeric Values If
+  Possible
+
+- [`catch_asNumericIfPossible()`](https://weirichs.github.io/eatTools/reference/catch_asNumericIfPossible.md)
+  :
+
+  Use `asNumericIfPossible` with modified warning.
+
+- [`checkBackgroundVariables()`](https://weirichs.github.io/eatTools/reference/checkBackgroundVariables.md)
+  : Internally needed function for consistency checks and data
+  preparation.
+
+- [`cleanifyString()`](https://weirichs.github.io/eatTools/reference/cleanifyString.md)
+  : Removes special characters
+
+- [`contr.wec.weighted()`](https://weirichs.github.io/eatTools/reference/contr.wec.weighted.md)
+  : Calculates contrasts for a weighted factor variable based on
+  weighted effect coding
+
+- [`crop()`](https://weirichs.github.io/eatTools/reference/crop.md) :
+  Remove Trailing and Leading Characters From Character Strings
+
+- [`data.timss1`](https://weirichs.github.io/eatTools/reference/data.timss1.rd)
+  : Example dataset TIMSS 2011
+
+- [`descr()`](https://weirichs.github.io/eatTools/reference/descr.md) :
+  Descriptive statistics for one or several variables
+
+- [`do_call_rbind_withName()`](https://weirichs.github.io/eatTools/reference/do_call_rbind_withName.md)
+  : Row bind a list while assigning names to rows
+
+- [`eatTools-package`](https://weirichs.github.io/eatTools/reference/eatTools-package.md)
+  : eatTools: Miscellaneous Functions for the Analysis of Educational
+  Assessments
+
+- [`existsBackgroundVariables()`](https://weirichs.github.io/eatTools/reference/existsBackgroundVariables.md)
+  : Internally needed function for consistency checks and data
+  preparation.
+
+- [`facToChar()`](https://weirichs.github.io/eatTools/reference/facToChar.md)
+  : Transform columns in a data frame
+
+- [`gsubAll()`](https://weirichs.github.io/eatTools/reference/gsubAll.rd)
+  : Pattern matching and replacement
+
+- [`halveString()`](https://weirichs.github.io/eatTools/reference/halveString.rd)
+  : Split string exactly in two parts
+
+- [`insert.col()`](https://weirichs.github.io/eatTools/reference/insert.col.rd)
+  :
+
+  Insert Columns into a `data.frame` at a Specific Position
+
+- [`makeDataFrame()`](https://weirichs.github.io/eatTools/reference/makeDataFrame.rd)
+  :
+
+  Converts `tbl` or `data.table` objects to plain `data.frames` for
+  internal processing
+
+- [`makeTria()`](https://weirichs.github.io/eatTools/reference/makeTria.rd)
+  : Reshapes an unordered covariance/correlation matrix into triangular
+  shape
+
+- [`mergeAttr()`](https://weirichs.github.io/eatTools/reference/mergeAttr.rd)
+  : Merge Two Data Frames with additional messages and maintain variable
+  attributes
+
+- [`multiseq()`](https://weirichs.github.io/eatTools/reference/multiseq.md)
+  : multiple sequences
+
+- [`na_omit_selection()`](https://weirichs.github.io/eatTools/reference/na_omit_selection.rd)
+  : Drop rows containing missing values
+
+- [`num.to.cat()`](https://weirichs.github.io/eatTools/reference/num.to.cat.rd)
+  : Transform continuous variables into ordered factors
+
+- [`` `%$$%` ``](https://weirichs.github.io/eatTools/reference/operator.md)
+  : Extract Parts of an Object (list)
+
+- [`print_and_capture()`](https://weirichs.github.io/eatTools/reference/print_and_capture.rd)
+  : Easy integration of (small) tables into (error) messages
+
+- [`pwc()`](https://weirichs.github.io/eatTools/reference/pwc.rd) :
+  Part-whole correlation for numeric data frames
+
+- [`rbind_common()`](https://weirichs.github.io/eatTools/reference/rbind_common.rd)
+  : Combine data.frames by row, using only common columns.
+
+- [`rbind_fill_vector()`](https://weirichs.github.io/eatTools/reference/rbind_fill_vector.rd)
+  : Combine vectors of unequal length by row, filling missing columns
+  with NA.
+
+- [`readMultisep()`](https://weirichs.github.io/eatTools/reference/readMultisep.md)
+  : Read in data.frames with separator characters \>=1Byte
+
+- [`recodeLookup()`](https://weirichs.github.io/eatTools/reference/recodeLookup.rd)
+  : Recode a variable according to a lookup table
+
+- [`removeNonNumeric()`](https://weirichs.github.io/eatTools/reference/removeNonNumeric.md)
+  : Removes all non-numeric characters from a string.
+
+- [`removeNumeric()`](https://weirichs.github.io/eatTools/reference/removeNumeric.md)
+  : Removes alphanumeric characters from a string.
+
+- [`removePattern()`](https://weirichs.github.io/eatTools/reference/removePattern.md)
+  : Removes a specified pattern from a string.
+
+- [`roundDF()`](https://weirichs.github.io/eatTools/reference/roundDF.md)
+  :
+
+  Round a `data.frame`.
+
+- [`seq2()`](https://weirichs.github.io/eatTools/reference/seq2.md) :
+  Sequence generation
+
+- [`set.col.type()`](https://weirichs.github.io/eatTools/reference/set.col.type.md)
+  : Set the Class of Columns in a Data Frame
+
+- [`tablePattern()`](https://weirichs.github.io/eatTools/reference/tablePattern.md)
+  : Creates skeleton for frequency tables with desired values
+
+- [`tableUnlist()`](https://weirichs.github.io/eatTools/reference/tableUnlist.rd)
+  : Frequency table for data frames, e.g. across multiple columns
+
+- [`whereAre()`](https://weirichs.github.io/eatTools/reference/whereAre.rd)
+  : Matches a scalar with elements of a vector.
+
+- [`wideToLong()`](https://weirichs.github.io/eatTools/reference/wideToLong.rd)
+  : Transform wide format data sets into the long format necessary for
+  eatRep analyses
+
+- [`wtdTable()`](https://weirichs.github.io/eatTools/reference/wtdTable.rd)
+  : Computed weighted frequency tables
+
+- [`wtdVar()`](https://weirichs.github.io/eatTools/reference/wtdVar.rd)
+  : Computed weighted variance
