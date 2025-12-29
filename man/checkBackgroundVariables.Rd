@@ -2,7 +2,7 @@
 \alias{checkBackgroundVariables}
 \title{Internally needed function for consistency checks and data preparation.}
 \description{Function is necessary for \code{eatRep} and \code{eatModel} to verify
-input consisteny and therefore exported to namespace.}
+input consistency and therefore exported to namespace.}
 \usage{
 checkBackgroundVariables (varList, len1 = NULL, overlap = NULL)
 }
@@ -15,7 +15,7 @@ object of the \code{\link{existsBackgroundVariables}} function.
 The names of \code{varList} which elements must have length 1.
 }
   \item{overlap}{
-A list of variable groups which elements must overlap with a given freqency.
+A list of variable groups which elements must overlap with a given frequency.
 }
 }
 \details{

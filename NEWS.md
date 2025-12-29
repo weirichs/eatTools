@@ -1,3 +1,5 @@
+* bugfix in `facToChar()`: class of each variable is now detected via `inherits()` instead of `class()`
+
 # eatTools 0.7.9
 
 * new exemplary dataset `data.timss1` borrowed from the BIFIEsurvey package for illustration purposes of the `checkBackgroundVariables()` function
