@@ -3,7 +3,7 @@ existsBackgroundVariables <- function(dat, variable, warnIfMissing = FALSE, stop
            checkmate::assert_vector(variable, null.ok = TRUE, unique=TRUE)
            checkmate::assert_logical(warnIfMissing, len = 1)
            checkmate::assert_character(stopIfMissingOnVars, null.ok = TRUE)
-           if(is.null(variable))  {return(NULL)}
+           if(is.null(variable) || length(variable)==0)  {return(NULL)}
            if(any(is.na(variable))) {stop("'variable' must not contain missing values (i.e., NA values).")}
            if(is.factor(variable))    {
 	             v  <- as.character(variable)

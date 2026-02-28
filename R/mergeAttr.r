@@ -58,9 +58,9 @@ mergeAttr <- function ( x, y, by = intersect(names(x), names(y)), by.x = by, by.
                    }
              }
      ### jetzt die nicht-matchbaren Datensatzteile zur Liste 'levs' hinzufuegen
-             xOHNEy<- setdiff(xby, yby)
+             xOHNEy<- setdiff(na.omit(xby), na.omit(yby))
              levs[[paste0("noMatch_",cleanifyString(xName))]]<- x[whereAre(xOHNEy, xby, verbose=FALSE),]
-             yOHNEx<- setdiff(yby, xby)
+             yOHNEx<- setdiff(na.omit(yby), na.omit(xby))
              levs[[paste0("noMatch_",cleanifyString(yName))]]<- y[whereAre(yOHNEx, yby, verbose=FALSE),]
      ### von allen by-variablen die Klassen homogenisieren, falls gewuenscht
              for ( i in 1:nrow(byvars) ) {
