@@ -8,6 +8,7 @@ statistics.
 ## Installation
 
 ``` r
+
 # Install stable version from CRAN via
 install.packages("eatTools")
 
