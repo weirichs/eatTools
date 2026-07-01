@@ -1,5 +1,5 @@
 
-# eatTools <a href="https://weirichs.github.io/eatTools/"><img src="man/figures/logo.png" align="right" height="120" alt="eatTools website" /></a>
+# eatTools <a href="https://weirichs.github.io/eatTools/"><img src="man/figures/logo.png" align="right" height="120" alt="eatTools logo" /></a>
 
 <!-- badges: start -->
 
