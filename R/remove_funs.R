@@ -52,7 +52,7 @@ halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )
      return(ret)
   }
   if(!first) {
-     ret <- rbind_fill_vector(regmatches(stringi::stri_reverse(string), regexpr(pattern, stringi::stri_reverse(string)), invert = TRUE))
+     ret <- rbind_fill_vector(regmatches(stringi::stri_reverse(string), regexpr(stringi::stri_reverse(pattern), stringi::stri_reverse(string)), invert = TRUE))
      for ( i in 1:ncol(ret)) {ret[,i] <- stringi::stri_reverse(ret[,i])}
      na  <- which(apply(ret, MARGIN = 1, FUN = function(y) {any(is.na(y))}))    ### reverse muss wieder rueckgaengig gemacht werden, ausser fuer die NAs
      ret <- ret[,c(2,1), drop=FALSE]                                            ### die sollen an der Stelle bleiben, wo sie sind
