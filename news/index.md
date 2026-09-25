@@ -1,5 +1,17 @@
 # Changelog
 
+## eatTools 0.7.10
+
+- bugfix in
+  [`halveString()`](https://weirichs.github.io/eatTools/reference/halveString.md):
+  The split failed if the pattern was longer than 1 and was to be split
+  after the last occurrence.
+- bugfix in
+  [`facToChar()`](https://weirichs.github.io/eatTools/reference/facToChar.md):
+  class of each variable is now detected via
+  [`inherits()`](https://rdrr.io/r/base/class.html) instead of
+  [`class()`](https://rdrr.io/r/base/class.html)
+
 ## eatTools 0.7.9
 
 CRAN release: 2025-09-12
