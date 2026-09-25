@@ -30,4 +30,4 @@ Suggests:
     testthat,
     covr
 NeedsCompilation: no
-RoxygenNote: 7.3.2
+RoxygenNote: 8.1.0
