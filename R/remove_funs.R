@@ -52,8 +52,8 @@ halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )
      return(ret)
   }
   if(!first) {
-     if(inherits(try(ret <- rbind_fill_vector(regmatches(stringi::stri_reverse(string), regexpr(stringi::stri_reverse(pattern), stringi::stri_reverse(string)), invert = TRUE)), silent=TRUE ),"try-error"))  {ret <- rbind_fill_vector(regmatches(stringi::stri_reverse(string), regexpr(pattern, stringi::stri_reverse(string)), invert = TRUE))}
-     for ( i in 1:ncol(ret)) {ret[,i] <- stringi::stri_reverse(ret[,i])}
+     ret <- rbind_fill_vector(regmatches(reverse_keep_escapes(string), regexpr(reverse_keep_escapes(pattern), reverse_keep_escapes(string)), invert = TRUE))
+     for(i in 1:ncol(ret)) {ret[,i] <- stringi::stri_reverse(ret[,i])}
      na  <- which(apply(ret, MARGIN = 1, FUN = function(y) {any(is.na(y))}))    ### reverse muss wieder rueckgaengig gemacht werden, ausser fuer die NAs
      ret <- ret[,c(2,1), drop=FALSE]                                            ### die sollen an der Stelle bleiben, wo sie sind
      if(length(na)>0) {ret[na,] <- ret[na,c(2,1)]}                              ### falls es welche gibt, muss das rueckgaengig wieder rueckgaengig gemacht werden
@@ -63,6 +63,14 @@ halveString <- function (string, pattern, first = TRUE, colnames=c("X1", "X2") )
   ret[ret==""] <- NA                                                            ### keine leeren Strings, sondern NAs
   colnames(ret) <- colnames
   return(ret)}
+
+reverse_keep_escapes <- function(x) {
+  vapply(x, function(s) {
+    if (is.na(s)) return(NA_character_)
+    tokens <- stringi::stri_extract_all_regex(s, "\\\\.|.")[[1]]
+    paste(rev(tokens), collapse = "")
+  }, character(1), USE.NAMES = FALSE)
+}
 
 
 

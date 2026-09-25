@@ -1,3 +1,5 @@
+* exclude regular expressions from string reverse in `halveString()`
+
 # eatTools 0.7.10
 
 * bugfix in `halveString()`: The split failed if the pattern was longer than 1 and was to be split after the last occurrence.
