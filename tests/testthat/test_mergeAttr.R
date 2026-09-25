@@ -7,11 +7,8 @@ attr(df1[,"happy"], "variable.label") <- "happieness in the workplace"
 df2 <- data.frame ( id = as.factor(c(2,2,4)), status = factor ( c("married", "married", "single")),
                     convicted = c(FALSE, FALSE, TRUE))
 
-
-
 test_that("maintain label", {
   messages <- capture.output(out <- mergeAttr(df1, df2, all = TRUE, onlyVarValLabs = FALSE))
-
   expect_equal(attr(out[,"happy"], "variable.label"), "happieness in the workplace")
   expect_equal(length(messages), 5)
   expect_equal(messages[1], "1 of 2 unit(s) of merging variable 'id' from data set 'y' not included in data set 'x'.")
